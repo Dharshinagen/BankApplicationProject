@@ -30,7 +30,7 @@ public class FixedDeposit extends HttpServlet {
 		
 		UserDetails validUser=userdao.validateUser(userName,pass );
 		 int user_id=validUser.getUser_id();
-		 System.out.println(user_id);
+		// System.out.println(user_id);
 		String type="Fixed Deposit";
 		   String status="not approved";
 		double amount=Double.parseDouble(request.getParameter("amountDeposit"));

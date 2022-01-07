@@ -9,50 +9,109 @@
 <title>Insert title here</title>
  
  
-<link rel="stylesheet" href="customer.css">
+ 
 <style>
+*{
+ margin:0;
+ padding:0;
+ }
+a{
+text-decoration:none}
+.h{
+padding:20px;
+background-color:blue;
+margin:0;
+ 
+}
+.sidebar{
+ position:fixed;
+left:0;
+width:250px;
+height:100%;
+background:#042331;
+color:white;
+}
+.sidebar header{
+font-size:15px;
+color:white;
+text-align: center;
+line-height:50px;
+background:#063146;
+
+}
+ul{
+list-style-type: none;
+}
+.sidebar ul a{
+
+height:100%;
+width:100%;
+line-height: 40px;
+font-size: 15px;
+padding-left:40px;
+color:white;
+ 
+ 
+}
+ul li:hover a{
+padding-left:50px;
+}
+.sidebar ul a {
+margin-right:16px;
+}
 .box{
         width:380px;
         height:700px;
         position:relative;
-        margin:6% auto;  
+        margin:6% auto; 
         background: transparent;
         padding:5px;
         box:shadow;
     }
-    .border{
-    padding:5px;
-    }
-    </style>
+     .btn{
+    float:right;
+    padding:5px 7px;
+    margin-right:5px;
+    border-radius:7px;
+    color:gray;
+}
+.table1{
+	padding-left: 270px;
+}
+</style>
 </head>
 <body>
-<h3 align="center">INDIAN BANK</h3>
+<h3 align="center" class="h">INDIAN BANK</h3>
 	<div class="sidebar">
 
 		<header>ADMIN</header>
 		<ul>
 			<li><a href="viewAllUser.jsp">View All Users</a></li>
-		    <li><a href="">Insert Account Details </a></li>
+		    <li><a href="AdminAddAccount.jsp">Insert Account Details </a></li>
 			<li><a href="UpdateAccountDetails.jsp">Update Account Details </a></li>
 			<li><a href="ApproveLoans.jsp">ApproveLoans</a></li>
 			<li><a href="ApproveDeposits.jsp">ApproveDeposits</a></li>
 			<li><a href="InterestRateAll.jsp">Rate Of Interest</a></li>
-			<li><a href="">Transaction by Date</a></li>
-			<li><a href="">Transaction by Account</a></li>
-			<li><a href="">Cancel Account</a></li>
+			<li><a href="TransactionByDate.jsp">Transaction by Date</a></li>
+			<li><a href="TransactionByAcc.jsp">Transaction by Account</a></li>
+			<li><a href="UserCancel.jsp">Cancel Account</a></li>
+			
+			 
+			 
 		</ul>
      </div>
-     <h2 align="center">WELCOME!</h2>
-    <div class="box">
+     <button class="btn"><a href="LogoutServlet">Logout</a></button>
+      
 <% LoansDaoimpl LoanDao = new LoansDaoimpl();
         List<Loans> List = new ArrayList<Loans>();
         List = LoanDao.viewloan();
 
 %>
 
-
+<div class="table1">
+<div class="table2">
 <table>
-<h1><b>All User List</b></h1>
+ 
 <thead>
 <tr>
   <th>S.no</th>
@@ -62,6 +121,7 @@
 <th>LoanAmount</th>
 <th>Tenure</th>
 <th>Status</th>
+<th>Update</th>
 </tr>
 </thead>
 <br>
@@ -84,6 +144,7 @@ i++;
 <td><%=viewuser. getLoan_amount()%></td>
  <td><%=viewuser.getTenure()%></td>
  <td><%=viewuser.getLoan_status()%></td>
+ <td><a href="approveloan?accno=<%=viewuser.getAccount_number()%>">Update</a></td>
  
  </tr>
 
@@ -92,7 +153,10 @@ i++;
 %>
 </tbody>
           </table>
-        <button input="Submit"><a href="loanStatus.jsp">Update Status</a></button>
+         
      </div>
+</div>
+</div>
+  
 </body>
 </html>

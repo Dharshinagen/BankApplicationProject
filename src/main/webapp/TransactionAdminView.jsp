@@ -8,9 +8,13 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <style>
- a{
+*{
+ margin:0;
+ padding:0;
+ }
+a{
 text-decoration:none}
-h3{ 
+h3{
 padding:20px;
 background-color:blue;
 margin:0;
@@ -59,25 +63,39 @@ margin-right:16px;
         background: transparent;
         padding:5px;
         box:shadow;
-    }</style>
+    }
+     .btn{
+    float:right;
+    padding:5px 7px;
+    margin-right:5px;
+    border-radius:7px;
+    color:gray;
+     
+
+}
+</style>
 </head>
 <body>
 <h3 align="center">INDIAN BANK</h3>
 	<div class="sidebar">
 
-		<header>ADMMIN</header>
+		<header>ADMIN</header>
 		<ul>
 			<li><a href="viewAllUser.jsp">View All Users</a></li>
-		    <li><a href="">Insert Account Details </a></li>
+		    <li><a href="AdminAddAccount.jsp">Insert Account Details </a></li>
 			<li><a href="UpdateAccountDetails.jsp">Update Account Details </a></li>
 			<li><a href="ApproveLoans.jsp">ApproveLoans</a></li>
 			<li><a href="ApproveDeposits.jsp">ApproveDeposits</a></li>
 			<li><a href="InterestRateAll.jsp">Rate Of Interest</a></li>
-			<li><a href="">Transaction by Date</a></li>
-			<li><a href="">Transaction by Account</a></li>
-			<li><a href="">Cancel Account</a></li>
+			<li><a href="TransactionByDate.jsp">Transaction by Date</a></li>
+			<li><a href="TransactionByAcc.jsp">Transaction by Account</a></li>
+			<li><a href="UserCancel.jsp">Cancel Account</a></li>
+			
+			 
+			 
 		</ul>
      </div>
+     <button class="btn"><a href="LogoutServlet">Logout</a></button>
      
      <h2 align="center">WELCOME!</h2>
      <div class="box">
@@ -87,7 +105,7 @@ margin-right:16px;
      %>
      <% TransactionDaoimpl tranDao = new TransactionDaoimpl();
      acc=(Long) session.getAttribute("accNo");
-        List<Transaction> List = tranDao.getByAccountNumberUser(acc);
+        List<Transaction> List = tranDao.getByAccountNumberAdmin(acc);
       %>
 
 
@@ -100,6 +118,7 @@ margin-right:16px;
  <th>Transaction</th>
 <th>Receive Account Number</th>
 <th>Amount</th>
+<th>Transaction Date</th>
 </tr>
 </thead>
 <br>
@@ -121,7 +140,7 @@ i++;
 <td><%=Viewuser.getTransaction_type()%></td>
  <td><%=Viewuser.getReceiver_account_number()%></td>
  <td><%=Viewuser.getAmount()%></td>
- 
+ <td><%=Viewuser.getTransaction_date()%></td>
  </tr>
 
 <%
@@ -129,6 +148,7 @@ i++;
 %>
 </tbody>
           </table>
+          <button type="submit" ><a href="adminDashBoard.jsp">Ok</a></button>
      </div>
      
 </body>

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"   import="java.time.LocalDate" %>
+    <%@page import="com.bankapp.impl.TransactionDaoimpl"%>
+    <%@page import="com.bankapp.model.Transaction"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,6 +64,15 @@ margin-right:16px;
         padding:5px;
         box:shadow;
     }
+     .btn{
+    float:right;
+    padding:5px 7px;
+    margin-right:5px;
+    border-radius:7px;
+    color:gray;
+     
+
+}
 </style>
 </head>
 <body>
@@ -71,18 +82,25 @@ margin-right:16px;
 		<header>ADMIN</header>
 		<ul>
 			<li><a href="viewAllUser.jsp">View All Users</a></li>
-		    <li><a href="">Insert Account Details </a></li>
+		    <li><a href="AdminAddAccount.jsp">Insert Account Details </a></li>
 			<li><a href="UpdateAccountDetails.jsp">Update Account Details </a></li>
 			<li><a href="ApproveLoans.jsp">ApproveLoans</a></li>
 			<li><a href="ApproveDeposits.jsp">ApproveDeposits</a></li>
 			<li><a href="InterestRateAll.jsp">Rate Of Interest</a></li>
 			<li><a href="TransactionByDate.jsp">Transaction by Date</a></li>
 			<li><a href="TransactionByAcc.jsp">Transaction by Account</a></li>
-			<li><a href="">Cancel Account</a></li>
+			<li><a href="UserCancel.jsp">Cancel Account</a></li>
+			
 			 
 			 
 		</ul>
      </div>
+     <%TransactionDaoimpl transdao=new TransactionDaoimpl();
+     LocalDate date= transdao.getDate();
+     
+     
+     %>
+     <button class="btn"><a href="LogoutServlet">Logout</a></button>
      <h2 align="center">WELCOME!</h2>
      <div class="box">
      
@@ -90,7 +108,7 @@ margin-right:16px;
      <table>
      <tr>
      <th>Enter Date</th>
-     <td><input type="date" name="date"/></td>
+     <td><input type="date" name="date" max="<%=date %>" required/></td>
      </tr>
      </table>
      <button type="Submit">Submit</button>

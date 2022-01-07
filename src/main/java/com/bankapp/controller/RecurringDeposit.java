@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.bankapp.impl.DepositsDaoimpl;
+import com.bankapp.impl.UserDetailsDaoimpl;
 import com.bankapp.model.UserDetails;
 
 /**
@@ -41,9 +42,14 @@ public class RecurringDeposit extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);DepositsDaoimpl depositdao=new DepositsDaoimpl();
 		DepositsDaoimpl depositdao=new DepositsDaoimpl();
-		UserDetails validUser= new UserDetails();
-		int user_id=validUser.getUser_id();
-		String type="Fixed Deposit";
+		UserDetailsDaoimpl userdao=new UserDetailsDaoimpl();
+		HttpSession session=request.getSession();
+		String userName=(String)session.getAttribute("user_id");
+		String pass=(String)session.getAttribute("pass");
+		
+		UserDetails validUser=userdao.validateUser(userName,pass );
+		 int user_id=validUser.getUser_id();
+		String type="Recurring Deposit";
 		   String status="not approved";
 		double amount=Double.parseDouble(request.getParameter("amountDeposit"));
 		int period=Integer.parseInt(request.getParameter("period"));
@@ -51,11 +57,11 @@ public class RecurringDeposit extends HttpServlet {
 		int n=0;
 	     if(period <=2) {
 	    	   n=1;
-	        rate_of_interest  = depositdao.getInterest(1.1);
+	        rate_of_interest  = depositdao.getInterest(2.1);
 	     }
 	     else if(period >2) {
 	    	  n=1;
-	    	 rate_of_interest=depositdao.getInterest(1.2);
+	    	 rate_of_interest=depositdao.getInterest(2.2);
 	     }
 	     else
 	    	 System.out.println("invalid Period");
@@ -65,8 +71,8 @@ public class RecurringDeposit extends HttpServlet {
 	     
 		 
 		depositdao.recurringDeposit(type, amount,rate_of_interest, period,maturity_value, status, user_id) ;
-		 HttpSession session=request.getSession();
-		 session.setAttribute("tran","Deposit Requested");
+		// HttpSession session=request.getSession();
+		 session.setAttribute("tran"," RD Requested");
 		  response.sendRedirect("RecurringDeposit.jsp");
 	}
 

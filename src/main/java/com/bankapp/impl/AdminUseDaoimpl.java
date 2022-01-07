@@ -14,21 +14,22 @@ import com.bankapp.model.AdminUse;
 import com.bankapp.util.ConnectionUtil;
 
 public class AdminUseDaoimpl implements AdminUseDao {
-public void getDescriptionId(double desc_id,double rateOfInterest) {
+public  boolean getDescriptionId(double desc_id,double rateOfInterest) {
 	String query="update admin_use set INTEREST_RATE=? where DESCRIPTION_ID=?";
 	Connection con = ConnectionUtil.getDbConnection();
-
+  boolean flag=false;
 	try {
 		PreparedStatement pstmt = con.prepareStatement(query);
 		pstmt.setDouble(1,rateOfInterest);
 		pstmt.setDouble(2,desc_id);
-		 
+		 flag=true;
 		int i = pstmt.executeUpdate();
 		 
 	} catch (SQLException e) {
 		e.printStackTrace();
 		 
 	}
+	return flag;
 }
 public List<AdminUse> allDetails() {
 	List<AdminUse> list=new ArrayList<AdminUse>();

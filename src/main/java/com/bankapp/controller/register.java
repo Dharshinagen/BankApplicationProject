@@ -10,7 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.bankapp.impl.AccountDetailsdaoimpl;
 import com.bankapp.impl.UserDetailsDaoimpl;
 import com.bankapp.model.UserDetails;
 
@@ -48,13 +50,30 @@ public class register extends HttpServlet {
 		String password=request.getParameter("pwd");
 		long mobileNo=(Long.parseLong(request.getParameter("mobNo")));
 		//System.out.println(name+email+password+mobileNo);
+		UserDetailsDaoimpl userDetailDao=new  UserDetailsDaoimpl();
+		AccountDetailsdaoimpl accountsDao = new AccountDetailsdaoimpl();
+		String id = accountsDao.getUserId(email);
 		
-		 UserDetails user=new UserDetails(name,email,password,mobileNo);
-		 UserDetailsDaoimpl userDetailDao=new  UserDetailsDaoimpl();
+		if( id !=null )
+		{
+			int account_id = Integer.parseInt(id);
+			UserDetails user = new UserDetails(name, email, password, mobileNo);
+			userDetailDao.insertUser(user);		
+			RequestDispatcher rd=request.getRequestDispatcher("login.jsp");
+			   rd.forward(request, response);
+		}
+
+		else {
+			HttpSession session=request.getSession();
+			session.setAttribute("reg","PLEASE ENTER YOUR REGISTERED ACCOUNT EMAILID");
+			response.sendRedirect("Reg.jsp");
+			
+		}
+//		 UserDetails user=new UserDetails(name,email,password,mobileNo);
+//		 userDetailDao.insertUser(user);
 //		  Connection con = ConnectionUtil.getDbConnection();
-		   userDetailDao.insertUser(user);
-		   RequestDispatcher rd=request.getRequestDispatcher("login.jsp");
-		   rd.forward(request, response);
+		  
+		   
 //		 PrintWriter out=response.getWriter();
 //		 out.print("welcome");
 	}

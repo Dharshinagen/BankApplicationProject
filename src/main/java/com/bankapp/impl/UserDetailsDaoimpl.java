@@ -59,29 +59,66 @@ public class UserDetailsDaoimpl implements UserDetailsDao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.out.println("Statement Error");
+			 
+		}
+		return user;
+	}
+	
+	public UserDetails validatePassword(String emailId,  long mobno) {
+		String ValidateQuery = "select * from USER_DETAILS where role='USER' and email='" + emailId + "' and mobile_number='"
+				+ mobno + "'";
+		Connection con = ConnectionUtil.getDbConnection();
+		UserDetails user = null;
+		try {
+			Statement st = con.createStatement();
+			ResultSet rs = st.executeQuery(ValidateQuery);
+			if (rs.next()) {
+				user = new UserDetails(rs.getInt(1), rs.getString(2), emailId, rs.getString(3), mobno);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			 
 		}
 		return user;
 	}
 
-	public  void updateUser(String name,String password,String email) {
+	public  boolean updateUser(String name,String password,String email) {
 
 		String updatequery1 = "update user_details set user_name=?,user_password=? where email=?";
 		Connection con = ConnectionUtil.getDbConnection();
-
+        boolean flag=false;
 		try {
 			PreparedStatement pstmt = con.prepareStatement(updatequery1);
 			pstmt.setString(1,name);
 			pstmt.setString(2,password);
 			pstmt.setString(3,email);
 			int i = pstmt.executeUpdate();
-			System.out.println(i + " user profile updated");
+			 flag=true;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("values not updated");
-			System.out.println("something went wrong");
+			 
 		}
+		 return flag;
+	}
+	public  boolean forgotPassword( String password,String email) {
+
+		String updatequery1 = "update user_details  set user_password=? where email=?";
+		Connection con = ConnectionUtil.getDbConnection();
+        boolean flag=false;
+		try {
+			PreparedStatement pstmt = con.prepareStatement(updatequery1);
+			
+			pstmt.setString(1,password);
+			pstmt.setString(2,email);
+			int i = pstmt.executeUpdate();
+			 flag=true;
+		} catch (SQLException e) {
+			e.printStackTrace();
 		 
+		}
+		 return flag;
 	}
 
 	public UserDetails admin(String email_id, String password) {
@@ -123,19 +160,21 @@ public class UserDetailsDaoimpl implements UserDetailsDao {
 		
 		return userList;
 	}
-	public void deleteDetails(String email) {
+	public  boolean deleteDetails(String email) {
 		String deleteQuery="update user_details set role='Inactive' where email=?";
 		Connection con=ConnectionUtil.getDbConnection();
+		boolean flag=false;
 		 try {
 			PreparedStatement pst= con.prepareStatement(deleteQuery);
 		//	pst.setString(1, role);
 			pst.setString(1, email);
 			int i=pst.executeUpdate();
-			System.out.println(i+"row deleted");
+		   flag=true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		 return flag;
 	}
 
 	 

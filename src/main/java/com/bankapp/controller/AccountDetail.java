@@ -47,17 +47,19 @@ public class AccountDetail extends HttpServlet {
 		HttpSession session = request.getSession();
 	 long accNo=Long.parseLong(request.getParameter("accNo"));
 	    int pin=Integer.parseInt(request.getParameter("pin"));
-	   
-	   AccountDetailsdaoimpl accDetailDao=new AccountDetailsdaoimpl();
-	   
-	   List<AccountDetails> list = accDetailDao.searchDetail(accNo, pin);
-	//   System.out.println(list);
-    //   RequestDispatcher rd=request.getRequestDispatcher("accDetailView.jsp");
-    //   rd.forward(request, response);
-	   
+	   AccountDetails accdao=new AccountDetails();
 	   session.setAttribute("useraccno", accNo);
 	   session.setAttribute("userpin", pin);
-	   response.sendRedirect("accDetailView.jsp");
+	   AccountDetailsdaoimpl accDetailDao=new AccountDetailsdaoimpl();
+	   int pinnum=accDetailDao.getPinnumber(accNo);
+		 if(pin==pinnum) {
+	   List<AccountDetails> list = accDetailDao.searchDetail(accNo, pin);
+	      response.sendRedirect("accDetailView.jsp");
+		 }
+		 else {
+			 session.setAttribute("pinvalid", "Enter Valid Pin Number");
+			 response.sendRedirect("accountDetail.jsp");
+		 }
 	}
 
 }

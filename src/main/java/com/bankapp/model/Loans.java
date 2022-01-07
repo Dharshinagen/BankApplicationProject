@@ -73,7 +73,7 @@ public class Loans {
 		this.account_number = account_number;
 		this.loan_type = loan_type;
 		this.description = description;
-		Loan_amount = loan_amount;
+		this.Loan_amount = loan_amount;
 		this.tenure = tenure;
 		this.interest_rate = interest_rate;
 		this.monthly_payment = monthly_payment;
@@ -82,6 +82,12 @@ public class Loans {
 	public Loans() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	public Loans(long account_number, double monthly_payment, String loan_status) {
+		// TODO Auto-generated constructor stub
+		this.account_number = account_number;
+		this.monthly_payment = monthly_payment;
+		this.loan_status = loan_status;
 	}
 	@Override
 	public int hashCode() {

@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.bankapp.impl.AccountDetailsdaoimpl;
+import com.bankapp.impl.DepositsDaoimpl;
 import com.bankapp.impl.TransactionDaoimpl;
 import com.bankapp.model.AccountDetails;
+import com.bankapp.model.Deposits;
 import com.bankapp.model.Transaction;
 
 /**
@@ -26,9 +28,9 @@ public class depStatusUser extends HttpServlet {
 		//doGet(request, response);
 		HttpSession session=request.getSession();
 		long accNo=Long.parseLong(request.getParameter("accno"));
-		TransactionDaoimpl accDetailDao=new TransactionDaoimpl();
+		 DepositsDaoimpl accDetailDao=new DepositsDaoimpl();
 		   
-		   List<Transaction> list = accDetailDao.getByAccountNumberUser(accNo);
+		   List<Deposits> list = accDetailDao.viewStatusUser(accNo);
 		   session.setAttribute("useraccno", accNo);
 	//	   session.setAttribute("userpin", pin);
 		   response.sendRedirect("depStatusView.jsp");

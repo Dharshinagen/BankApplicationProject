@@ -20,17 +20,25 @@ public class Balance extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-	 
+		HttpSession session=request.getSession();
 		 long accNo=Long.parseLong(request.getParameter("accno"));
 		 int pin=Integer.parseInt(request.getParameter("pin"));
 		  
 		 
 		 TransactionDaoimpl transDao=new TransactionDaoimpl();
+		 int pinnum=transDao.getPinnumber(accNo);
+		 if(pin==pinnum) {
 		 double amoun=transDao.viewBalance(accNo,  pin);
-		 HttpSession session=request.getSession();
-		// session.setAttribute("Bal","Balance Amount :");
+		 
+		 
 		 session.setAttribute( "amount", amoun);
 		  response.sendRedirect("BalanceView.jsp");
+		 }
+		 else
+		 {
+			 session.setAttribute("pinvalidate","Enter Correct Pin Number");
+			 response.sendRedirect("Balance.jsp");
+		 }
 		// PrintWriter out=response.getWriter();
 		// out.println("Balance is :"+amoun);
 		//  response.sendRedirect("TransferAmount.jsp");

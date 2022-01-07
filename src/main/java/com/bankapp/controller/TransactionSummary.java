@@ -12,19 +12,20 @@ import com.bankapp.impl.TransactionDaoimpl;
 
 /**
  * Servlet implementation class TransactionSummary
- */   
+ */  
+@WebServlet("/account")
 public class TransactionSummary extends HttpServlet {
 	 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		long accNo=Long.parseLong(request.getParameter("accno"));
-		// int pin=Integer.parseInt(request.getParameter("pin"));
+		 
 		 TransactionDaoimpl transDao=new TransactionDaoimpl();
 		 transDao.getByAccountNumberAdmin(accNo);
 		 HttpSession session=request.getSession();
 		 session.setAttribute("accNo",accNo);
-				 //session.setAttribute("passw", pin);
+				 
 		 response.sendRedirect("TransactionAdminView.jsp");
 		
 	}

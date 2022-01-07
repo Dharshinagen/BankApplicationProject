@@ -8,6 +8,10 @@
 <meta charset="ISO-8859-1">
 <title>accountDetail</title>
  <style>
+ *{
+ margin:0;
+ padding:0;
+ }
  a{
 text-decoration:none}
 h3{
@@ -35,9 +39,9 @@ ul{
 list-style-type: none;
 }
 .sidebar ul a{
- 
-height:100%;
-width:100%;
+
+height:98%;
+width:99%;
 line-height: 40px;
 font-size: 15px;
 padding-left:40px;
@@ -49,41 +53,62 @@ ul li:hover a{
 padding-left:50px;
 }
 .sidebar ul a {
-margin-right:16px;
-}.box{
+margin-right:0px;
+}
+.box{
         width:380px;
-        height:700px;
+        height:380px;
         position:relative;
         margin:6% auto; 
         background: transparent;
         padding:5px;
         box:shadow;
     }
+    .btn{
+    float:right;
+    padding:5px 7px;
+    margin-right:5px;
+    border-radius:7px;
+    color:gray;
+     
+
+}
+
+.pa{
+text-align:left;
+}
+.par{
+padding:20px;
+}
  </style>
 </head>
-<body> 
-<h3 align="center">INDIAN BANK</h3>
+<body>
+<h3 align="center">Indian Bank</h3>
+        
 	<div class="sidebar">
 
 		<header>My Account</header>
-		<ul><li><a href="accountDetail.jsp">AccountDetails</a></li>
+		<ul>
+			<li><a href="accountDetail.jsp">AccountDetails</a></li>
 			<li><a href="TransferAmount.jsp">Transfer</a></li>
 			<li><a href="Balance.jsp">Balance</a></li>
-			
 			<li><a href="FixedDeposit.jsp">Fixed Deposits</a></li>
 			<li><a href="RecurringDeposit.jsp">Recurring Deposits</a></li>
 			<li><a href="PersonalLoan.jsp">Personal Loan request</a></li>
 			<li><a href="HousingLoan.jsp">Housing Loan request</a></li>
 			<li><a href="TransactionSummary.jsp">Transaction History</a></li>
 			<li><a href="depositStatusUser.jsp">Deposit Status</a></li>
+			<li><a href="LoanStatusUser.jsp">Loan Status</a></li>
+			 
 		</ul>
- </div>
+     </div>
+     <button class="btn"><a href="LogoutServlet">Logout</a></button>
  <div class="box">
  <form action="AccountDetails" method="post">
  <table>
     <tr>
       <th> <label for="accountNo">Enter AccountNumber:</label> </th>
-      <td><input type="text" name="accNo" pattern="[0-9]{12}"required autofocus/></td>
+      <td><input type="text" name="accNo" pattern="[0-9]{12}"required autofocus placeholder="---- ---- ----"/></td><br>
     </tr>
     <tr>
      <th> <label for="pin">Enter Pin Number</label></th>
@@ -93,6 +118,18 @@ margin-right:16px;
        <input type="submit" value=submit />
        <input type="reset" value=cancel />
  </form>
+ <%!
+String flag;
+%>
+<%
+if(session.getAttribute("pinvalid") != null){
+flag = session.getAttribute("pinvalid").toString();
+%>
+<h4 id = "transhead"><%= flag%></h4>
+<% }%>
+ 
+  <%session.removeAttribute("pinvalid");
+       %>
  </div></div>
  
 

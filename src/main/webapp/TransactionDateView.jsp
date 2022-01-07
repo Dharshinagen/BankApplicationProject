@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"  import = "java.util.List" import = "java.util.ArrayList"%>
+    pageEncoding="ISO-8859-1"  import = "java.util.List" import = "java.util.ArrayList" import="java.time.LocalDate"
+     import="java.time.format.DateTimeFormatter"%>
     <%@page import="com.bankapp.impl.TransactionDaoimpl"%>
     <%@page import="com.bankapp.model.Transaction"%>
 <!DOCTYPE html>
@@ -8,7 +9,7 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <style>
- *{
+  *{
  margin:0;
  padding:0;
  }
@@ -64,6 +65,15 @@ margin-right:16px;
         padding:5px;
         box:shadow;
     }
+     .btn{
+    float:right;
+    padding:5px 7px;
+    margin-right:5px;
+    border-radius:7px;
+    color:gray;
+     
+
+}
 </style>
 </head>
 <body>
@@ -73,27 +83,29 @@ margin-right:16px;
 		<header>ADMIN</header>
 		<ul>
 			<li><a href="viewAllUser.jsp">View All Users</a></li>
-		    <li><a href="">Insert Account Details </a></li>
+		    <li><a href="AdminAddAccount.jsp">Insert Account Details </a></li>
 			<li><a href="UpdateAccountDetails.jsp">Update Account Details </a></li>
 			<li><a href="ApproveLoans.jsp">ApproveLoans</a></li>
 			<li><a href="ApproveDeposits.jsp">ApproveDeposits</a></li>
 			<li><a href="InterestRateAll.jsp">Rate Of Interest</a></li>
-			<li><a href="">Transaction by Date</a></li>
+			<li><a href="TransactionByDate.jsp">Transaction by Date</a></li>
 			<li><a href="TransactionByAcc.jsp">Transaction by Account</a></li>
-			<li><a href="">Cancel Account</a></li>
-			 
+			<li><a href="UserCancel.jsp">Cancel Account</a></li>
+		
 			 
 		</ul>
      </div>
+     <button class="btn"><a href="LogoutServlet">Logout</a></button>
      <h2 align="center">WELCOME!</h2>
      <div class="box">
      <%
-      String date;
+       LocalDate date;
       
      %>
      <% TransactionDaoimpl tranDao = new TransactionDaoimpl();
-     date=(String) session.getAttribute("Date");
-        List<Transaction> List = tranDao.getbyDate(date);
+     date=(LocalDate) session.getAttribute("Date");
+     
+        List<Transaction> List = tranDao. getbyDate(date);
       %>
 
 

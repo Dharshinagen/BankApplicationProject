@@ -1,5 +1,6 @@
 package com.bankapp.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
@@ -11,7 +12,7 @@ public class Transaction {
              private double amount;
              private  double balance;
              private String transaction_status;
-			 private Date transaction_date;
+			 private LocalDate transaction_date;
 			public long getSender_Account_number() {
 				return sender_Account_number;
 			}
@@ -54,15 +55,15 @@ public class Transaction {
 			public void setTransaction_status(String transaction_status) {
 				this.transaction_status = transaction_status;
 			}
-			public Date getTransaction_date() {
+			public LocalDate getTransaction_date() {
 				return transaction_date;
 			}
-			public void setTransaction_date(Date transaction_date) {
+			public void setTransaction_date(LocalDate transaction_date) {
 				this.transaction_date = transaction_date;
 			}
 			public Transaction(long sender_Account_number, String name, String transaction_type,
 					long receiver_account_number, double amount, double balance, String transaction_status,
-					Date transaction_date) {
+					LocalDate transaction_date) {
 				super();
 				this.sender_Account_number = sender_Account_number;
 				this.name = name;
@@ -73,8 +74,14 @@ public class Transaction {
 				this.transaction_status = transaction_status;
 				this.transaction_date = transaction_date;
 			}
-			public Transaction() {
+			public Transaction(long lsender_Account_number, String name, String transaction_type, long receiver_account_number, double amount, LocalDate transaction_date) {
 				super();
+				this.sender_Account_number = sender_Account_number;
+				this.name = name;
+				this.transaction_type = transaction_type;
+				this.receiver_account_number = receiver_account_number;
+				this.amount = amount;
+				this.transaction_date = transaction_date;
 				// TODO Auto-generated constructor stub
 			}
 			 
@@ -84,7 +91,22 @@ public class Transaction {
 				this.transaction_type = transaction_type;
 				this.receiver_account_number = receiver_account_number;
 				this.amount = amount;
+				this.sender_Account_number = sender_Account_number;
+				this.name = name;
+				this.transaction_type = transaction_type;
+				this.receiver_account_number = receiver_account_number;
+				this.amount = amount;
 				// TODO Auto-generated constructor stub
+			}
+			public Transaction(long sender_Account_number, String name, String transaction_type, long receiver_account_number, double amount, String transaction_status,
+					LocalDate transaction_date) {
+				// TODO Auto-generated constructor stub
+				this.sender_Account_number = sender_Account_number;
+				this.name = name;
+				this.transaction_type = transaction_type;
+				this.receiver_account_number = receiver_account_number;
+				this.amount = amount;
+				this.transaction_date = transaction_date;
 			}
 			@Override
 			public int hashCode() {

@@ -1,6 +1,8 @@
 package com.bankapp.controller;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,19 +10,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.bankapp.impl.DepositsDaoimpl;
 import com.bankapp.impl.LoansDaoimpl;
+import com.bankapp.impl.TransactionDaoimpl;
+import com.bankapp.model.Loans;
+import com.bankapp.model.Transaction;
 
 /**
- * Servlet implementation class LoanStatus
+ * Servlet implementation class LoanStatusUser
  */
- 
-public class LoanStatus extends HttpServlet {
+@WebServlet("/loanStatus")
+public class LoanStatusUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoanStatus() { 
+    public LoanStatusUser() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,7 +36,7 @@ public class LoanStatus extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	//	response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -38,13 +44,15 @@ public class LoanStatus extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//doGet(request, response);
-		LoansDaoimpl loansDao=new LoansDaoimpl();
-	   long accno=Long.parseLong(request.getParameter("accno"));
-	   loansDao.updateStatus( accno);	
-	   HttpSession session=request.getSession();
-		 session.setAttribute("stat","Updated");
-		  response.sendRedirect("loanStatus.jsp");
+	//	doGet(request, response);
+		HttpSession session=request.getSession();
+		long accNo=Long.parseLong(request.getParameter("accno"));
+		LoansDaoimpl accDetailDao=new LoansDaoimpl();
+		   
+		   List<Loans> list = accDetailDao.viewStatusUser(accNo);
+		   session.setAttribute("useraccno", accNo);
+	//	   session.setAttribute("userpin", pin);
+		   response.sendRedirect("loanStatusView.jsp");
+	}
 	}
 
-}

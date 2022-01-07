@@ -48,7 +48,7 @@ public class login extends HttpServlet {
 		String userId=request.getParameter("userId");
 		String password=request.getParameter("pwd");
 		UserDetailsDaoimpl userDetailDao=new  UserDetailsDaoimpl();
-		
+		HttpSession session=request.getSession();
 		UserDetails ValidAdmin=userDetailDao.admin(userId,password);
 		UserDetails validUser =userDetailDao.validateUser(userId,password);
 		
@@ -59,9 +59,11 @@ public class login extends HttpServlet {
 			//user_id=validUser.getUser_id();
 			// out.println("WELCOME\t" + validUser.getUser_name() + "!");
 			// out.print("<a href='accountDetails.jsp'>View Account Details</a>");
-			HttpSession session=request.getSession();
+			String name=validUser.getUser_name();
+			
 			session.setAttribute("user_id", userId);
 			session.setAttribute("pass", password);
+			session.setAttribute("username", name);
 			 RequestDispatcher rd=request.getRequestDispatcher("CustomerDashBoard.jsp");
 			   rd.forward(request, response);
 
@@ -69,14 +71,15 @@ public class login extends HttpServlet {
 		   }
 		 else if(ValidAdmin !=null) 
 		 {
-			 //out.println("WELCOME\t" + ValidAdmin.getUser_name() + " as Admin!" );
+			 String admin= ValidAdmin.getUser_name() + " as Admin!" ;
+			 session.setAttribute("adminname", admin);
 			 RequestDispatcher rd=request.getRequestDispatcher("adminDashBoard.jsp");
 			   rd.forward(request, response);
 
 
          }
 		 else {
-			 HttpSession session=request.getSession();
+			// HttpSession session=request.getSession();
 			 session.setAttribute("login","Invalid User");
 			  response.sendRedirect("login.jsp");
 			  

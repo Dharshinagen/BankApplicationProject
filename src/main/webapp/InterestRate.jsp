@@ -6,7 +6,11 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <style>
- a{
+ *{
+ margin:0;
+ padding:0;
+ }
+a{
 text-decoration:none}
 h3{
 padding:20px;
@@ -58,7 +62,16 @@ margin-right:16px;
         padding:5px;
         box:shadow;
     }
-    </style>
+     .btn{
+    float:right;
+    padding:5px 7px;
+    margin-right:5px;
+    border-radius:7px;
+    color:gray;
+     
+
+}
+</style>
 </head>
 <body>
 <h3 align="center">INDIAN BANK</h3>
@@ -67,46 +80,50 @@ margin-right:16px;
 		<header>ADMIN</header>
 		<ul>
 			<li><a href="viewAllUser.jsp">View All Users</a></li>
-		    <li><a href="UpdateAccountDetails.jsp">Insert Account Details </a></li>
+		    <li><a href="AdminAddAccount.jsp">Insert Account Details </a></li>
 			<li><a href="UpdateAccountDetails.jsp">Update Account Details </a></li>
 			<li><a href="ApproveLoans.jsp">ApproveLoans</a></li>
 			<li><a href="ApproveDeposits.jsp">ApproveDeposits</a></li>
-			<li><a href="InterestRate.jsp">Rate Of Interest</a></li>
-			<li><a href="ApproveDeposits.jsp">View By Date</a></li>
-			<li><a href="">Cancel Account</a></li>
+			<li><a href="InterestRateAll.jsp">Rate Of Interest</a></li>
+			<li><a href="TransactionByDate.jsp">Transaction by Date</a></li>
+			<li><a href="TransactionByAcc.jsp">Transaction by Account</a></li>
+			<li><a href="UserCancel.jsp">Cancel Account</a></li>
+			
 			 
-			<li><a href="#">  </a></li>
+			 
 		</ul>
      </div>
-      
+     <button class="btn"><a href="LogoutServlet">Logout</a></button>
+ 
      <h2 align="center">WELCOME!</h2>
      <div class="box">
      <form  action ="interestRate" method="post">
      <table>
      <tr>
      <th>Enter DescriptionId</th>
-      <td><input type="text" name="desc"/></td>
+      <td><input type="text" name="desc" required/></td>
      </tr>
     
        <tr>
      <th>Enter InterestRate</th>
-          <td><input type="text" name="rate"/></td>
+          <td><input type="text" name="rate" required/></td>
      </tr>
       </table>
-     </form>
+    
      <button type="submit">Submit</button>
+     </form> 
               <%!
 String flag;
 %>
 <%
-if(session.getAttribute("rate") != null){
-flag = session.getAttribute("rate").toString();
+if(session.getAttribute("rat") != null){
+flag = session.getAttribute("rat").toString();
 %>
 
 
 	<h4 id = "transhead"><%= flag%></h4>
 <% }%>
-     <%session.removeAttribute("rate");
+     <%session.removeAttribute("rat");
        %>
        </div>
       

@@ -34,11 +34,12 @@ public class DepositsDaoimpl implements DepositsDao {
 		return 0;
 	}
 
-	public void fixedDeposit(String type, double amount, double rate_of_interest, double maturity_value, int period,
+	public boolean fixedDeposit(String type, double amount, double rate_of_interest, double maturity_value, int period,
 			String status, int userId) {
 		Connection con = ConnectionUtil.getDbConnection();
+		boolean flag=false;
 		String que = "select deposit_acc.nextval from dual";
-		String Query = "INSERT INTO DEPOSITS (USER_ID,ACCOUNT_NUMBER,DEPOSIT_TYPE,AMOUNT,TENURE,RATE_OF_INTEREST,MATURITY_DATE,MATURITY_VALUE,DEPOSIT_STATUS) VALUES(?,?,?,?,?,?,?,?,?)";
+		String Query = "INSERT INTO DEPOSITS (USER_ID,ACCOUNT_NUMBER,DEPOSIT_TYPE,AMOUNT,TENURE_IN_YEARS,RATE_OF_INTEREST,MATURITY_DATE,MATURITY_VALUE,DEPOSIT_STATUS) VALUES(?,?,?,?,?,?,?,?,?)";
 		LocalDate sysDate = LocalDate.now();
 		Date mdate = Date.valueOf(sysDate.plusYears(period));
 		long accNumber = 0;
@@ -59,19 +60,20 @@ public class DepositsDaoimpl implements DepositsDao {
 			pstmt.setDouble(8, maturity_value);
 			pstmt.setString(9, status);
 			pstmt.executeUpdate();
-
+           flag=true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return flag;
 	}
 
-	public void recurringDeposit(String type, double amount, double rate_of_interest, int period, double maturity_value,
+	public boolean recurringDeposit(String type, double amount, double rate_of_interest, int period, double maturity_value,
 			String status, int userId) {
 		Connection con = ConnectionUtil.getDbConnection();
 		String que = "select deposit_acc.nextval from dual";
-		String Query = "INSERT INTO DEPOSITS (USER_ID,ACCOUNT_NUMBER,DEPOSIT_TYPE,AMOUNT,TENURE,RATE_OF_INTEREST,MATURITY_DATE,MATURITY_VALUE,DEPOSIT_STATUS) VALUES(?,?,?,?,?,?,?,?,?)";
-
+		String Query = "INSERT INTO DEPOSITS (USER_ID,ACCOUNT_NUMBER,DEPOSIT_TYPE,AMOUNT,TENURE_IN_YEARS,RATE_OF_INTEREST,MATURITY_DATE,MATURITY_VALUE,DEPOSIT_STATUS) VALUES(?,?,?,?,?,?,?,?,?)";
+         boolean flag=false;
 		LocalDate sysDate = LocalDate.now();
 		Date mdate = Date.valueOf(sysDate.plusYears(period));
 		long accNumber = 0;
@@ -92,12 +94,12 @@ public class DepositsDaoimpl implements DepositsDao {
 			pstmt.setDouble(8, maturity_value);
 			pstmt.setString(9, status);
 			pstmt.executeUpdate();
-
+             flag=true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+  return flag;
 	}
 
 	public List<Deposits> viewdeposit() {
@@ -121,18 +123,23 @@ public class DepositsDaoimpl implements DepositsDao {
 		return loans;
 	}
 
-	public void updateStatus(long accnum) {
+	public  boolean updateStatus(long accnum) {
 		String que = "UPDATE DEPOSITS SET DEPOSIT_STATUS='Approved' WHERE  Account_number=?";
 		Connection con = ConnectionUtil.getDbConnection();
+		boolean flag=false;
 		try {
 			PreparedStatement pst = con.prepareStatement(que);
 			pst.setLong(1, accnum);
 			int i = pst.executeUpdate();
-
+			if(i>0) {
+				flag=true;	
+			}
+             
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return flag;
 	}
 	public List<Deposits> viewStatusUser(long accNo) {
 		List<Deposits> list = new ArrayList<Deposits>();

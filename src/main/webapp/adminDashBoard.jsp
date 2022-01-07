@@ -62,6 +62,15 @@ margin-right:16px;
         padding:5px;
         box:shadow;
     }
+     .btn{
+    float:right;
+    padding:5px 7px;
+    margin-right:5px;
+    border-radius:7px;
+    color:gray;
+     
+
+}
 </style>
 </head>
 <body>
@@ -71,18 +80,29 @@ margin-right:16px;
 		<header>ADMIN</header>
 		<ul>
 			<li><a href="viewAllUser.jsp">View All Users</a></li>
-		    <li><a href="">Insert Account Details </a></li>
+		    <li><a href="AdminAddAccount.jsp">Insert Account Details </a></li>
 			<li><a href="UpdateAccountDetails.jsp">Update Account Details </a></li>
 			<li><a href="ApproveLoans.jsp">ApproveLoans</a></li>
 			<li><a href="ApproveDeposits.jsp">ApproveDeposits</a></li>
 			<li><a href="InterestRateAll.jsp">Rate Of Interest</a></li>
 			<li><a href="TransactionByDate.jsp">Transaction by Date</a></li>
 			<li><a href="TransactionByAcc.jsp">Transaction by Account</a></li>
-			<li><a href="">Cancel Account</a></li>
+			<li><a href="UserCancel.jsp">Cancel Account</a></li>
+			 
 			 
 			 
 		</ul>
      </div>
-     <h2 align="center">WELCOME!</h2>
+     <button class="btn"><a href="LogoutServlet">Logout</a></button>
+     <%! String name; %>
+     <%   name=(String) session.getAttribute("adminname"); %>
+    
+     <div class="box">
+     <p class="pa"> <b>WELCOME &nbsp <%=name %>! </b></p> <br><br>
+         <p>Some ways to Prevent Spread of COVID-19</p>
+         
+         <p class="par"> Avoid touching surfaces, especially in public settings or health facilities, in case people infected with COVID-19 have touched them. Clean surfaces regularly with standard disinfectants.</p>
+          <p class="par">  Frequently clean your hands with soap and water, or an alcohol-based hand rub</p>
+     </div>
 </body>
 </html>

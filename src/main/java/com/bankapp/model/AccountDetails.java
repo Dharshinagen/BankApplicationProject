@@ -14,13 +14,14 @@ public class AccountDetails {
 	private String email;
 	private String ifsc_Code;
 	private String branchName;
-	private int balance;	
+	private double balance;	
 	private int pin_Number;
-	public int getId() {
+	private String status;
+	public int getUser_id() {
 		return user_id;
 	}
-	public void setId(int id) {
-		this.user_id = id;
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 	public String getAccount_type() {
 		return account_type;
@@ -82,10 +83,10 @@ public class AccountDetails {
 	public void setBranchName(String branchName) {
 		this.branchName = branchName;
 	}
-	public int getBalance() {
+	public double getBalance() {
 		return balance;
 	}
-	public void setBalance(int balance) {
+	public void setBalance(double balance) {
 		this.balance = balance;
 	}
 	public int getPin_Number() {
@@ -94,11 +95,17 @@ public class AccountDetails {
 	public void setPin_Number(int pin_Number) {
 		this.pin_Number = pin_Number;
 	}
-	public AccountDetails(int id, String account_type, String account_Holder_name, String address, String city,
-			int pincode, String dob, long mobile_Number, String email, String ifsc_Code, String branchName, int balance,
-			int pin_Number) {
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public AccountDetails(int user_id, String account_type, String account_Holder_name, String address, String city,
+			int pincode, String dob, long mobile_Number, String email, String ifsc_Code, String branchName, double balance,
+			int pin_Number, String status) {
 		super();
-		this.user_id = id;
+		this.user_id = user_id;
 		this.account_type = account_type;
 		this.account_Holder_name = account_Holder_name;
 		this.address = address;
@@ -111,15 +118,54 @@ public class AccountDetails {
 		this.branchName = branchName;
 		this.balance = balance;
 		this.pin_Number = pin_Number;
+		this.status = status;
 	}
-	  
-	 
-
-
+	public AccountDetails() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	 public AccountDetails(int user_id, String account_type, String account_Holder_name, String address, String city, int pincode,
+			String dob, long mobile_Number, String email, String ifsc_Code, String branchName, double balance, int pin_Number) {
+		// TODO Auto-generated constructor stub
+			this.user_id = user_id;
+			this.account_type = account_type;
+			this.account_Holder_name = account_Holder_name;
+			this.address = address;
+			this.city = city;
+			this.pincode = pincode;
+			this.dob = dob;
+			this.mobile_Number = mobile_Number;
+			this.email = email;
+			this.ifsc_Code = ifsc_Code;
+			this.branchName = branchName;
+			this.balance = balance;
+			this.pin_Number = pin_Number;
+			
+	}
+	
+		
+	public AccountDetails(String account_type, String account_Holder_name, String address, String city, int pincode,
+			String dob, long mobile_Number, String email, String ifsc_Code, String branchName, double balance, int pin_Number,
+			String status) {
+		this.account_type = account_type;
+		this.account_Holder_name = account_Holder_name;
+		this.address = address;
+		this.city = city;
+		this.pincode = pincode;
+		this.dob = dob;
+		this.mobile_Number = mobile_Number;
+		this.email = email;
+		this.ifsc_Code = ifsc_Code;
+		this.branchName = branchName;
+		this.balance = balance;
+		this.pin_Number = pin_Number;
+		this.status = status;
+	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(account_Holder_name, account_type, address, balance, branchName, city, dob, email, user_id,
-				ifsc_Code, mobile_Number, pin_Number, pincode);
+		return Objects.hash(account_Holder_name, account_type, address, balance, branchName, city, dob, email,
+				ifsc_Code, mobile_Number, pin_Number, pincode, status, user_id);
+		
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -134,15 +180,17 @@ public class AccountDetails {
 				&& Objects.equals(account_type, other.account_type) && Objects.equals(address, other.address)
 				&& balance == other.balance && Objects.equals(branchName, other.branchName)
 				&& Objects.equals(city, other.city) && Objects.equals(dob, other.dob)
-				&& Objects.equals(email, other.email) && user_id == other.user_id && Objects.equals(ifsc_Code, other.ifsc_Code)
-				&& mobile_Number == other.mobile_Number && pin_Number == other.pin_Number && pincode == other.pincode;
+				&& Objects.equals(email, other.email) && Objects.equals(ifsc_Code, other.ifsc_Code)
+				&& mobile_Number == other.mobile_Number && pin_Number == other.pin_Number && pincode == other.pincode
+				&& Objects.equals(status, other.status) && user_id == other.user_id;
 	}
 	@Override
 	public String toString() {
-		return "\t AccountDetails\n"+ "\nAccount Type : " + account_type + "\nAccount Holder name : "
-				+ account_Holder_name + "\nAddress : " + address + "\nCity : " + city + "\nPincode : " + pincode + "\nDob : "
-				+ dob + "\nMobile Number : " + mobile_Number + "\nEmailId:" + email + "\nIFSC Code : " + ifsc_Code
-				+ "\nBranchName : " + branchName + "\nBalance : " + balance ;
+		return "AccountDetails [user_id=" + user_id + ", account_type=" + account_type + ", account_Holder_name="
+				+ account_Holder_name + ", address=" + address + ", city=" + city + ", pincode=" + pincode + ", dob="
+				+ dob + ", mobile_Number=" + mobile_Number + ", email=" + email + ", ifsc_Code=" + ifsc_Code
+				+ ", branchName=" + branchName + ", balance=" + balance + ", pin_Number=" + pin_Number + ", status="
+				+ status + "]";
 	}
 	 
 	 

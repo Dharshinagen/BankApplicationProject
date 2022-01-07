@@ -39,7 +39,7 @@ public class TransferAmount extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-		//HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 		String uname=request.getParameter("uname");
 		 long accNo=Long.parseLong(request.getParameter("accno"));
 		 double amount=Double.parseDouble(request.getParameter("amount"));
@@ -47,11 +47,17 @@ public class TransferAmount extends HttpServlet {
 		 long Accno=Long.parseLong(request.getParameter("RecAccNo"));
 		 
 		 TransactionDaoimpl transDao=new TransactionDaoimpl();
+		 int pinnum=transDao.getPinnumber(Accno);
+		 if(pin==pinnum) {
 		 transDao.depositAmount(accNo, uname, amount, pin, Accno);
-		 HttpSession session=request.getSession();
 		 session.setAttribute("trans","TRANSFERRED");
 		  response.sendRedirect("TransferAmount.jsp");
+		 }
+		 else {
 		 
+		 session.setAttribute("trans","Enter Correct Pin Number");
+		  response.sendRedirect("TransferAmount.jsp");
+		 }
 //		 session.setAttribute("useraccno", accNo);
 //		 session.setAttribute("username", uname);
 //		 session.setAttribute("amount", amount);

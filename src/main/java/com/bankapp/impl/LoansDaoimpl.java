@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.bankapp.dao.LoansDao;
+import com.bankapp.model.Deposits;
 import com.bankapp.model.Loans;
 import com.bankapp.model.UserDetails;
 import com.bankapp.util.ConnectionUtil;
@@ -31,11 +32,12 @@ public class LoansDaoimpl implements LoansDao {
 		}
 		return 0;
 	 }
-	public void PersonalLoan( String type,double amount,double period,String type1,double interest_rate,double monthly_payments,int userid,String status) {
+	public  boolean PersonalLoan( String type,double amount,double period,String type1,double interest_rate,double monthly_payments,int userid,String status) {
 		String que="select Loan_acc.nextval from dual";
 		String query="INSERT INTO LOANS (USER_ID,ACCOUNT_NUMBER,LOAN_TYPE,DESCRIPTION,LOAN_AMOUNT,TENURE,INTEREST_RATE,MONTHLY_PAYMENT,LOAN_STATUS)VALUES(?,?,?,?,?,?,?,?,?)";
 		Connection con = ConnectionUtil.getDbConnection();
 		 long accNumber = 0;
+		 boolean flag=false;
 			
 		 try {
 			 PreparedStatement pstmt = con.prepareStatement(que);
@@ -53,18 +55,20 @@ public class LoansDaoimpl implements LoansDao {
 				pstmt.setDouble(8,monthly_payments);
 				pstmt.setString(9, status);
 			    pstmt.executeUpdate();
-			 
+			 flag=true;
 		 }catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		 return flag;
 		 
 	}
-	public void housingLoan( String type,double amount,double period,String type1,double interest_rate,double monthly_payments,int userid,String status) {
+	public  boolean housingLoan( String type,double amount,double period,String type1,double interest_rate,double monthly_payments,int userid,String status) {
 		String que="select Loan_acc.nextval from dual";
 		String query="INSERT INTO LOANS (USER_ID,ACCOUNT_NUMBER,LOAN_TYPE,DESCRIPTION,LOAN_AMOUNT,TENURE,INTEREST_RATE,MONTHLY_PAYMENT,LOAN_STATUS)VALUES(?,?,?,?,?,?,?,?,?)";
 		Connection con = ConnectionUtil.getDbConnection();
 		 long accNumber = 0;
+		 boolean flag=false;
 			
 		 try {
 			 PreparedStatement pstmt = con.prepareStatement(que);
@@ -82,11 +86,12 @@ public class LoansDaoimpl implements LoansDao {
 				pstmt.setDouble(8,monthly_payments);
 				pstmt.setString(9, status);
 			    pstmt.executeUpdate();
-			 
+			 flag=true;
 		 }catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		 return flag;
 	}
 	public List<Loans> viewloan(){
 		List<Loans> loans=new ArrayList<Loans>();
@@ -106,19 +111,41 @@ public class LoansDaoimpl implements LoansDao {
 		
 		return loans;
 	}
-	public void updateStatus(long  accnum) {
+	public boolean updateStatus(long  accnum) {
 		String que="UPDATE LOANS SET LOAN_STATUS='Approved' WHERE  Account_number=?";
 		Connection con=ConnectionUtil.getDbConnection();
+		boolean flag=false;
 		 try {
 			PreparedStatement pst = con.prepareStatement(que);
 			pst.setLong(1,accnum);
 			int i = pst.executeUpdate();
-			System.out.println(i + " user profile updated");
+			flag=true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		 return flag;
 	}
-	 
+	public List<Loans> viewStatusUser(long accNo) {
+		List<Loans> list = new ArrayList<Loans>();
+		String query="select Account_Number,Monthly_payment,loan_status from loans where account_number='"+accNo+"'";
+		Connection con = ConnectionUtil.getDbConnection();
+		ResultSet rs=null;
+		try {
+			Statement pst=con.createStatement();
+			 
+			   rs= pst.executeQuery(query);
+				
+				while(rs.next()) {
+					Loans dep=new Loans( rs.getLong(1), rs.getDouble(2), rs.getString(3));
+					list.add(dep);
+				}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+		
+	}
 
 }
