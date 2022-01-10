@@ -14,16 +14,13 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/LogoutServlet")
 public class Logout extends HttpServlet {
 	 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void  service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		HttpSession session=request.getSession();
-		  
-         
-         
-         session.setAttribute("out","LogoutSuccessfully");
+		session.setAttribute("out","LogoutSuccessfully");
          session.invalidate();
-        request.getRequestDispatcher("login.jsp").include(request, response);
+        request.getRequestDispatcher("login.jsp").forward(request, response);
        //  response.sendRedirect("login.jsp");
         
 		

@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import="java.util.*"%>
+    <%@ page import="com.bankapp.model.UserDetails" %>
+    <%@ page import="com.bankapp.impl.*" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>User</title>
+<title>My Profile</title>
  <style>
      *{
         margin:0;
@@ -42,7 +44,7 @@
            color:white;
        }
         .set1{
-            padding-right : 328.3px;
+            padding-right : 311.5px;
         }
 h3{
 padding:20px;
@@ -105,8 +107,15 @@ padding:10px;
 padding-left:300px;
 padding-right:50px;
 }
-
+.t1{
  
+padding:30px;
+}
+td{
+ 
+padding-left:200px}
+ th{
+ padding-left:200px }
 } 
  </style>
 </head>
@@ -121,7 +130,7 @@ padding-right:50px;
                        <a  href="ContactUs.jsp">Contact Us</a> 
                        <a  href="help.jsp" >Help</a>
                        <a   href="interest.jsp" class="set1">%</a>   
-                       <a href="MyProfile.jsp">My Profile</a>
+                       <a href="UserProfile">My Profile</a>
                          <button class="btn"><a href="LogoutServlet">Logout</a></button>
        </nav>
        <br>
@@ -144,16 +153,31 @@ padding-right:50px;
 			 
 		</ul>
      </div>
-   
-     <%! String name; %>
-     <%   name=(String) session.getAttribute("username"); %>
-    
-     <div >
-     <p class="pa"> <b>WELCOME &nbsp <%=name %>! </b></p> <br><br>
-         <p>Some ways to Prevent Spread of COVID-19</p>
-         
-         <p class="par"> Avoid touching surfaces, especially in public settings or health facilities, in case people infected with COVID-19 have touched them. Clean surfaces regularly with standard disinfectants.</p>
-          <p class="par">  Frequently clean your hands with soap and water, or an alcohol-based hand rub</p>
-     </div>
+     <%
+     String email=(String ) session.getAttribute("user_id");
+     UserDetailsDaoimpl userdao=new UserDetailsDaoimpl();
+     List<UserDetails>  list= userdao.MyProfile(email); 
+     
+      for ( UserDetails Viewuser :list ) {
+    	  
+    	  %>
+    	  
+    	<table class="t1">
+    	<tr>
+    	<th>Name:</th>
+    	<td><%=Viewuser.getUser_name() %></td>
+    	</tr>
+    	<tr>
+    	<th>EmailId:</th>
+    	<td><%=Viewuser.getEmailId() %></td>
+    	</tr>
+    	<tr>
+    	<th>Mobile Number</th>
+    	<td><%=Viewuser.getMobile_Number() %></td>
+    	</tr>
+    	</table>
+    	  <%} %>
+      }
+     
 </body>
 </html>

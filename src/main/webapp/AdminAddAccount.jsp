@@ -112,7 +112,7 @@ margin-right:16px;
      </tr>
      <tr>
      <th>Enter City  </th>
-     <td><input type="text" name="city " pattern="[A-Za-z]{3,}"  required/></td>
+     <td><input type="text" name="city" pattern="[A-Za-z]{3,}"  required/></td>
      </tr>
      <tr>
      <th>Enter Pincode  </th>

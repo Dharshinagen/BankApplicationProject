@@ -142,7 +142,7 @@ i++;
 
 
 <td><%=i%></td>
-<td><%=Viewuser.getSender_Account_number()%></td>
+<td><%=acc%></td>
 <td><%=Viewuser.getName()%></td>
 <td><%=Viewuser.getTransaction_type()%></td>
  <td><%=Viewuser.getReceiver_account_number()%></td>

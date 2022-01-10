@@ -43,6 +43,25 @@ public class UserDetailsDaoimpl implements UserDetailsDao {
 		}
 		return i;
 	}
+	public List<UserDetails> MyProfile(String email){
+		List<UserDetails> userList=new ArrayList<UserDetails>();
+		String view="select * from User_details where role='USER' and email='"+email+"'";
+		Connection con=ConnectionUtil.getDbConnection();
+		 try {
+			Statement st=con.createStatement();
+			ResultSet rs=st.executeQuery(view);
+			while(rs.next()) {
+				UserDetails user=new UserDetails( 0, rs.getString(2), rs.getString(3), rs.getString(4), rs.getLong(5) );
+				userList.add(user);
+			//	System.out.println(userList);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return userList;
+	}
 
 	public UserDetails validateUser(String emailId, String password) {
 		String ValidateQuery = "select * from USER_DETAILS where role='USER' and email='" + emailId + "' and user_password='"
@@ -113,6 +132,7 @@ public class UserDetailsDaoimpl implements UserDetailsDao {
 			pstmt.setString(1,password);
 			pstmt.setString(2,email);
 			int i = pstmt.executeUpdate();
+		 
 			 flag=true;
 		} catch (SQLException e) {
 			e.printStackTrace();

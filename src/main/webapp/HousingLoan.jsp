@@ -115,6 +115,11 @@ padding:20px;
      <th>Enter tenure</th>
      <td><input type="text" name="period" pattern="[1-9]+"  placeholder="TENURE IN YEARS" required /></td>
      </tr>
+      <tr>
+      <th> Enter Pan number</th>
+      <td><input type="text" name="pan" required/></td>
+     </tr>
+     
      </table>
      <button type="submit">Submit</button>
      <button type="reset">Reset</button><br> <br>

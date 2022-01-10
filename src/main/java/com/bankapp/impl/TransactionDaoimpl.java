@@ -167,7 +167,7 @@ public class TransactionDaoimpl implements TransactionDao {
 				list .add(trans);
 			}
 			 
-			
+		System.out.println(list);	
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -214,7 +214,7 @@ public class TransactionDaoimpl implements TransactionDao {
 			Transaction	trans=new Transaction(rs.getLong(1),rs.getString(2),rs.getString(3),rs.getLong(4),rs.getDouble(5),rs.getDate(6).toLocalDate());
 				list .add(trans);
 			}
-			//System.out.println(list);
+			System.out.println(list);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

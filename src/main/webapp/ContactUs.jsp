@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import = "java.util.List"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
- <html lang="en">
- <head>
-  
-      
-     <title>Document</title>
-     <style>
-        *{
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Contact Us</title>
+<style>
+ *{
         margin:0;
         padding:0;
         }
@@ -50,23 +49,18 @@
            height: 200px;
            color: red;
        }
-        .img{
-        
-         padding-left:650px;
-          
-        }
+         
          
         .set1{
             padding-right : 293.4px;
         }
-        h4{
-        padding-left:50px;
-        } 
-        li,p{
-        padding-left:50px;
+        p{
+            color:white;
         }
-         .t1{
-        	display: inline-flex;
+        h3,h2{
+        text-align:center;
+        font-size:20px;
+        
         }
         </style> 
        </head>
@@ -84,31 +78,21 @@
                        <a  href="AboutUs.jsp">About us</a>
                        <a  href="ContactUs.jsp">Contact Us</a> 
                        <a  href="help.jsp" >Help</a> 
-                       <a   href="interest.jsp" class="set1">%</a>   
+                       <a   href="interest.jsp" class="set1">%</a>       
        </nav>
-       
-       <h2>WELCOME!!</h2>
-        
-       <h3 align="center">VISION AND MISSION</h>
+ <br><br>
+ <br><br>
+     <h2>Call Us </h2><br>
+      <h3>1800 1200 (Toll Free)</h3><br>
+ 
 
-         <h4>  Vision:</h4><br>
-           <p>Delivering excellence in financial services through customer focus, employee engagement and sustainable growth.</p>
- <br>
- <br>
- <div class="t1">
- <div class="t2">
-       <h4>Mission: </h4><br>
-           <li>Bring the best of innovation and technology in our offerings</li><br>
-          <li> Be responsive to the unique needs of every customer through all channels of choice </li><br>
-            <li>To provide value to stakeholders</li><br>
-            <li>  Empower and engage our employees </li><br>
+<h3> Timings: 8:00 AM to 8:00 PM</h3><br>
 
-            </ul>
- </div>
- <div class="t3">
-     
-</div>
-</div>
-       </body>
-       </html>
-      
+<h3>(Post 8 PM till 8 AM only critical service offered)</h3><br>
+<br>
+<h2>Email & SMS</h2><br>
+<h3> bankofindia@bankofindia.in</h3><br>
+<h3>SMS 'HELP' space CUST ID </h3><br>
+<h3>+91 9652220020</h3>
+</body>
+</html>

@@ -72,11 +72,11 @@ color:red;
         <label for="userid" class="lab">EMAIL ID</label><br>
                   <input type="text" class="textfield" name="userId" pattern="[a-z]+[0-9.]+[@][a-z]+[.][a-z]+{8,15}" placeholder="EMAIL ID"  ><br><br>
                   <label for="pass" class="lab">MOBILE NUMBER</label>
-                  <input type="password"  name="pwd" class="textfield" pattern="[6-9][0-9]{9}" placeholder="PASSWORD"  >
+                  <input type="text"  name="mobNo"  class="textfield"pattern="[6-9][0-9]{9}" placeholder="PASSWORD"  >
                   <label for="pass" class="lab">PASSWORD</label>
                   <input type="password"  name="pwd" class="textfield" pattern="[A-Za-z0-9]{8,10}" placeholder="PASSWORD"  >
                   <label for="pass" class="lab">CONFIRM PASSWORD</label>
-                  <input type="password"  name="pwd" class="textfield" pattern="[A-Za-z0-9]{8,10}" placeholder="PASSWORD"  >
+                  <input type="password"  name="cpwd" class="textfield" pattern="[A-Za-z0-9]{8,10}" placeholder="PASSWORD"  >
                   <br>
                   <br>
                   

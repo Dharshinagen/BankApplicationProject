@@ -58,6 +58,33 @@ public List<AdminUse> allDetails() {
 	
 	return list;
 }
+public List<AdminUse> interestRate() {
+	List<AdminUse> list=new ArrayList<AdminUse>();
+	ConnectionUtil conUtil = new ConnectionUtil();
+	
+	String ValidateQuery="select * from admin_use order by category_id";
+	 
+	Connection con = conUtil.getDbConnection();
+	 AdminUse adminuse=null;
+	try {
+		 Statement st=con.createStatement();
+			ResultSet rs=st.executeQuery(ValidateQuery);
+			 
+			while(rs.next())
+			{
+				adminuse =new AdminUse(null,rs.getString(3),rs.getString(4),0,rs.getDouble(6));
+				list.add(adminuse);
+			}
+			 
+		
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		System.out.println("Statement Error");
+	}
+	
+	return list;
+}
  
 }
 	

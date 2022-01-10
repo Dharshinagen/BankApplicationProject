@@ -12,6 +12,10 @@ public class Loans {
 	private double interest_rate;
 	private double monthly_payment;
 	private String loan_status;
+	private  String  panNumber;
+ 
+	
+	
 	public int getUser_Id() {
 		return user_Id;
 	}
@@ -66,6 +70,26 @@ public class Loans {
 	public void setLoan_status(String loan_status) {
 		this.loan_status = loan_status;
 	}
+	public String getPanNumber() {
+		return panNumber;
+	}
+	public void setPanNumber(String panNumber) {
+		this.panNumber = panNumber;
+	}
+	public Loans(int user_Id, long account_number, String loan_type, String description, double loan_amount,
+			String tenure, double interest_rate, double monthly_payment, String loan_status, String panNumber) {
+		super();
+		this.user_Id = user_Id;
+		this.account_number = account_number;
+		this.loan_type = loan_type;
+		this.description = description;
+	   this.Loan_amount = loan_amount;
+		this.tenure = tenure;
+		this.interest_rate = interest_rate;
+		this.monthly_payment = monthly_payment;
+		this.loan_status = loan_status;
+		this.panNumber = panNumber;
+	}
 	public Loans(int user_Id, long account_number, String loan_type, String description, double loan_amount,
 			String tenure, double interest_rate, double monthly_payment, String loan_status) {
 		super();
@@ -92,7 +116,7 @@ public class Loans {
 	@Override
 	public int hashCode() {
 		return Objects.hash(Loan_amount, account_number, description, interest_rate, loan_status, loan_type,
-				monthly_payment, tenure, user_Id);
+				monthly_payment, panNumber, tenure, user_Id);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -108,16 +132,15 @@ public class Loans {
 				&& Double.doubleToLongBits(interest_rate) == Double.doubleToLongBits(other.interest_rate)
 				&& Objects.equals(loan_status, other.loan_status) && Objects.equals(loan_type, other.loan_type)
 				&& Double.doubleToLongBits(monthly_payment) == Double.doubleToLongBits(other.monthly_payment)
-				&& Objects.equals(tenure, other.tenure) && user_Id == other.user_Id;
+				&& panNumber == other.panNumber && Objects.equals(tenure, other.tenure) && user_Id == other.user_Id;
 	}
 	@Override
 	public String toString() {
-		return " user_Id: " + user_Id +"\t" + "Account Number: " + account_number + "\t" + "Loan Type" + loan_type + "\t" 
-				+ "Description: " + description +"\t" + "Loan Amount:" + Loan_amount +"\t" + "Tenure:" + tenure
-				+"\t" + "Interest rate: " + interest_rate + "\t" +"Monthly Payment: " + monthly_payment + "\t" +"Loan Status:"
-				+ loan_status ;
+		return "Loans [user_Id=" + user_Id + ", account_number=" + account_number + ", loan_type=" + loan_type
+				+ ", description=" + description + ", Loan_amount=" + Loan_amount + ", tenure=" + tenure
+				+ ", interest_rate=" + interest_rate + ", monthly_payment=" + monthly_payment + ", loan_status="
+				+ loan_status + ", panNumber=" + panNumber + "]";
 	}
-	
-	
+	 
 
 }

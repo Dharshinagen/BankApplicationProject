@@ -34,7 +34,7 @@
  .btn1{
      border-radius: 10px;
      padding : 10px 20px ;
-     margin-left:150px;
+     margin-left:85px;
      background-color:  transparent;
      color:white ;
  }
@@ -70,6 +70,8 @@ color:white;}
             
              <a href="Reg.jsp"> Dont have an account? Please Register! </a> <br><br>
                <button type="submit " class="btn1">Log In</button>
+              <button type="submit" class="btn1" ><a href="index.jsp">Back</a></button>
+              <a href ="ForgotPassword.jsp">ForgotPassword?</a>
              
              
             

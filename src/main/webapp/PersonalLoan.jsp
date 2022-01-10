@@ -118,6 +118,11 @@ padding:20px;
      <th>Enter your Working Type(Tier-I,Tier-II,Self Employee): </th>
      <td><input type="text" name="Wtype" required/></td>
      </tr>
+     <tr>
+      <th> Enter Pan number</th>
+      <td><input type="text" name="pan" required/></td>
+     </tr>
+     
      </table>
      <button type="submit">Submit</button>
      <button type="reset">Reset</button><br><br>

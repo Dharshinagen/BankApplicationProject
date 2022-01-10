@@ -35,7 +35,7 @@
  .btn1{
      border-radius: 10px;
      padding : 5px 10px ;
-     margin-left:85px;
+     margin-left:50px;
      background-color:  transparent;
      color:white ;
  }
@@ -61,11 +61,11 @@ color:red;
 <script>
         
         function validate(){
-        	var pwd=document.getElementbyId("pwd").value;
-            var Cpwd=document.getElementbyId("Cpwd").value;
+        	var pwd=document.getElementbyId("pwd") ;
+            var Cpwd=document.getElementbyId("Cpwd") ;
         	if(pwd!=Cpwd){
-        		document.getElementById("pwd").style.borderColor = "#E34234";
-                document.getElementById("Cpwd").style.borderColor = "#E34234";
+        		document.getElementById("pwd").style.borderColor = '#E34234';
+                document.getElementById("Cpwd").style.borderColor = '#E34234';
         	}
         	 
         }
@@ -92,6 +92,7 @@ color:red;
             
               <button type="submit" class="btn1" onclick="validate()">Submit</a></button>
               <button type="reset" class="btn1" >Reset</button>
+              <button type="submit" class="btn1" ><a href="index.jsp">Back</a></button>
                
      
 </form>

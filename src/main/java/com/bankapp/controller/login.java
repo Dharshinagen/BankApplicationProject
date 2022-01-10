@@ -19,27 +19,8 @@ import com.bankapp.model.UserDetails;
  */
  @WebServlet("/login")
 public class login extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public login() {
-        super(); 
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	//	response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	 
+    
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
@@ -52,13 +33,10 @@ public class login extends HttpServlet {
 		UserDetails ValidAdmin=userDetailDao.admin(userId,password);
 		UserDetails validUser =userDetailDao.validateUser(userId,password);
 		
-//		 RequestDispatcher rd=request.getRequestDispatcher("register.jsp");
-//		   rd.forward(request, response);
+ 
 		if (validUser != null)
 		   {
-			//user_id=validUser.getUser_id();
-			// out.println("WELCOME\t" + validUser.getUser_name() + "!");
-			// out.print("<a href='accountDetails.jsp'>View Account Details</a>");
+			 
 			String name=validUser.getUser_name();
 			
 			session.setAttribute("user_id", userId);

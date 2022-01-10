@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import = "java.util.List"%>
+    pageEncoding="ISO-8859-1" import="java.util.*"%>
+    <%@page import="com.bankapp.model.AdminUse"%>
+<%@page import="com.bankapp.impl.AdminUseDaoimpl"%>
 <!DOCTYPE html>
- <html lang="en">
- <head>
-  
-      
-     <title>Document</title>
-     <style>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Interest</title>
+<style>
         *{
         margin:0;
         padding:0;
@@ -50,24 +51,19 @@
            height: 200px;
            color: red;
        }
-        .img{
         
-         padding-left:650px;
-          
-        }
          
         .set1{
             padding-right : 293.4px;
         }
-        h4{
-        padding-left:50px;
-        } 
-        li,p{
-        padding-left:50px;
-        }
          .t1{
-        	display: inline-flex;
-        }
+	  
+}
+td{
+padding:15px;
+
+ cell-spacing:15px;
+}
         </style> 
        </head>
        <body>
@@ -87,28 +83,26 @@
                        <a   href="interest.jsp" class="set1">%</a>   
        </nav>
        
-       <h2>WELCOME!!</h2>
+       
+       <%
+       AdminUseDaoimpl admin=new AdminUseDaoimpl();
+       List<AdminUse> list=admin. interestRate();
+       for ( AdminUse Viewuser :list ) {
+    	   
+       %>
         
-       <h3 align="center">VISION AND MISSION</h>
+       <table class="t1">
+       <tr>
+       <td> <%=Viewuser.getCategoryType()  %>  </td>  
+       <td> <%=Viewuser.getDescription()%>  </td>
+       <td> <%=Viewuser. getRateOfInterest() %></td>
+       </tr>
+        <%} %>
+  
+</table>
+ 
 
-         <h4>  Vision:</h4><br>
-           <p>Delivering excellence in financial services through customer focus, employee engagement and sustainable growth.</p>
- <br>
- <br>
- <div class="t1">
- <div class="t2">
-       <h4>Mission: </h4><br>
-           <li>Bring the best of innovation and technology in our offerings</li><br>
-          <li> Be responsive to the unique needs of every customer through all channels of choice </li><br>
-            <li>To provide value to stakeholders</li><br>
-            <li>  Empower and engage our employees </li><br>
-
-            </ul>
- </div>
- <div class="t3">
-     
-</div>
-</div>
-       </body>
-       </html>
+  
       
+</body>
+</html>
