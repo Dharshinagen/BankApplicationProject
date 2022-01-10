@@ -7,23 +7,61 @@
 <title>Transaction</title>
  
 <style>
-
- *{
- margin:0;
- padding:0;
- }
- a{
-text-decoration:none}
-h3{
-padding:20px;
-background-color:blue;
-margin:0;
+* {
+	margin: 0;
+	padding: 0;
 }
+
+nav {
+	font-size: 17px;
+	color: black;
+	float: left;
+	background-color: rgb(9, 57, 87);
+	height: 28%;
+	margin: 0;
+	color: red;
+	padding: 8px;
+}
+
+nav a {
+	padding-right: 48.5px;
+}
+
+h1 {
+	color: white;
+	background: #042331;
+	height: 10%;
+	margin: 0;
+	padding: 7px;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+.set1 {
+	padding-right: 325.3px;
+}
+
+.btn {
+	color: white;
+	background-color: transparent;
+	border-color: transparent;
+	font-size: 15px;
+}
+
+h3 {
+	padding: 20px;
+	background-color: blue;
+	margin: 0;
+}
+
 .sidebar{
-position:fixed;
+position:absolute;
 left:0;
 width:250px;
-height:100%;
+height:96%;
 background:#042331;
 color:white;
 }
@@ -35,55 +73,94 @@ line-height:50px;
 background:#063146;
 
 }
-ul{
-list-style-type: none;
+ul {
+	list-style-type: none;
 }
-.sidebar ul a{
 
-height:98%;
-width:99%;
-line-height: 40px;
-font-size: 15px;
-padding-left:40px;
-color:white;
- 
- 
-}
-ul li:hover a{
-padding-left:50px;
-}
 .sidebar ul a {
-margin-right:0px;
-}
-.box{
-        width:380px;
-        height:380px;
-        position:relative;
-        margin:6% auto; 
-        background: transparent;
-        padding:5px;
-        box:shadow;
-    }
-    .btn{
-    float:right;
-    padding:5px 7px;
-    margin-right:5px;
-    border-radius:7px;
-    color:gray;
-     
-
+	height: 98%;
+	width: 99%;
+	line-height: 40px;
+	font-size: 15px;
+	padding-left: 40px;
+	color: white;
 }
 
-.pa{
-text-align:left;
+ul li:hover a {
+	padding-left: 50px;
 }
-.par{
-padding:20px;
+
+.sidebar ul a {
+	margin-right: 0px;
 }
- </style>
+
+.box {
+	width: 380px;
+	height: 380px;
+	position: relative;
+	margin: 6% auto;
+	background: transparent;
+	padding: 5px;
+	box: shadow;
+}
+
+.btn {
+	float: right;
+	padding: 5px 7px;
+	margin-right: 5px;
+	border-radius: 7px;
+	color: gray;
+}
+
+.pa {
+	text-align: left;
+}
+
+.par {
+	padding: 20px;
+}
+
+.cls {
+	border-radius: 3px;
+	padding: 5px 5px 5px 5px;
+	Background-color: transparent;
+}
+
+.btn2 {
+	padding: 3px;
+	color: white;
+	background-color: green;
+	margin-right: 30px;
+}
+
+.btn3 {
+	margin-left: 130px;
+}
+
+body {
+	background-color: rgb(198, 208, 214);
+}
+#transhead{
+color:green;
+}
+</style>
 </head>
 <body>
-<h3 align="center">Indian Bank</h3>
+<h1 align="center"> BANK OF INDIA </h1> 
+        <nav>
+                        <a  href="index.jsp"> Home</a> 
+                       <a  href="loans.jsp">Loans</a> 
+                       <a  href="deposits.jsp">Deposits</a> 
+                       <a  href="insurance.jsp">Insurance</a>  
+                       <a  href="AboutUs.jsp">About us</a>
+                       <a  href="ContactUs.jsp">Contact Us</a> 
+                       <a  href="help.jsp" >Help</a>
+                       <a   href="interest.jsp" class="set1">%</a>   
+                       <a href="UserProfile">My Profile</a>
+                        <button class="btn"><a href="LogoutServlet">Logout</a></button>
+       </nav>
+       <br>
+       <br>
         
 	<div class="sidebar">
 
@@ -102,7 +179,7 @@ padding:20px;
 			 
 		</ul>
      </div>
-     <button class="btn"><a href="LogoutServlet">Logout</a></button>
+    
  <div class="box">
  
  <form action="TransferAmount" method="post">
@@ -110,28 +187,30 @@ padding:20px;
  <table>
  <tr>
  <th>Name</th>
- <td><input type="text" name="uname" required pattern="[A-Za-z]{3,}"/></td>
+ <td><input type="text" name="uname" class="cls" required pattern="[A-Za-z]{3,}"/></td>
  </tr>
  <tr>
  <th>Account Number</th>
- <td><input type="text" name="accno" required pattern="[0-9]{12}"/></td>
+ <td><input type="text" name="accno" class="cls" required pattern="[0-9]{12}"/></td>
  </tr>
  <tr>
  <th>Amount</th>
- <td><input type="text" name="amount" required></td>
+ <td><input type="text" name="amount"  class="cls" required></td>
  </tr>
  <tr>
  <th>Pin Number</th>
- <td><input type="password" name="pin" required pattern="[0-9]{4}"/></td>
+ <td><input type="password" name="pin"  class="cls" required pattern="[0-9]{4}"/></td>
  </tr>
  <tr>
  <th>Receiver Account Number</th>
- <td><input type="text" name="RecAccNo" required pattern="[0-9]{12}"/></td>
+ <td><input type="text" name="RecAccNo" class="cls" required pattern="[0-9]{12}"/></td>
  </tr>
  </table>
- <button type="submit">Submit</button>
- <button type="reset">Reset</button>
- 
+ <br><br>
+ <div class="btn3">
+ <button type="submit" class="btn2">Submit</button>
+ <button type="reset" class="btn2" >Reset</button>
+ </div>
  </form>
  <br>
  <%!

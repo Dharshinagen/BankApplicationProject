@@ -10,12 +10,50 @@
  
 <style>
 
- *{
- margin:0;
- padding:0;
- }
- a{
-text-decoration:none}
+*{
+        margin:0;
+        padding:0;
+        }
+        nav {
+           font-size: 18px;
+           color: black;
+           float: left;
+              background-color:rgb(9, 57, 87);
+           height: 30%;
+           margin: 0;
+          
+           color: red;
+           padding:8px;
+          
+       }
+       
+       nav a {
+        padding-right: 48.5px;
+       }
+       
+       h1 {
+           
+           color: white;
+          
+         background:#042331;
+           height: 10%;
+           margin: 0;
+           padding: 7px;
+       }
+       
+       a {
+           text-decoration: none;
+           color:white;
+       }
+        .set1{
+            padding-right : 311.5px;
+        }
+         .btn{
+       color:white;
+    background-color:transparent;
+    border-color:transparent;
+    font-size:15px;
+    }
 h3{
 padding:20px;
 background-color:blue;
@@ -85,7 +123,21 @@ padding:20px;
  </style>
 </head>
 <body>
-<h3 align="center">Indian Bank</h3>
+<h1 align="center"> BANK OF INDIA </h1> 
+        <nav>
+                        <a  href="index.jsp"> Home</a> 
+                       <a  href="loans.jsp">Loans</a> 
+                       <a  href="deposits.jsp">Deposits</a> 
+                       <a  href="insurance.jsp">Insurance</a>  
+                       <a  href="AboutUs.jsp">About us</a>
+                       <a  href="ContactUs.jsp">Contact Us</a> 
+                       <a  href="help.jsp" >Help</a>
+                       <a   href="interest.jsp" class="set1">%</a>   
+                       <a href="UserProfile">My Profile</a>
+                        <button class="btn"><a href="LogoutServlet">Logout</a></button>
+       </nav>
+       <br>
+       <br>
         
 	<div class="sidebar">
 

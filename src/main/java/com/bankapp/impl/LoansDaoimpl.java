@@ -128,7 +128,7 @@ public class LoansDaoimpl implements LoansDao {
 				ResultSet rs = pstmt.executeQuery();
 				if(rs.next())
 				{
-					email=rs.getString(1);
+					userid=rs.getInt(1);
 					accNumber = rs.getLong(2);
 					
 				}

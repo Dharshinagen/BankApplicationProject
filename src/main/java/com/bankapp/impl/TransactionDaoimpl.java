@@ -94,7 +94,7 @@ public class TransactionDaoimpl implements TransactionDao {
 				pst.setLong(2, accountNo);
 				pst.setInt(3, pinNo);
 				pst.executeUpdate();
-				System.out.println("Amount debited from your account");
+			//	System.out.println("Amount debited from your account");
 				pst = con.prepareStatement(sql1);
 				pst.setLong(1, accountNo);
 				pst.setString(2,name);
@@ -167,7 +167,7 @@ public class TransactionDaoimpl implements TransactionDao {
 				list .add(trans);
 			}
 			 
-		System.out.println(list);	
+	//	System.out.println(list);	
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -191,7 +191,7 @@ public class TransactionDaoimpl implements TransactionDao {
 						rs.getString(7),rs.getDate(9).toLocalDate());
 				list .add(transac);
 			}
-			 System.out.println(list);
+		//	 System.out.println(list);
 		 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -214,7 +214,7 @@ public class TransactionDaoimpl implements TransactionDao {
 			Transaction	trans=new Transaction(rs.getLong(1),rs.getString(2),rs.getString(3),rs.getLong(4),rs.getDouble(5),rs.getDate(6).toLocalDate());
 				list .add(trans);
 			}
-			System.out.println(list);
+		//	System.out.println(list);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

@@ -1,90 +1,162 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
- 
+<title>RECURRING DEPOSITS</title>
+
 <style>
+* {
+	margin: 0;
+	padding: 0;
+}
 
- *{
- margin:0;
- padding:0;
- }
- a{
-text-decoration:none}
-h3{
-padding:20px;
-background-color:blue;
-margin:0;
+nav {
+	font-size: 17px;
+	color: black;
+	float: left;
+	background-color: rgb(9, 57, 87);
+	height: 30%;
+	margin: 0;
+	color: red;
+	padding: 8px;
 }
-.sidebar{
-position:fixed;
-left:0;
-width:250px;
-height:100%;
-background:#042331;
-color:white;
-}
-.sidebar header{
-font-size:15px;
-color:white;
-text-align: center;
-line-height:50px;
-background:#063146;
 
+nav a {
+	padding-right: 48.5px;
 }
-ul{
-list-style-type: none;
-}
-.sidebar ul a{
 
-height:98%;
-width:99%;
-line-height: 40px;
-font-size: 15px;
-padding-left:40px;
-color:white;
- 
- 
+h1 {
+	color: white;
+	background: #042331;
+	height: 10%;
+	margin: 0;
+	padding: 7px;
 }
-ul li:hover a{
-padding-left:50px;
+
+a {
+	text-decoration: none;
+	color: white;
 }
+
+.set1 {
+	padding-right: 325px;
+}
+
+.btn {
+	color: white;
+	background-color: transparent;
+	border-color: transparent;
+	font-size: 15px;
+}
+
+h3 {
+	padding: 20px;
+	background-color: blue;
+	margin: 0;
+}
+
+.sidebar {
+	position: absolute;
+	left: 0;
+	width: 250px;
+	height: 100%;
+	background: #042331;
+	color: white;
+}
+
+.sidebar header {
+	font-size: 15px;
+	color: white;
+	text-align: center;
+	line-height: 50px;
+	background: #063146;
+}
+
+ul {
+	list-style-type: none;
+}
+
 .sidebar ul a {
-margin-right:0px;
-}
-.box{
-        width:380px;
-        height:380px;
-        position:relative;
-        margin:6% auto; 
-        background: transparent;
-        padding:5px;
-        box:shadow;
-    }
-    .btn{
-    float:right;
-    padding:5px 7px;
-    margin-right:5px;
-    border-radius:7px;
-    color:gray;
-     
-
+	height: 98%;
+	width: 99%;
+	line-height: 40px;
+	font-size: 15px;
+	padding-left: 40px;
+	color: white;
 }
 
-.pa{
-text-align:left;
+ul li:hover a {
+	padding-left: 50px;
 }
-.par{
-padding:20px;
+
+.sidebar ul a {
+	margin-right: 0px;
 }
- </style>
+
+.box {
+	width: 380px;
+	height: 380px;
+	position: relative;
+	margin: 6% auto;
+	background: transparent;
+	padding: 5px;
+	box: shadow;
+}
+
+.btn {
+	float: right;
+	padding: 5px 7px;
+	margin-right: 5px;
+	border-radius: 7px;
+	color: gray;
+}
+
+.pa {
+	text-align: left;
+}
+
+.par {
+	padding: 20px;
+}
+.cls {
+	border-radius: 3px;
+	padding: 5px 5px 5px 5px;
+	Background-color: transparent;
+}
+
+.btn2 {
+	padding: 3px;
+	color: white;
+	background-color: green;
+	margin-right: 30px;
+}
+
+.btn3 {
+	margin-left: 150px;
+}
+
+body {
+	background-color: rgb(198, 208, 214);
+}
+</style>
 </head>
 <body>
-<h3 align="center">Indian Bank</h3>
-        
+	<h1 align="center">BANK OF INDIA</h1>
+	<nav>
+		<a href="index.jsp"> Home</a> <a href="loans.jsp">Loans</a> <a
+			href="deposits.jsp">Deposits</a> <a href="insurance.jsp">Insurance</a>
+		<a href="AboutUs.jsp">About us</a> <a href="ContactUs.jsp">Contact
+			Us</a> <a href="help.jsp">Help</a> <a href="interest.jsp" class="set1">%</a>
+		<a href="UserProfile">My Profile</a>
+		<button class="btn">
+			<a href="LogoutServlet">Logout</a>
+		</button>
+	</nav>
+	<br>
+	<br>
+
 	<div class="sidebar">
 
 		<header>My Account</header>
@@ -99,39 +171,46 @@ padding:20px;
 			<li><a href="TransactionSummary.jsp">Transaction History</a></li>
 			<li><a href="depositStatusUser.jsp">Deposit Status</a></li>
 			<li><a href="LoanStatusUser.jsp">Loan Status</a></li>
-			 
+
 		</ul>
-     </div>
-     <button class="btn"><a href="LogoutServlet">Logout</a></button>
-     <h2 align="center">WELCOME!</h2>
-     <div class="box">
-     <form - action="Recurring"  method="post">
-     <table>
-     <tr>
-     <th>Enter Amount to Deposit</th>
-     <td><input type="text" name="amountDeposit" pattern="[1-9][0-9]+" required/></td>
-     </tr>
-     <tr>
-     <th>Enter Tenure</th>
-     <td><input type=" text" name="period" pattern="[1-9]+" required placeholder="TENURE IN YEARS"/></td>
-     </tr>
-     </table>
-     <button type="submit">Submit</button>
-     <button type="reset">Reset</button><br><br>
-     </form>
-         <%!
-String flag;
-%>
-<%
-if(session.getAttribute("tran") != null){
-flag = session.getAttribute("tran").toString();
-%>
+	</div>
+	 
+	<h2 align="center">RECURRING DEPOSITS</h2>
+	<div class="box">
+		<form - action="Recurring" method="post">
+			<table>
+				<tr>
+					<th>Enter Amount to Deposit</th>
+					<td><input type="text" name="amountDeposit"
+						class="cls" pattern="[1-9][0-9]+" required /></td>
+				</tr>
+				<tr>
+					<th>Enter Tenure</th>
+					<td><input type="text" class="cls"  name="period" pattern="[1-9]+"
+						required placeholder="TENURE IN YEARS" /></td>
+				</tr>
+			</table><br><br>
+			<div class="btn3">
+			<button type="submit" class="btn2">Submit</button>
+			<button type="reset" class="btn2">Reset</button>
+			</div>
+			<br>
+			<br>
+		</form>
+		<%!String flag;%>
+		<%
+		if (session.getAttribute("tran") != null) {
+			flag = session.getAttribute("tran").toString();
+		%>
 
 
-	<h4 id = "transhead"><%= flag%></h4>
-<% }%>
-     <%session.removeAttribute("tran");
-       %>
-     </div>
+		<h4 id="transhead"><%=flag%></h4>
+		<%
+		}
+		%>
+		<%
+		session.removeAttribute("tran");
+		%>
+	</div>
 </body>
 </html>

@@ -8,86 +8,176 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
- 
-<style>
-*{
- margin:0;
- padding:0;
- }
- a{
-text-decoration:none}
-h3{
-padding:20px;
-background-color:blue;
-margin:0;
-}
-.sidebar{
-position:fixed;
-left:0;
-width:250px;
-height:100%;
-background:#042331;
-color:white;
-}
-.sidebar header{
-font-size:15px;
-color:white;
-text-align: center;
-line-height:50px;
-background:#063146;
+<title>Account Details</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-}
-ul{
-list-style-type: none;
-}
-.sidebar ul a{
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-height:98%;
-width:99%;
-line-height: 40px;
-font-size: 15px;
-padding-left:40px;
-color:white;
- 
- 
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+ <style>
+* {
+	margin: 0;
+	padding: 0;
 }
-ul li:hover a{
-padding-left:50px;
+
+nav {
+	font-size: 17px;
+	color: black;
+	float: left;
+	background-color: rgb(9, 57, 87);
+	height: 25%;
+	margin: 0;
+	color: red;
+	padding: 8px;
 }
+
+nav a {
+	padding-right: 48.5px;
+}
+
+h1 {
+	color: white;
+	background: #042331;
+	height: 10%;
+	margin: 0;
+	padding: 7px;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+.set1 {
+	padding-right: 290.3px;
+}
+
+.btn {float-right;
+	background-color: transparent;
+	border-color: transparent;
+	font-size: 15px;
+}
+
+h3 {
+	padding: 20px;
+	background-color: blue;
+	margin: 0;
+}
+
+.sidebar {
+	position: absolute;
+	left: 0;
+	width: 250px;
+	height: 84%;
+	background: #042331;
+	color: white;
+}
+
+.sidebar header {
+	font-size: 15px;
+	color: white;
+	text-align: center;
+	line-height: 50px;
+	background: #063146;
+}
+
+ul {
+	list-style-type: none;
+}
+
 .sidebar ul a {
-margin-right:0px;
-}
-.box{
-        width:380px;
-        height:380px;
-        position:relative;
-        margin:6% auto; 
-        background: transparent;
-        padding:5px;
-        box:shadow;
-    }
-    .btn{
-    float:right;
-    padding:5px 7px;
-    margin-right:5px;
-    border-radius:7px;
-    color:gray;
-     
-
+	height: 98%;
+	width: 99%;
+	line-height: 40px;
+	font-size: 15px;
+	padding-left: 40px;
+	color: white;
 }
 
-.pa{
-text-align:left;
+ul li:hover a {
+	padding-left: 50px;
 }
-.par{
-padding:20px;
+
+.sidebar ul a {
+	margin-right: 0px;
 }
- </style>
+
+.box {
+	width: 380px;
+	height: 380px;
+	position: relative;
+	margin: 6% auto;
+	background: transparent;
+	padding: 5px;
+	box: shadow;
+}
+
+.btn1 {
+	color: black;
+	padding: 50px;
+	padding-left: 350px
+}
+
+p {
+	padding: 10px;
+	padding-left: 300px;
+	padding-right: 50px;
+}
+
+.t1 {
+	padding: 90px;
+	padding-left: 350px;
+}
+
+td {
+	padding-left: 80px
+}
+
+th {
+	padding-left: 350px
+}
+
+}
+.btn2 {
+	padding: 3px;
+	color: white;
+	background-color: green;
+	margin-right: 30px;
+}
+
+.t2 {
+	border: 1px black;
+	padding-top: 5px;
+}
+
+.btn3 {
+	margin-left: 570px;
+	position: relative;
+	padding: 70px;
+}
+
+body {
+	background-color: rgb(198, 208, 214);
+}
+</style>
 </head>
 <body>
-<h3 align="center">Indian Bank</h3>
-        
+ <h1 align="center"> BANK OF INDIA </h1> 
+        <nav>
+                        <a  href="index.jsp"> Home</a> 
+                       <a  href="loans.jsp">Loans</a> 
+                       <a  href="deposits.jsp">Deposits</a> 
+                       <a  href="insurance.jsp">Insurance</a>  
+                       <a  href="AboutUs.jsp">About us</a>
+                       <a  href="ContactUs.jsp">Contact Us</a> 
+                       <a  href="help.jsp" >Help</a>
+                       <a   href="interest.jsp" class="set1">%</a>   
+                       <a href="UserProfile">My Profile</a>
+                         <button class="btn"><a href="LogoutServlet">Logout</a></button>
+       </nav>
+        <br><br>
 	<div class="sidebar">
 
 		<header>My Account</header>
@@ -105,15 +195,15 @@ padding:20px;
 			 
 		</ul>
      </div>
-     <button class="btn"><a href="LogoutServlet">Logout</a></button>
-      <div class="box">
+     
+      <div class="t2">
  <%
 long accno =  (long)session.getAttribute("useraccno");
  int pin = (int)session.getAttribute("userpin");
  AccountDetailsdaoimpl accountDetailsdaoimpl = new AccountDetailsdaoimpl();
  List<AccountDetails>  accdet = accountDetailsdaoimpl.searchDetail(accno, pin);
  %>
- <table>
+ <table class="t1">
  <%for(AccountDetails acc : accdet){ %>
    <tr>
    <th>AccountType</th>
@@ -155,7 +245,8 @@ long accno =  (long)session.getAttribute("useraccno");
     
     <%} %>
     </table>
-    <button type="submit" ><a href="CustomerDashBoard.jsp">ok</a></button>
-   
+    <div class="btn3">
+    <button type="submit" class="btn2"><a href="CustomerDashBoard.jsp">OK</a></button>
+   </div>
 </body>
 </html>

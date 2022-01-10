@@ -5,7 +5,7 @@
  <head>
   
       
-     <title>Document</title>
+     <title>index</title>
      <style>
         *{
         margin:0;

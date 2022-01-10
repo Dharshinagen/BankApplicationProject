@@ -47,7 +47,7 @@ public class TransferAmount extends HttpServlet {
 		 long Accno=Long.parseLong(request.getParameter("RecAccNo"));
 		 
 		 TransactionDaoimpl transDao=new TransactionDaoimpl();
-		 int pinnum=transDao.getPinnumber(Accno);
+		 int pinnum=transDao.getPinnumber(accNo);
 		 if(pin==pinnum) {
 		 transDao.depositAmount(accNo, uname, amount, pin, Accno);
 		 session.setAttribute("trans","TRANSFERRED");
