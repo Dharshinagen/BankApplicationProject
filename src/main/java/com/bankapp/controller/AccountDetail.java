@@ -57,7 +57,7 @@ public class AccountDetail extends HttpServlet {
 	      response.sendRedirect("accDetailView.jsp");
 		 }
 		 else {
-			 session.setAttribute("pinvalid", "Enter Valid Pin Number");
+			 session.setAttribute("pinvalid", "Enter Valid Account number or Pin Number");
 			 response.sendRedirect("accountDetail.jsp");
 		 }
 	}

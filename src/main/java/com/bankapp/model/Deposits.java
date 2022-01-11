@@ -13,6 +13,8 @@ public class Deposits {
         private String maturity_date;
         private double maturity_value;
         private String deposit_status;
+        private String pan;
+		 
 		public int getUser_id() {
 			return user_id;
 		}
@@ -73,6 +75,12 @@ public class Deposits {
 		public void setDeposit_status(String deposit_status) {
 			this.deposit_status = deposit_status;
 		}
+		public String getPan() {
+			return pan;
+		}
+		public void setPan(String pan) {
+			this.pan = pan;
+		}
 		public Deposits(int user_id, long accno, String deposit_type, double amount, String date_of_deposit, int tenure,
 				double rate_of_interest, String maturity_date, double maturity_value, String deposit_status) {
 			super();
@@ -97,11 +105,26 @@ public class Deposits {
 			this.deposit_status = deposit_status;
 			// TODO Auto-generated constructor stub
 		}
+		public Deposits(int user_id, long accno, String deposit_type, double amount, String date_of_deposit, int tenure,
+				double rate_of_interest, String maturity_date, double maturity_value, String deposit_status,
+				String pan) {
+			super();
+			this.user_id = user_id;
+			this.accno = accno;
+			this.deposit_type = deposit_type;
+			this.amount = amount;
+			this.date_of_deposit = date_of_deposit;
+			this.tenure = tenure;
+			this.rate_of_interest = rate_of_interest;
+			this.maturity_date = maturity_date;
+			this.maturity_value = maturity_value;
+			this.deposit_status = deposit_status;
+			this.pan = pan;
+		}
 		@Override
 		public int hashCode() {
 			return Objects.hash(accno, amount, date_of_deposit, deposit_status, deposit_type, maturity_date,
-					maturity_value, rate_of_interest, tenure, user_id);
-			
+					maturity_value, pan, rate_of_interest, tenure, user_id);
 		}
 		@Override
 		public boolean equals(Object obj) {
@@ -118,6 +141,7 @@ public class Deposits {
 					&& Objects.equals(deposit_type, other.deposit_type)
 					&& Objects.equals(maturity_date, other.maturity_date)
 					&& Double.doubleToLongBits(maturity_value) == Double.doubleToLongBits(other.maturity_value)
+					&& Objects.equals(pan, other.pan)
 					&& Double.doubleToLongBits(rate_of_interest) == Double.doubleToLongBits(other.rate_of_interest)
 					&& tenure == other.tenure && user_id == other.user_id;
 		}
@@ -126,8 +150,10 @@ public class Deposits {
 			return "Deposits [user_id=" + user_id + ", accno=" + accno + ", deposit_type=" + deposit_type + ", amount="
 					+ amount + ", date_of_deposit=" + date_of_deposit + ", tenure=" + tenure + ", rate_of_interest="
 					+ rate_of_interest + ", maturity_date=" + maturity_date + ", maturity_value=" + maturity_value
-					+ ", deposit_status=" + deposit_status + "]";
+					+ ", deposit_status=" + deposit_status + ", pan=" + pan + "]";
 		}
+		 
+		 
 		 
 
 

@@ -125,18 +125,17 @@ p {
 	padding-left: 300px;
 	padding-right: 50px;
 }
-
-.t1 {
-	padding: 90px;
-	padding-left: 350px;
+.t1{
+padding:100px;
 }
-
+ 
 td {
-	padding-left: 80px
+	padding-left: 110px;
+	 
 }
 
 th {
-	padding-left: 350px
+	padding-left: 380px
 }
 
 }
@@ -147,15 +146,8 @@ th {
 	margin-right: 30px;
 }
 
-.t2 {
-	border: 1px black;
-	padding-top: 5px;
-}
-
 .btn3 {
-	margin-left: 570px;
-	position: relative;
-	padding: 70px;
+	margin-left: 870px;
 }
 
 body {
@@ -196,14 +188,15 @@ body {
 		</ul>
      </div>
      
-      <div class="t2">
+      <div class="t1">
+      <h2 align="center">Account Details</h2>
  <%
 long accno =  (long)session.getAttribute("useraccno");
  int pin = (int)session.getAttribute("userpin");
  AccountDetailsdaoimpl accountDetailsdaoimpl = new AccountDetailsdaoimpl();
  List<AccountDetails>  accdet = accountDetailsdaoimpl.searchDetail(accno, pin);
  %>
- <table class="t1">
+ <table class="">
  <%for(AccountDetails acc : accdet){ %>
    <tr>
    <th>AccountType</th>
@@ -245,8 +238,11 @@ long accno =  (long)session.getAttribute("useraccno");
     
     <%} %>
     </table>
-    <div class="btn3">
-    <button type="submit" class="btn2"><a href="CustomerDashBoard.jsp">OK</a></button>
+    <br>
+       <div class="btn3">
+    <button type="submit" class="btn2"><a href="CustomerDashBoard.jsp">Back</a></button>
+       </div>
    </div>
+   
 </body>
 </html>

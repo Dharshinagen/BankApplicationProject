@@ -35,23 +35,32 @@ public class DepositsDaoimpl implements DepositsDao {
 	}
 
 	public boolean fixedDeposit(String type, double amount, double rate_of_interest, double maturity_value, int period,
-			String status, int userId) {
+			String status,String pan ,String email) {
 		Connection con = ConnectionUtil.getDbConnection();
 		boolean flag=false;
-		String que = "select deposit_acc.nextval from dual";
-		String Query = "INSERT INTO DEPOSITS (USER_ID,ACCOUNT_NUMBER,DEPOSIT_TYPE,AMOUNT,TENURE_IN_YEARS,RATE_OF_INTEREST,MATURITY_DATE,MATURITY_VALUE,DEPOSIT_STATUS) VALUES(?,?,?,?,?,?,?,?,?)";
+	//	String que = "select deposit_acc.nextval from dual";
+		String que="select USER_ID,ACCOUNT_NUMBER FROM ACCOUNT_DETAILS WHERE EMAIL=? and ACC_TYPE='FixedDeposit'";
+		String Query = "INSERT INTO DEPOSITS (ACCOUNT_NUMBER,USER_ID,DEPOSIT_TYPE,AMOUNT,TENURE_IN_YEARS,RATE_OF_INTEREST,MATURITY_DATE,MATURITY_VALUE,DEPOSIT_STATUS,PAN_NUMBER) VALUES(?,?,?,?,?,?,?,?,?,?)";
 		LocalDate sysDate = LocalDate.now();
 		Date mdate = Date.valueOf(sysDate.plusYears(period));
 		long accNumber = 0;
+		int userId=0;
 		try {
 
 			PreparedStatement pstmt = con.prepareStatement(que);
+			pstmt.setString(1, email);
+			System.out.println(email);
+			pstmt.executeUpdate();
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next())
-				accNumber = rs.getLong(1);
+			{
+				 userId=rs.getInt(1);
+				 accNumber= rs.getLong(2);
+				 System.out.println(userId +"ascc"+accNumber);
+			}
 			pstmt = con.prepareStatement(Query);
-			pstmt.setInt(1, userId);
-			pstmt.setLong(2, accNumber);
+			pstmt.setLong(1, accNumber);
+			pstmt.setInt(2, userId);
 			pstmt.setString(3, type);
 			pstmt.setDouble(4, amount);
 			pstmt.setInt(5, period);
@@ -59,6 +68,8 @@ public class DepositsDaoimpl implements DepositsDao {
 			pstmt.setDate(7, mdate);
 			pstmt.setDouble(8, maturity_value);
 			pstmt.setString(9, status);
+			pstmt.setString(10,pan);
+			System.out.println(type+" "+amount+" "+period+" "+rate_of_interest+" "+mdate+" "+maturity_value+" "+status+" "+pan);
 			pstmt.executeUpdate();
            flag=true;
 		} catch (SQLException e) {
@@ -69,23 +80,32 @@ public class DepositsDaoimpl implements DepositsDao {
 	}
 
 	public boolean recurringDeposit(String type, double amount, double rate_of_interest, int period, double maturity_value,
-			String status, int userId) {
+		String status, String pan,String email) {
 		Connection con = ConnectionUtil.getDbConnection();
-		String que = "select deposit_acc.nextval from dual";
-		String Query = "INSERT INTO DEPOSITS (USER_ID,ACCOUNT_NUMBER,DEPOSIT_TYPE,AMOUNT,TENURE_IN_YEARS,RATE_OF_INTEREST,MATURITY_DATE,MATURITY_VALUE,DEPOSIT_STATUS) VALUES(?,?,?,?,?,?,?,?,?)";
-         boolean flag=false;
+		String que="select USER_ID,ACCOUNT_NUMBER FROM ACCOUNT_DETAILS WHERE EMAIL=? and ACC_TYPE='RecurringDeposit'" ;
+		String Query = "INSERT INTO DEPOSITS (ACCOUNT_NUMBER,USER_ID,DEPOSIT_TYPE,AMOUNT,TENURE_IN_YEARS,RATE_OF_INTEREST,MATURITY_DATE,MATURITY_VALUE,DEPOSIT_STATUS,PAN_NUMBER) VALUES(?,?,?,?,?,?,?,?,?,?)";
+		  boolean flag=false;
 		LocalDate sysDate = LocalDate.now();
 		Date mdate = Date.valueOf(sysDate.plusYears(period));
 		long accNumber = 0;
-
+		int userId=0;
 		try {
+
 			PreparedStatement pstmt = con.prepareStatement(que);
+			pstmt.setString(1, email);
+			System.out.println(email);
+			pstmt.executeUpdate();
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next())
-				accNumber = rs.getLong(1);
+			{
+				 userId=rs.getInt(1);
+				 accNumber= rs.getLong(2);
+				 System.out.println(userId +"ascc"+accNumber);
+			}
 			pstmt = con.prepareStatement(Query);
-			pstmt.setInt(1, userId);
-			pstmt.setLong(2, accNumber);
+			pstmt.setLong(1, accNumber);
+			pstmt.setInt(2, userId);
+			
 			pstmt.setString(3, type);
 			pstmt.setDouble(4, amount);
 			pstmt.setInt(5, period);
@@ -93,6 +113,7 @@ public class DepositsDaoimpl implements DepositsDao {
 			pstmt.setDate(7, mdate);
 			pstmt.setDouble(8, maturity_value);
 			pstmt.setString(9, status);
+			pstmt.setString(10,pan);
 			pstmt.executeUpdate();
              flag=true;
 		} catch (SQLException e) {

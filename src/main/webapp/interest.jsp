@@ -55,8 +55,8 @@ marquee {
 }
 
 .t1 {
-	cell-spacing: 30px;
-	 padding:20px;
+	 
+	  
 }
 
 td {

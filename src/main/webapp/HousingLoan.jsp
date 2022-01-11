@@ -183,18 +183,42 @@ color:green;
 	<div class="box">
 		<form action="House" method="post">
 			<table>
+			<th>Name</th>
+					<td><input type="text"  class="cls" name="lname"
+						pattern="[a-zA-z]{3,}" required /></td>
+				</tr>
 				<tr>
-					<th>Enter Loan Amount</th>
+					<th>DOB</th>
+					<td><input type="date"  class="cls" name="dob"
+						  required /></td>
+				</tr>
+				<tr>
+					<th>Address</th>
+					<td><input type="text"  class="cls" name="address"
+						pattern="[a-zA-z0-9,-]+" required /></td>
+				</tr>
+				<tr>
+					<th>Email</th>
+					<td><input type="email"  class="cls" name="email"
+						  required /></td>
+				</tr>
+				<tr>
+					<th>MobileNumber</th>
+					<td><input type="text"  class="cls" name="mobno"
+						pattern="[6-9][0-9]+" required /></td>
+				</tr>
+				<tr>
+					<th>  Loan Amount</th>
 					<td><input type="text" name="amountDeposit" class="cls"
 						pattern="[1-9][0-9]+" required"/></td>
 				</tr>
 				<tr>
-					<th>Enter tenure</th>
+					<th>Tenure</th>
 					<td><input type="text" name="period" pattern="[1-9]+"
 						class="cls" placeholder="TENURE IN YEARS" required /></td>
 				</tr>
 				<tr>
-					<th>Enter Pan number</th>
+					<th>  Pan number</th>
 					<td><input type="text" name="pan" class="cls" required /></td>
 				</tr>
 

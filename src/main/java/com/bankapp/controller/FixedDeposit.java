@@ -1,4 +1,4 @@
-package com.bankapp.controller;
+ package com.bankapp.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -25,16 +25,19 @@ public class FixedDeposit extends HttpServlet {
 		DepositsDaoimpl depositdao=new DepositsDaoimpl();
 		UserDetailsDaoimpl userdao=new UserDetailsDaoimpl();
 		HttpSession session=request.getSession();
-		String userName=(String)session.getAttribute("user_id");
-		String pass=(String)session.getAttribute("pass");
+		//String userName=(String)session.getAttribute("user_id");
+	//	String pass=(String)session.getAttribute("pass");
 		
-		UserDetails validUser=userdao.validateUser(userName,pass );
-		 int user_id=validUser.getUser_id();
+	//	UserDetails validUser=userdao.validateUser(userName,pass );
+	//	 int user_id=validUser.getUser_id();
 		// System.out.println(user_id);
 		String type="Fixed Deposit";
-		   String status="not approved";
+		   String status="NOTAPPROVED";
+		   String pan=request.getParameter("pan");
+		   String email=(String )session.getAttribute("user_id");
 		double amount=Double.parseDouble(request.getParameter("amountDeposit"));
 		int period=Integer.parseInt(request.getParameter("period"));
+		 
 		double rate_of_interest=0;
 		int n=0;
 	     if(period <=2) {
@@ -50,12 +53,14 @@ public class FixedDeposit extends HttpServlet {
 	     double rt=(rate_of_interest/100);
 	     double base=(1+( rt /n));
 	     double  maturity_value=Math.round(amount * Math.pow(base,(n* period)));
-	     
-		 
-		depositdao.fixedDeposit(type, amount,rate_of_interest,maturity_value, period, status, user_id) ;
-		 
+	     boolean flag=false;
+		
+		depositdao.fixedDeposit(type, amount,rate_of_interest,maturity_value, period, status,pan,email) ;
+		  
 		 session.setAttribute("trans","Deposit Requested");
 		  response.sendRedirect("FixedDeposit.jsp");
-	}
+		 }
+		  
+	
 
 }

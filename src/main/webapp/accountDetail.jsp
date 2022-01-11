@@ -128,6 +128,8 @@ ul li:hover a {
 body {
 	background-color: rgb(198, 208, 214);
 }
+#transhead{
+color:green;}
 </style>
 </head>
 <body>
@@ -183,8 +185,9 @@ body {
 			<div class="btn3">
 				<input type="submit" class="btn2" value=submit /> <input
 					type="reset" class="btn2" value=cancel />
-			</div>
+			</div> 
 		</form>
+		<br><br>
 		<%!String flag;%>
 		<%
 		if (session.getAttribute("pinvalid") != null) {

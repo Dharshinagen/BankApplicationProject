@@ -1,6 +1,8 @@
 package com.bankapp.controller;
 
 import java.io.IOException;
+import java.time.LocalDate;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.bankapp.impl.LoansDaoimpl;
 import com.bankapp.impl.UserDetailsDaoimpl;
+import com.bankapp.model.Loans;
 import com.bankapp.model.UserDetails;
 
 /**
@@ -32,11 +35,15 @@ public class HousingLoan extends HttpServlet {
 		LoansDaoimpl loandao=new LoansDaoimpl();
 		UserDetailsDaoimpl userdao=new UserDetailsDaoimpl();
 		HttpSession session=request.getSession();
-		String userName=(String)session.getAttribute("user_id");
-		String pass=(String)session.getAttribute("pass");
-		String emailId=(String) session.getAttribute("user_id");
+		 
 		String type="Housing Loan";
-		String status="not approved";
+		String status="NotApproved";
+		String Wtype="Home Loan";
+		String name=request.getParameter("lname");
+		String emailId=request.getParameter("email");
+		LocalDate Date=LocalDate.parse(request.getParameter("dob"));
+		long mobno=Long.parseLong(request.getParameter("mobno"));
+		String address=request.getParameter("address");
 		double amount=Double.parseDouble(request.getParameter("amountDeposit"));
 		int period=Integer.parseInt(request.getParameter("period"));
 		String pan= request.getParameter("pan");
@@ -46,10 +53,10 @@ public class HousingLoan extends HttpServlet {
 	    double rt=(rate_of_interest/(12*100));
 		double    r=Math.pow((1+rt), numberOfPayments);
 	    double  monthly_payment= Math.round(amount *rt*((r)/(r-1)));
-		long accNum=loandao.getAccNum(emailId);
-		boolean flag=loandao.validateLoan(accNum);
+		 boolean flag=loandao.validateLoan(pan);
 	     if(flag==false) {
-	    	 loandao.housingLoan(type,amount,period,type,rate_of_interest,monthly_payment,emailId,status,pan);
+	    	 Loans loan=new Loans(0,name,Date,address,mobno,emailId,type,Wtype,amount,period,rate_of_interest,monthly_payment,status,pan);
+			   loandao.housingLoan(loan);
 			 session.setAttribute("Hloan"," Loan Requested");
 			 response.sendRedirect("HousingLoan.jsp");
 	     }

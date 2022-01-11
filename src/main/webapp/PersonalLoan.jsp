@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +10,6 @@
 	margin: 0;
 	padding: 0;
 }
-
 nav {
 	font-size: 17px;
 	color: black;
@@ -21,11 +20,9 @@ nav {
 	color: red;
 	padding: 8px;
 }
-
 nav a {
 	padding-right: 48.5px;
 }
-
 h1 {
 	color: white;
 	background: #042331;
@@ -33,29 +30,24 @@ h1 {
 	margin: 0;
 	padding: 7px;
 }
-
 a {
 	text-decoration: none;
 	color: white;
 }
-
 .set1 {
 	padding-right: 325px;
 }
-
 .btn {
 	color: white;
 	background-color: transparent;
 	border-color: transparent;
 	font-size: 15px;
 }
-
 h3 {
 	padding: 20px;
 	background-color: blue;
 	margin: 0;
 }
-
 .sidebar {
 	position: absolute;
 	left: 0;
@@ -64,7 +56,6 @@ h3 {
 	background: #042331;
 	color: white;
 }
-
 .sidebar header {
 	font-size: 15px;
 	color: white;
@@ -72,11 +63,9 @@ h3 {
 	line-height: 50px;
 	background: #063146;
 }
-
 ul {
 	list-style-type: none;
 }
-
 .sidebar ul a {
 	height: 98%;
 	width: 99%;
@@ -85,15 +74,12 @@ ul {
 	padding-left: 40px;
 	color: white;
 }
-
 ul li:hover a {
 	padding-left: 50px;
 }
-
 .sidebar ul a {
 	margin-right: 0px;
 }
-
 .box {
 	width: 380px;
 	height: 380px;
@@ -103,7 +89,6 @@ ul li:hover a {
 	padding: 5px;
 	box: shadow;
 }
-
 .btn {
 	float: right;
 	padding: 5px 7px;
@@ -111,32 +96,26 @@ ul li:hover a {
 	border-radius: 7px;
 	color: gray;
 }
-
 .pa {
 	text-align: left;
 }
-
 .par {
 	padding: 15px;
 }
-
 .cls {
 	border-radius: 3px;
 	padding: 5px 5px 5px 5px;
 	Background-color: transparent;
 }
-
 .btn2 {
 	padding: 3px;
 	color: white;
 	background-color: green;
 	margin-right: 30px;
 }
-
 .btn3 {
 	margin-left: 150px;
 }
-
 body {
 	background-color: rgb(198, 208, 214);
 }
@@ -186,22 +165,47 @@ color:green;
 	<div class="box">
 		<form action="Personal" method="post">
 			<table>
+			<tr>
+					<th>Name</th>
+					<td><input type="text"  class="cls" name="lname"
+						pattern="[a-zA-z]{3,}" required /></td>
+				</tr>
 				<tr>
-					<th>Enter Loan Amount</th>
+					<th>DOB</th>
+					<td><input type="date"  class="cls" name="dob"
+						  required /></td>
+				</tr>
+				<tr>
+					<th>Address</th>
+					<td><input type="text"  class="cls" name="address"
+						pattern="[a-zA-z0-9,-]+" required /></td>
+				</tr>
+				<tr>
+					<th>Email</th>
+					<td><input type="email"  class="cls" name="email"
+						  required /></td>
+				</tr>
+				<tr>
+					<th>MobileNumber</th>
+					<td><input type="text"  class="cls" name="mobno"
+						pattern="[6-9][0-9]+" required /></td>
+				</tr>
+				<tr>
+					<th>  Loan Amount</th>
 					<td><input type="text"  class="cls" name="amountDeposit"
 						pattern="[1-9][0-9]+" required /></td>
 				</tr>
 				<tr>
-					<th>Enter Tenure</th>
+					<th>  Tenure</th>
 					<td><input type="text" name="period" pattern="[1-9]+"
 						class="cls" placeholder="TENURE IN YEARS" required /></td>
 				</tr>
 				<tr>
-					<th>Enter your Working Type(Tier-I,Tier-II,Self Employee):</th>
+					<th>  Working Type(Tier-I,Tier-II,Self Employee):</th>
 					<td><input type="text" name="Wtype" class="cls" required /></td>
 				</tr>
 				<tr>
-					<th>Enter Pan number</th>
+					<th>  Pan number</th>
 					<td><input type="text" name="pan" class="cls" required /></td>
 				</tr>
 

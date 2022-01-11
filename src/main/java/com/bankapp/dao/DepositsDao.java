@@ -8,10 +8,10 @@ public interface DepositsDao {
 	public double getInterest(double descriptionId);
 
 	public boolean fixedDeposit(String type, double amount, double rate_of_interest, double maturity_value, int period,
-			String status, int userId);
+			String status,String pan,String email);
 
 	public boolean recurringDeposit(String type, double amount, double rate_of_interest, int period, double maturity_value,
-			String status, int userId);
+			String status,String pan,String email);
 
 	public List<Deposits> viewdeposit();
 

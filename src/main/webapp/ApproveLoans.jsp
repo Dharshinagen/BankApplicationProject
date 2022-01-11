@@ -152,7 +152,7 @@ margin-right:16px;
 			 
 		</ul>
      </div>
-     <button class="btn"><a href="LogoutServlet">Logout</a></button>
+     
       
 <% LoansDaoimpl LoanDao = new LoansDaoimpl();
         List<Loans> List = new ArrayList<Loans>();
@@ -167,7 +167,7 @@ margin-right:16px;
 <thead>
 <tr>
   <th>S.no</th>
-  <th>UserId</th>
+   
 <th>AccountNumber</th>
 <th>LoanType</th>
 <th>LoanAmount</th>
@@ -190,7 +190,7 @@ i++;
 
 
 <td><%=i%></td>
-<td><%=viewuser.getUser_Id()%></td>
+ 
 <td><%=viewuser.getAccount_number()%></td>
 <td><%=viewuser. getLoan_type()%></td> 
 <td><%=viewuser. getLoan_amount()%></td>

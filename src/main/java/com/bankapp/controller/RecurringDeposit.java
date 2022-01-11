@@ -44,13 +44,15 @@ public class RecurringDeposit extends HttpServlet {
 		DepositsDaoimpl depositdao=new DepositsDaoimpl();
 		UserDetailsDaoimpl userdao=new UserDetailsDaoimpl();
 		HttpSession session=request.getSession();
-		String userName=(String)session.getAttribute("user_id");
-		String pass=(String)session.getAttribute("pass");
-		
-		UserDetails validUser=userdao.validateUser(userName,pass );
-		 int user_id=validUser.getUser_id();
+//		String userName=(String)session.getAttribute("user_id");
+//		String pass=(String)session.getAttribute("pass");
+//		
+//		UserDetails validUser=userdao.validateUser(userName,pass );
+//		 int user_id=validUser.getUser_id();
 		String type="Recurring Deposit";
 		   String status="not approved";
+		   String pan=request.getParameter("pan");
+		   String email=(String )session.getAttribute("user_id");
 		double amount=Double.parseDouble(request.getParameter("amountDeposit"));
 		int period=Integer.parseInt(request.getParameter("period"));
 		double rate_of_interest=0;
@@ -70,10 +72,18 @@ public class RecurringDeposit extends HttpServlet {
 	     double  maturity_value=Math.round(amount * Math.pow(base,(n* period)));
 	     
 		 
-		depositdao.recurringDeposit(type, amount,rate_of_interest, period,maturity_value, status, user_id) ;
+		depositdao.recurringDeposit(type, amount,rate_of_interest, period,maturity_value, status,pan,email) ;
 		// HttpSession session=request.getSession();
+		 boolean flag=false;
+		 if(flag==true)
+		{
 		 session.setAttribute("tran"," RD Requested");
 		  response.sendRedirect("RecurringDeposit.jsp");
+		}
+		 else {
+			 session.setAttribute("tran", "Something Went Wrong!");
+			 response.sendRedirect("RecurringDeposit.jsp");
+		 }
 	}
 
 }

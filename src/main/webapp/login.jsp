@@ -91,10 +91,7 @@ color:white;}
        <%session.removeAttribute("login");
        %>
       </div>
-      <% 
-      String lout=(String) session.getAttribute("out");
-      %>
-      <p><%= lout%><p>
+      
       </div>
 </body>
 </html>

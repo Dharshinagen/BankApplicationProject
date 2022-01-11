@@ -32,39 +32,45 @@ public class LoansDaoimpl implements LoansDao {
 		}
 		return 0;
 	 }
-	public  boolean PersonalLoan( String type,double amount,double period,String type1,double interest_rate,double monthly_payments, String email,String status ,String pan) {
+	public  boolean PersonalLoan(Loans loan) {
 	//	System.out.println(userid);
-		String que="select user_id,account_number from account_details where  email=?";
-		String query="INSERT INTO LOANS (USER_ID,ACCOUNT_NUMBER,LOAN_TYPE,DESCRIPTION,LOAN_AMOUNT,TENURE,INTEREST_RATE,MONTHLY_PAYMENT,LOAN_STATUS,PAN_NUMBER)VALUES(?,?,?,?,?,?,?,?,?,?)";
+		String que="select  loan_acc.nextval from dual";
+		String query="INSERT INTO LOANS (ACCOUNT_NUMBER,ACC_HOLDER_NAME,DOB,ADDRESS,MOBILE_NUMBER,EMAIL,LOAN_TYPE,DESCRIPTION,LOAN_AMOUNT,TENURE,INTEREST_RATE,MONTHLY_PAYMENT,LOAN_STATUS,PAN_NUMBER)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		Connection con = ConnectionUtil.getDbConnection();
 		 long accNumber = 0;
 		 boolean flag=false;
-		 int userId=0;
+		 
 			
 		 try {
 			 PreparedStatement pstmt =  con.prepareStatement(que);
-			 pstmt.setString(1, email);
+			 
 			 pstmt.executeUpdate();
 				ResultSet rs = pstmt.executeQuery();
 				//System.out.println(userid);
-				System.out.println("ghsgdjhsg");
+				//System.out.println("ghsgdjhsg");
 				if(rs.next()) {
-					userId=rs.getInt(1);
-					accNumber = rs.getLong(2);
+					 accNumber = rs.getLong(1);
 				}
-				System.out.println(accNumber);
+			//	System.out.println(accNumber);
 			    pstmt = con.prepareStatement(query);		  
-			    pstmt.setInt(1, userId);
-				pstmt.setLong(2, accNumber);
-				pstmt.setString(3,type);
-				pstmt.setString(4,type1);
-				pstmt.setDouble(5 ,amount);
-				pstmt.setDouble(6,period);
-				pstmt.setDouble(7, interest_rate );
-				pstmt.setDouble(8,monthly_payments);
-				pstmt.setString(9, status);
-				pstmt.setString(10, pan);
-			    pstmt.executeUpdate();
+			     
+				pstmt.setLong(1, accNumber);
+				pstmt.setString(2,loan.getUser_name());
+				pstmt.setDate(3,java.sql.Date.valueOf(loan.getDob()));
+				pstmt.setString(4,loan.getAddress());
+				pstmt.setLong(5,loan.getMobno());
+				pstmt.setString(6,loan.getEmail());
+				pstmt.setString(7,loan.getLoan_type());
+				pstmt.setString(8,loan.getDescription());
+				pstmt.setDouble(9 ,loan.getLoan_amount());
+				pstmt.setDouble(10,loan.getTenure());
+				pstmt.setDouble(11,loan.getInterest_rate());
+				pstmt.setDouble(12,loan.getMonthly_payment());
+				pstmt.setString(13,loan.getLoan_status());
+				pstmt.setString(14,loan.getPanNumber());
+				pstmt.executeUpdate();
+				//System.out.println(loan.getPanNumber()+loan.getLoan_status()+loan.getMonthly_payment()+loan.getInterest_rate()+
+				//		loan.getTenure()+loan.getLoan_amount()+loan.getDescription());
 			 flag=true;
 		 }catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -92,16 +98,17 @@ public class LoansDaoimpl implements LoansDao {
 		 return  accNum;
 		
 	}
-	public boolean validateLoan(long accNo) {
-	    String que="select  * from loans where account_number='"+accNo+"'";
+	public boolean validateLoan( String pan) {
+	    String que="select  * from loans where  pan_number='"+pan+"'";
 	    Connection con = ConnectionUtil.getDbConnection();
 	    boolean flag=true;
 	    try {
 			Statement st=con.createStatement();
 			ResultSet rs=st.executeQuery(que);
 			 if(rs.next()) {
-				 Loans loan=new Loans(rs.getInt(2),rs.getLong(3), rs.getString(5),rs.getString(6),rs.getDouble(7),rs.getString(8),rs.getDouble(9),rs.getDouble(10),rs.getString(11));
-				  
+				 Loans loan=new Loans(rs.getLong(1), rs.getString(2),rs.getDate(3).toLocalDate(),rs.getString(4),rs.getLong(5),
+							rs.getString(6), rs.getString(7),rs.getString(8),rs.getDouble(9),rs.getInt(10), rs.getDouble(11),
+							rs.getDouble(12), rs.getString(13), rs.getString(14));
 			 }
 			 else {
 				 flag=false;
@@ -114,37 +121,42 @@ public class LoansDaoimpl implements LoansDao {
 	    
 		return flag;
 	}
-	public  boolean housingLoan( String type,double amount,double period,String type1,double interest_rate,double monthly_payments,String email,String status, String pan) {
-		String que="select user_id,account_number from account_details where  email=?";
-		String query="INSERT INTO LOANS (USER_ID,ACCOUNT_NUMBER,LOAN_TYPE,DESCRIPTION,LOAN_AMOUNT,TENURE,INTEREST_RATE,MONTHLY_PAYMENT,LOAN_STATUS,PAN_NUMBER)VALUES(?,?,?,?,?,?,?,?,?,?)";
+	public  boolean housingLoan(Loans loan) {
+		String que="select  loan_acc.nextval from dual";
+		String query="INSERT INTO LOANS (ACCOUNT_NUMBER,ACC_HOLDER_NAME,DOB,ADDRESS,MOBILE_NUMBER,EMAIL,LOAN_TYPE,DESCRIPTION,LOAN_AMOUNT,TENURE,INTEREST_RATE,MONTHLY_PAYMENT,LOAN_STATUS,PAN_NUMBER)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		Connection con = ConnectionUtil.getDbConnection();
 		 long accNumber = 0;
 		 boolean flag=false;
-		 int userid=0;
+		 
 			
 		 try {
-			 PreparedStatement pstmt = con.prepareStatement(que);
-			 pstmt.setString(1, email);
+			 PreparedStatement pstmt =  con.prepareStatement(que);
+			 
+			 pstmt.executeUpdate();
 				ResultSet rs = pstmt.executeQuery();
-				if(rs.next())
-				{
-					userid=rs.getInt(1);
-					accNumber = rs.getLong(2);
-					
+				//System.out.println(userid);
+				//System.out.println("ghsgdjhsg");
+				if(rs.next()) {
+					 accNumber = rs.getLong(1);
 				}
-					
-			 pstmt = con.prepareStatement(query);		  
-			 pstmt.setInt(1, userid);
-				pstmt.setLong(2, accNumber);
-				pstmt.setString(3,type);
-				pstmt.setString(4,type1);
-				pstmt.setDouble(5 ,amount);
-				pstmt.setDouble(6,period);
-				pstmt.setDouble(7, interest_rate );
-				pstmt.setDouble(8,monthly_payments);
-				pstmt.setString(9, status);
-				pstmt.setString(10,pan);
-			    pstmt.executeUpdate();
+			//	System.out.println(accNumber);
+			    pstmt = con.prepareStatement(query);		  
+			     
+				pstmt.setLong(1, accNumber);
+				pstmt.setString(2,loan.getUser_name());
+				pstmt.setDate(3,java.sql.Date.valueOf(loan.getDob()));
+				pstmt.setString(4,loan.getAddress());
+				pstmt.setLong(5,loan.getMobno());
+				pstmt.setString(6,loan.getEmail());
+				pstmt.setString(7,loan.getLoan_type());
+				pstmt.setString(8,loan.getDescription());
+				pstmt.setDouble(9 ,loan.getLoan_amount());
+				pstmt.setDouble(10,loan.getTenure());
+				pstmt.setDouble(11,loan.getInterest_rate());
+				pstmt.setDouble(12,loan.getMonthly_payment());
+				pstmt.setString(13,loan.getLoan_status());
+				pstmt.setString(14,loan.getPanNumber());
+				pstmt.executeUpdate();
 			 flag=true;
 		 }catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -160,7 +172,9 @@ public class LoansDaoimpl implements LoansDao {
 			Statement st=con1.createStatement();
 			ResultSet rs=st.executeQuery(view1);
 			while(rs.next()) {
-				Loans loan=new Loans(rs.getInt(2),rs.getLong(3), rs.getString(5),rs.getString(6),rs.getDouble(7),rs.getString(8),rs.getDouble(9),rs.getDouble(10),rs.getString(11));
+				Loans loan=new Loans(rs.getLong(2), rs.getString(3),rs.getDate(4).toLocalDate(),rs.getString(5),rs.getLong(6),
+						rs.getString(7), rs.getString(11),rs.getString(12),rs.getDouble(13),rs.getInt(14), rs.getDouble(15),
+						rs.getDouble(16), rs.getString(17), rs.getString(18));
 				loans.add(loan);
 			}
 		} catch (SQLException e) {

@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title> 
+<title>admin</title> 
  
 <style>
 *{
@@ -43,7 +43,7 @@
        
        a {
            text-decoration: none;
-           color:white;
+           
        }
         .set1{
             padding-right : 311.5px;

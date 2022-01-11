@@ -180,15 +180,19 @@ body {
 		<form - action="Recurring" method="post">
 			<table>
 				<tr>
-					<th>Enter Amount to Deposit</th>
+					<th>  Amount to Deposit</th>
 					<td><input type="text" name="amountDeposit"
 						class="cls" pattern="[1-9][0-9]+" required /></td>
 				</tr>
 				<tr>
-					<th>Enter Tenure</th>
+					<th>  Tenure</th>
 					<td><input type="text" class="cls"  name="period" pattern="[1-9]+"
 						required placeholder="TENURE IN YEARS" /></td>
 				</tr>
+				 <tr>
+     <th>Pan Number</th>
+     <td><input type="text" name="pan" pattern="[a-zA-z0-9]+" class="cls" required "/></td>
+     </tr>
 			</table><br><br>
 			<div class="btn3">
 			<button type="submit" class="btn2">Submit</button>

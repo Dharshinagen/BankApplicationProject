@@ -7,6 +7,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Admin</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="customer.css">
 <style>
 *{
@@ -14,7 +16,7 @@
         padding:0;
         }
         nav {
-           font-size: 18px;
+           font-size: 16px;
            color: black;
            float: left;
               background-color:rgb(9, 57, 87);
@@ -27,7 +29,7 @@
        }
        
        nav a {
-        padding-right: 48.5px;
+        padding-right: 47px;
        }
        
        h1 {
@@ -45,7 +47,7 @@
            color:white;
        }
         .set1{
-            padding-right : 311.5px;
+            padding-right : 335.5px;
         }
          .btn{
        color:white;
@@ -60,9 +62,9 @@ color:white;
 margin:0;
 }
 .sidebar{
-position:fixed;
+position:absolute;
 left:0;
-width:250px;
+width:230px;
 height:100%;
 background:#042331;
 color:white;
@@ -83,7 +85,7 @@ list-style-type: none;
 height:100%;
 width:100%;
 line-height: 40px;
-font-size: 15px;
+font-size: 11px;
 padding-left:40px;
 color:white;
  
@@ -113,20 +115,8 @@ margin-right:16px;
      
 
 }
-.table1{
-	padding-left: 470px;
-    border:none;
-    cell-padding:5px;
-    
-}
-td{
-padding:5px;
  
-}
-th{
-padding:5px;
  
-}
 body{
  
  background-color:;
@@ -134,6 +124,12 @@ body{
 h2{
 color:white;
 }
+table{
+       font-size:12px;
+		margin-left:160px;
+		 
+		
+	}
 </style>
 </head>
 <body>
@@ -147,11 +143,10 @@ color:white;
                        <a  href="ContactUs.jsp">Contact Us</a> 
                        <a  href="help.jsp" >Help</a>
                        <a   href="interest.jsp" class="set1">%</a>   
-                       <a href="UserProfile">My Profile</a>
-                        <button class="btn"><a href="LogoutServlet">Logout</a></button>
+                       <a href="MyProfile.jsp">My Profile</a>
+                       <button class="btn"><a href="LogoutServlet">Logout</a></button>
        </nav>
-       <br>
-       <br>
+        <br><br>
 	<div class="sidebar">
 
 		<header>ADMIN</header>
@@ -169,9 +164,7 @@ color:white;
 			 
 		</ul>
      </div>
-     <button class="btn"><a href="LogoutServlet">Logout</a></button>
-     
-     <h2 align="center">WELCOME!</h2><br><br>
+   
       
 <% UserDetailsDaoimpl UserDao = new UserDetailsDaoimpl();
         List<UserDetails> List = new ArrayList<UserDetails>();
@@ -179,8 +172,8 @@ color:white;
 
 %>
 
-
-<table class="table1" >
+<div class="container mt-1">
+<table class="table table-dark" >
  
 <thead>
 <tr>
@@ -217,6 +210,7 @@ i++;
 %>
 </tbody>
           </table>
- <button type="submit" class="btn1"><a href="CustomerDashBoard">Ok</a></button>
+          </div>
+  
 </body>
 </html>

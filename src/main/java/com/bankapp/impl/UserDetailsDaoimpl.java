@@ -45,7 +45,7 @@ public class UserDetailsDaoimpl implements UserDetailsDao {
 	}
 	public List<UserDetails> MyProfile(String email){
 		List<UserDetails> userList=new ArrayList<UserDetails>();
-		String view="select * from User_details where role='USER' and email='"+email+"'";
+		String view="select * from User_details where  email='"+email+"'";
 		Connection con=ConnectionUtil.getDbConnection();
 		 try {
 			Statement st=con.createStatement();
