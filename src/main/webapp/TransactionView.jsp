@@ -132,7 +132,7 @@ ul li:hover a {
 }
 
 .btn3 {
-	margin-left: 150px;
+	margin-left: 700px;
 }
 
 body {
@@ -149,13 +149,13 @@ transhead {
 }
 
 td {
-	padding-left: 22px;
+	padding-left: 15px;
 	 
 }
 
 th {
 	padding-left:  10px;
-	font-size:20px;
+	font-size:18px;
 	 
 }
 
@@ -216,6 +216,7 @@ th {
 					<th>Transaction</th>
 					<th>Receive Account Number</th>
 					<th>Amount</th>
+					<th>Date</th>
 				</tr>
 			</thead>
 			<br>
@@ -236,6 +237,7 @@ th {
 					<td><%=Viewuser.getTransaction_type()%></td>
 					<td><%=Viewuser.getReceiver_account_number()%></td>
 					<td><%=Viewuser.getAmount()%></td>
+					<td><%=Viewuser.getTransaction_date()%></td>
 
 				</tr>
 
@@ -246,7 +248,7 @@ th {
 		</table>
 		<div class="btn3">
 		<button type="submit" class="btn2">
-			<a href="CustomerDashBoard">ok</a>
+			<a href="CustomerDashBoard.jsp">ok</a>
 		</button>
 		</div>
 	</div>

@@ -29,6 +29,7 @@ public class TransactionDaoimpl implements TransactionDao {
 		String rec_query2 = "insert into transaction (sender_account_number,name,transaction_type,receiver_account_number,amount,balance,transaction_status)values(?,?,'DEPOSIT AMOUNT',?,?,?,'CREDITED')";
 
 		String send_query = " UPDATE  ACCOUNT_DETAILS  SET BALANCE = (select balance from account_details where account_number=?)-? WHERE  ACCOUNT_NUMBER= ? AND PIN_NUMBER= ? ";
+		
 
 		PreparedStatement ps;
 		try {
@@ -40,9 +41,10 @@ public class TransactionDaoimpl implements TransactionDao {
 			ps.executeUpdate();
 
 			ps = con.prepareStatement(rec_query1);
-			ps.setDouble(1, receiver_AccNO);
+			ps.setDouble(1, sender_AccNO );
 			ps.executeUpdate();
 			ResultSet rs = ps.executeQuery();
+			
 			if (rs.next()) {
 				balance = rs.getDouble("balance");
 			}
@@ -243,6 +245,7 @@ public class TransactionDaoimpl implements TransactionDao {
 		}
 		 return date;
 	 }
+	
 	
 	
 }

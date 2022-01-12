@@ -8,7 +8,7 @@ public interface LoansDao {
 
 	public double getInterest(double descriptionId);
 
-	public  boolean PersonalLoan(Loans loan);
+	public  long PersonalLoan(Loans loan);
 
 	public boolean housingLoan(Loans loan);
 

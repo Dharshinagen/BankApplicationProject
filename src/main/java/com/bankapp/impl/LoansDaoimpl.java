@@ -32,10 +32,11 @@ public class LoansDaoimpl implements LoansDao {
 		}
 		return 0;
 	 }
-	public  boolean PersonalLoan(Loans loan) {
+	public   long PersonalLoan(Loans loan) {
 	//	System.out.println(userid);
 		String que="select  loan_acc.nextval from dual";
 		String query="INSERT INTO LOANS (ACCOUNT_NUMBER,ACC_HOLDER_NAME,DOB,ADDRESS,MOBILE_NUMBER,EMAIL,LOAN_TYPE,DESCRIPTION,LOAN_AMOUNT,TENURE,INTEREST_RATE,MONTHLY_PAYMENT,LOAN_STATUS,PAN_NUMBER)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		
 		Connection con = ConnectionUtil.getDbConnection();
 		 long accNumber = 0;
 		 boolean flag=false;
@@ -76,7 +77,7 @@ public class LoansDaoimpl implements LoansDao {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		 return flag;
+		 return accNumber;
 		 
 	}
 	public  Long getAccNum(String email) {
@@ -99,20 +100,32 @@ public class LoansDaoimpl implements LoansDao {
 		
 	}
 	public boolean validateLoan( String pan) {
-	    String que="select  * from loans where  pan_number='"+pan+"'";
+	    String que="select  * from loans where  pan_number='"+pan+"'  ";
+	    String query="select  * from loans where  pan_number='"+pan+"' and Loan_status='Rejected' ";
 	    Connection con = ConnectionUtil.getDbConnection();
 	    boolean flag=true;
 	    try {
 			Statement st=con.createStatement();
 			ResultSet rs=st.executeQuery(que);
+			Statement st1=con.createStatement();
+		 	ResultSet rs1=st1.executeQuery(query);
+			
 			 if(rs.next()) {
-				 Loans loan=new Loans(rs.getLong(1), rs.getString(2),rs.getDate(3).toLocalDate(),rs.getString(4),rs.getLong(5),
-							rs.getString(6), rs.getString(7),rs.getString(8),rs.getDouble(9),rs.getInt(10), rs.getDouble(11),
-							rs.getDouble(12), rs.getString(13), rs.getString(14));
+//				 Loans loan=new Loans(rs.getLong(1), rs.getString(2),rs.getDate(3).toLocalDate(),rs.getString(4),rs.getLong(5),
+//							rs.getString(6), rs.getString(7),rs.getString(8),rs.getDouble(9),rs.getInt(10), rs.getDouble(11),
+////							rs.getDouble(12), rs.getString(13), rs.getString(14));
+				  
+				 //flag=true;
+				 if(rs1.next()) {
+					   flag=false;
+					   System.out.println("success");
+				   }
+				 
 			 }
 			 else {
 				 flag=false;
 			 }
+			 
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -199,9 +212,26 @@ public class LoansDaoimpl implements LoansDao {
 		}
 		 return flag;
 	}
+	
+	public boolean updateStatusReject(long  accnum) {
+		String que="UPDATE LOANS SET LOAN_STATUS='Rejected' WHERE  Account_number=?";
+		Connection con=ConnectionUtil.getDbConnection();
+		boolean flag=false;
+		 try {
+			PreparedStatement pst = con.prepareStatement(que);
+			pst.setLong(1,accnum);
+			int i = pst.executeUpdate();
+			flag=true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 return flag;
+	}
+	
 	public List<Loans> viewStatusUser(long accNo) {
 		List<Loans> list = new ArrayList<Loans>();
-		String query="select Account_Number,Monthly_payment,loan_status from loans where account_number='"+accNo+"'";
+		String query="select  * from loans where account_number='"+accNo+"'";
 		Connection con = ConnectionUtil.getDbConnection();
 		ResultSet rs=null;
 		try {
@@ -210,7 +240,9 @@ public class LoansDaoimpl implements LoansDao {
 			   rs= pst.executeQuery(query);
 				
 				while(rs.next()) {
-					Loans dep=new Loans( rs.getLong(1), rs.getDouble(2), rs.getString(3));
+					Loans dep=new Loans(rs.getLong(2), rs.getString(3),rs.getDate(4).toLocalDate(),rs.getString(5),rs.getLong(6),
+							rs.getString(7), rs.getString(11),rs.getString(12),rs.getDouble(13),rs.getInt(14), rs.getDouble(15),
+							rs.getDouble(16), rs.getString(17), rs.getString(18));
 					list.add(dep);
 				}
 		} catch (SQLException e) {

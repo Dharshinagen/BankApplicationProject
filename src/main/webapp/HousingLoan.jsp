@@ -141,6 +141,9 @@ ul li:hover a {
 body {
 	background-color: rgb(198, 208, 214);
 }
+th{
+padding-left:150;
+}
 transhead{
 color:green;
 }

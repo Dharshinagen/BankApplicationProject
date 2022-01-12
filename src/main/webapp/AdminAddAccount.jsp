@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title> Add Account</title>
 <style>
 * {
 	margin: 0;
@@ -40,7 +40,7 @@ a {
 }
 
 .set1 {
-	padding-right: 311.5px;
+	padding-right: 652.5px;
 }
 
 .btn {
@@ -57,7 +57,7 @@ h3 {
 }
 
 .sidebar {
-	position: fixed;
+	position:absolute;
 	left: 0;
 	width: 250px;
 	height: 100%;
@@ -125,12 +125,14 @@ ul li:hover a {
 }
 
 .btn3 {
-	margin-left: 70px;
+	margin-left: 160px;
 }
 
 body {
 	background-color: rgb(198, 208, 214);
 }
+.div1{
+padding-left :460px;}
 #transhead{
 color:green;}
 </style>
@@ -138,11 +140,14 @@ color:green;}
 <body>
 	<h1 align="center">BANK OF INDIA</h1>
 	<nav>
-		<a href="index.jsp"> Home</a> <a href="loans.jsp">Loans</a> <a
-			href="deposits.jsp">Deposits</a> <a href="insurance.jsp">Insurance</a>
-		<a href="AboutUs.jsp">About us</a> <a href="ContactUs.jsp">Contact
-			Us</a> <a href="help.jsp">Help</a> <a href="interest.jsp" class="set1">%</a>
-		<a href="UserProfile">My Profile</a>
+		<a href="index.jsp"> Home</a> 
+		<a href="loans.jsp">Loans</a> 
+		<a	href="deposits.jsp">Deposits</a>
+		  
+		<a href="AboutUs.jsp">About us</a>
+		 <a href="ContactUs.jsp">Contact Us</a> 
+		  <a href="interest.jsp" class="set1">%</a>
+		 
 		<button class="btn">
 			<a href="LogoutServlet">Logout</a>
 		</button>
@@ -154,9 +159,10 @@ color:green;}
 		<header>ADMIN</header>
 		<ul>
 			<li><a href="viewAllUser.jsp">View All Users</a></li>
+			<li><a href="viewAccount.jsp">View All Account</a></li>
 			<li><a href="AdminAddAccount.jsp">Insert Account Details </a></li>
-			<li><a href="UpdateAccountDetails.jsp">Update Account
-					Details </a></li>
+			<li><a href="UpdateAccountDetails.jsp">Update Account Details</a></li>
+					 
 			<li><a href="ApproveLoans.jsp">ApproveLoans</a></li>
 			<li><a href="ApproveDeposits.jsp">ApproveDeposits</a></li>
 			<li><a href="InterestRateAll.jsp">Rate Of Interest</a></li>
@@ -168,93 +174,82 @@ color:green;}
 
 		</ul>
 	</div>
-	<button class="btn">
-		<a href="LogoutServlet">Logout</a>
-	</button>
-	<h2 align="center">WELCOME!</h2>
-	<div class="box">
+	 
+	<h2 align="center">Add Account</h2><br>
+	<div class="div1">
 		<form action="addAccount" method="post">
 			<table>
 				<tr>
 					<th>Enter Account Type</th>
-					<td><input type="text" name="type" required /></td>
+					<td><input type="text" class="cls"  name="type" required /></td>
 				</tr>
 				<tr>
 					<th>Enter Account Holder Name</th>
-					<td><input type="text" name="aname" pattern="[A-Za-z]{5,}"
+					<td><input type="text" class="cls"  name="aname" pattern="[A-Za-z]{5,}"
 						required /></td>
 				</tr>
 				<tr>
 					<th>Enter Address</th>
-					<td><input type="text" name="address"
+					<td><input type="text" class="cls" name="address"
 						pattern="[A-Za-z0-9]{5,}" required /></td>
 				</tr>
 				<tr>
 					<th>Enter City</th>
-					<td><input type="text" name="city" pattern="[A-Za-z]{3,}"
+					<td><input type="text" name="city" class="cls"  pattern="[A-Za-z]{3,}"
 						required /></td>
 				</tr>
 				<tr>
 					<th>Enter Pincode</th>
-					<td><input type="text" name="pincode" pattern="[0-9]{6}"
+					<td><input type="text"  class="cls" name="pincode" pattern="[0-9]{6}"
 						required /></td>
 				</tr>
 				<tr>
 					<th>Enter Date of Birth</th>
-					<td><input type="text" name="date" placeholder="dd-mm-yyyy"
+					<td><input type="date" class="cls" name="date" placeholder="dd-mm-yyyy"
 						required /></td>
 				</tr>
 				<tr>
 					<th>Enter Mobile Number</th>
-					<td><input type="text" name="mobno" pattern="[6-9][0-9]{9}"
+					<td><input type="text" class="cls" name="mobno" pattern="[6-9][0-9]{9}"
 						required /></td>
 				</tr>
 				<tr>
 					<th>Enter Email</th>
-					<td><input type="email" name="email"
+					<td><input type="email" class="cls" name="email"
 						pattern="[a-z0-9]+[@][a-z]+[.][a-z]+{8,15}" required /></td>
 				</tr>
 				<tr>
 					<th>Enter Ifsc code</th>
-					<td><input type="text" name="code" required /></td>
+					<td><input type="text"  class="cls" name="code" required /></td>
 				</tr>
 				<tr>
 					<th>Enter Branch Name</th>
-					<td><input type="text" name="branch" pattern="[A-Za-z]{3,}"
+					<td><input type="text" class="cls" name="branch" pattern="[A-Za-z]{3,}"
 						required /></td>
 				</tr>
 				<tr>
 					<th>Enter Balance</th>
-					<td><input type="text" name="balance" required /></td>
+					<td><input type="text" class="cls" name="balance" required /></td>
 				</tr>
 
 				<tr>
 					<th>Enter Pin Number</th>
-					<td><input type="text" name="pin" pattern="[0-9]{4}" required /></td>
+					<td><input type="text" class="cls" name="pin" pattern="[0-9]{4}" required /></td>
 				</tr>
 				<tr>
 					<th>Enter Status</th>
-					<td><input type="text" name="status"
+					<td><input type="text" class="cls" name="status"
 						placeholder="ACTIVE OR INACTIVE" required /></td>
 				</tr>
 			</table>
-			<button type="Submit">Submit</button>
+			<br>
+			<div class="btn3">
+			<button type="Submit" class="btn2">Submit</button>
+			</div>
 			<br> <br>
 		</form>
 
-		<%!String flag;%>
-		<%
-		if (session.getAttribute("add") != null) {
-			flag = session.getAttribute("add").toString();
-		%>
-		<h4 id="transhead"><%=flag%></h4>
-		<%
-		}
-		%>
-
-		<%
-		session.removeAttribute("add");
-		%>
+		
 	</div>
 
 </body>

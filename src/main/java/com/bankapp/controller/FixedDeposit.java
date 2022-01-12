@@ -31,7 +31,7 @@ public class FixedDeposit extends HttpServlet {
 	//	UserDetails validUser=userdao.validateUser(userName,pass );
 	//	 int user_id=validUser.getUser_id();
 		// System.out.println(user_id);
-		String type="Fixed Deposit";
+		String type="FixedDeposit";
 		   String status="NOTAPPROVED";
 		   String pan=request.getParameter("pan");
 		   String email=(String )session.getAttribute("user_id");

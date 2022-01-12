@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>admin</title>
  
  
  
@@ -113,9 +113,40 @@ margin-right:16px;
     border-radius:7px;
     color:gray;
 }
-.table1{
-	padding-left: 270px;
+.table1 {
+	padding: 90px;
+	padding-left: 350px;
+	border:none;
 }
+
+td {
+	padding-left: 15px;
+	 
+}
+
+th {
+	padding-left:  10px;
+	font-size:18px;
+	 
+}
+.btn2 {
+	padding: 3px;
+	color: white;
+	background-color: green;
+	margin-right: 30px;
+}
+
+.btn3 {
+	margin-left: 70px;
+}
+
+body {
+	background-color: rgb(198, 208, 214);
+}
+.div1{
+padding-left :460px;}
+#transhead{
+color:green;}
 </style>
 </head>
 <body>
@@ -139,6 +170,7 @@ margin-right:16px;
 		<header>ADMIN</header>
 		<ul>
 			<li><a href="viewAllUser.jsp">View All Users</a></li>
+			<li><a  href="viewAccount.jsp">View All Account</a></li>
 		    <li><a href="AdminAddAccount.jsp">Insert Account Details </a></li>
 			<li><a href="UpdateAccountDetails.jsp">Update Account Details </a></li>
 			<li><a href="ApproveLoans.jsp">ApproveLoans</a></li>
@@ -152,7 +184,7 @@ margin-right:16px;
 			 
 		</ul>
      </div>
-     
+     <h2 align="center">Loan Status</h2>
       
 <% LoansDaoimpl LoanDao = new LoansDaoimpl();
         List<Loans> List = new ArrayList<Loans>();
@@ -161,7 +193,7 @@ margin-right:16px;
 %>
 
 <div class="table1">
-<div class="table2">
+
 <table>
  
 <thead>
@@ -173,7 +205,8 @@ margin-right:16px;
 <th>LoanAmount</th>
 <th>Tenure</th>
 <th>Status</th>
-<th>Update</th>
+<th>Approve</th>
+<th>Reject</th>
 </tr>
 </thead>
 <br>
@@ -196,8 +229,8 @@ i++;
 <td><%=viewuser. getLoan_amount()%></td>
  <td><%=viewuser.getTenure()%></td>
  <td><%=viewuser.getLoan_status()%></td>
- <td><a href="approveloan?accno=<%=viewuser.getAccount_number()%>">Update</a></td>
- 
+ <td><a href="approveloan?accno=<%=viewuser.getAccount_number()%>">Approve</a></td>
+ <td><a href="approveloan?accno=<%=viewuser.getAccount_number()%>">Reject</a></td>
  </tr>
 
 <%

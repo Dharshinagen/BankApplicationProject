@@ -105,7 +105,7 @@ public class Deposits {
 			this.deposit_status = deposit_status;
 			// TODO Auto-generated constructor stub
 		}
-		public Deposits(int user_id, long accno, String deposit_type, double amount, String date_of_deposit, int tenure,
+		public Deposits( long accno,int user_id, String deposit_type, double amount, String date_of_deposit, int tenure,
 				double rate_of_interest, String maturity_date, double maturity_value, String deposit_status,
 				String pan) {
 			super();
@@ -120,6 +120,22 @@ public class Deposits {
 			this.maturity_value = maturity_value;
 			this.deposit_status = deposit_status;
 			this.pan = pan;
+		}
+		 
+		public Deposits(long accno, int user_id, String deposit_type, double amount, int tenure, double rate_of_interest, double maturity_value,
+				String deposit_status) {
+			// TODO Auto-generated constructor stub
+			this.user_id = user_id;
+			this.accno = accno;
+			this.deposit_type = deposit_type;
+			this.amount = amount;
+			 
+			this.tenure = tenure;
+			this.rate_of_interest = rate_of_interest;
+			 
+			this.maturity_value = maturity_value;
+			this.deposit_status = deposit_status;
+			 
 		}
 		@Override
 		public int hashCode() {

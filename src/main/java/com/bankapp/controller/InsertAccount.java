@@ -1,6 +1,8 @@
 package com.bankapp.controller;
 
 import java.io.IOException;
+import java.time.LocalDate;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,7 +27,7 @@ public class InsertAccount extends HttpServlet {
 	    String address=request.getParameter("address");
 	    String city=request.getParameter("city");
 	    int pincode=Integer.parseInt(request.getParameter("pincode"));
-	    String dob=request.getParameter("date");
+	    LocalDate dob=LocalDate.parse(request.getParameter("date"));
 	    long mobNo=Long.parseLong(request.getParameter("mobno"));
 	    String email=request.getParameter("email");
 	    String  ifscCode=request.getParameter("code");
@@ -40,7 +42,7 @@ public class InsertAccount extends HttpServlet {
 	    System.out.println(acc);
 	    HttpSession session=request.getSession();
 	    session.setAttribute( "add","Added Account Sucessfully!!");
-	    response.sendRedirect("AdminAddAccount.jsp");
+	    response.sendRedirect("ViewAccount.jsp");
 	    
 	}
 

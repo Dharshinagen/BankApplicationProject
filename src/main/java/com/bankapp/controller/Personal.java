@@ -59,6 +59,7 @@ public class Personal extends HttpServlet {
 		String pan= request.getParameter("pan");
 		String Wtype=request.getParameter("Wtype");
 		double rate_of_interest=0;
+		long accnum=0;
 		int n=0;
 	      
 	     if(Wtype.matches("Tier-I")) {
@@ -81,17 +82,19 @@ public class Personal extends HttpServlet {
 	     double r=Math.pow((1+rt), numberOfPayments);
 	     double monthly_payment= Math.round(amount *rt*((r)/(r-1)));
 	   //  long accNum=loandao.getAccNum(emailId);
-	     String status="NotApproved";
+	     String status="NOTAPPROVED";
 		 boolean flag=loandao.validateLoan(pan);
 	     if(flag==false) {
 	    	 Loans loan=new Loans(0,name,Date,address,mobno,emailId,type,Wtype,amount,period,rate_of_interest,monthly_payment,status,pan);
-		   loandao.PersonalLoan(loan) ;
+		  accnum= loandao.PersonalLoan(loan) ;
 		   session.setAttribute("loan"," Loan Requested");
+		   session.setAttribute("loan1",  accnum);
 		   response.sendRedirect("PersonalLoan.jsp");
 	     }
 	     else
 	     {
-	    	 session.setAttribute("loan", "Oops!It seems already you have Loan from our bank...");
+	    	 session.setAttribute("loanNot", "Oops!It seems already you have Loan from our bank...");
+	    	 
 	    	 response.sendRedirect("PersonalLoan.jsp");
 	     }
 	}

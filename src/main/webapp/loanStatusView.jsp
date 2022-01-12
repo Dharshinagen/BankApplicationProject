@@ -46,7 +46,7 @@
            color:white;
        }
         .set1{
-            padding-right : 311.5px;
+            padding-right : 313.5px;
         }
          .btn{
        color:white;
@@ -120,6 +120,39 @@ text-align:left;
 .par{
 padding:20px;
 }
+.t1 {
+	padding: 90px;
+	padding-left: 350px;
+	border:none;
+}
+
+td {
+	padding-left: 15px;
+	 
+}
+
+th {
+	padding-left:  10px;
+	font-size:17px;
+	 
+}
+
+
+}
+.btn2 {
+	padding: 3px;
+	color: white;
+	background-color:green;
+	margin-right: 30px;
+}
+
+.btn3 {
+	margin-left: 780px;
+}
+
+body {
+	background-color: rgb(198, 208, 214);
+}
  </style>
 </head>
 <body>
@@ -156,8 +189,8 @@ padding:20px;
 			 
 		</ul>
      </div>
-     <button class="btn"><a href="LogoutServlet">Logout</a></button>
- <div class="box">
+     
+ <div class="t1">
  <%
 long accno =  (Long)session.getAttribute("useraccno");
  LoansDaoimpl depdao  = new LoansDaoimpl();
@@ -169,6 +202,11 @@ long accno =  (Long)session.getAttribute("useraccno");
 				<tr>
 					<th>S.no</th>
 					<th>AccountNumber</th>
+					<th>Name</th>
+					<th>Loan Type</th>
+					<th>Amount</th>
+					<th>Rate of Interest</th>
+					<th>Tenure</th>
 					<th>Monthly Payment</th>
 					<th>Status</th>
 
@@ -188,6 +226,11 @@ long accno =  (Long)session.getAttribute("useraccno");
 
 					<td><%=i%></td>
 					<td><%=Viewuser.getAccount_number()%></td>
+					<td><%=Viewuser. getUser_name()%></td>
+					<td><%=Viewuser. getLoan_type()%></td>
+					<td><%=Viewuser. getLoan_amount()%></td>
+					<td><%=Viewuser.  getInterest_rate()%></td>
+					<td><%=Viewuser. getTenure()%></td>
 					<td><%=Viewuser. getMonthly_payment()%></td>
 					<td><%=Viewuser.getLoan_status()%></td>
 
@@ -199,7 +242,9 @@ long accno =  (Long)session.getAttribute("useraccno");
 				%>
 			</tbody>
 		</table>
-		<button type="submit" ><a href="CustomerDashBoard.jsp">ok</a></button>
-   
+		<br><br><br>
+		<div class="btn3">
+		<button type="submit" class="btn2"><a href="CustomerDashBoard.jsp">ok</a></button>
+   </div>
 </body>
 </html>

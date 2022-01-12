@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title> Update Account</title>
  
 <style>
 *{
@@ -43,7 +43,7 @@
            color:white;
        }
         .set1{
-            padding-right : 311.5px;
+            padding-right : 638.5px;
         }
          .btn{
        color:white;
@@ -110,6 +110,30 @@ margin-right:16px;
      
 
 }
+.cls {
+	border-radius: 3px;
+	padding: 5px 5px 5px 5px;
+	Background-color: transparent;
+}
+
+.btn2 {
+	padding: 3px;
+	color: white;
+	background-color: green;
+	margin-right: 30px;
+}
+
+.btn3 {
+	margin-left: 70px;
+}
+
+body {
+	background-color: rgb(198, 208, 214);
+}
+.div1{
+padding-left :460px;}
+#transhead{
+color:green;}
 </style>
 </head>
 <body>
@@ -118,12 +142,11 @@ margin-right:16px;
                         <a  href="index.jsp"> Home</a> 
                        <a  href="loans.jsp">Loans</a> 
                        <a  href="deposits.jsp">Deposits</a> 
-                       <a  href="insurance.jsp">Insurance</a>  
-                       <a  href="AboutUs.jsp">About us</a>
+                        <a  href="AboutUs.jsp">About us</a>
                        <a  href="ContactUs.jsp">Contact Us</a> 
-                       <a  href="help.jsp" >Help</a>
+                      
                        <a   href="interest.jsp" class="set1">%</a>   
-                       <a href="UserProfile">My Profile</a>
+                        
                         <button class="btn"><a href="LogoutServlet">Logout</a></button>
        </nav>
        <br>
@@ -133,6 +156,7 @@ margin-right:16px;
 		<header>ADMIN</header>
 		<ul>
 			<li><a href="viewAllUser.jsp">View All Users</a></li>
+			<li><a href="viewAccount.jsp"">View All Account</a></li>
 		    <li><a href="AdminAddAccount.jsp">Insert Account Details </a></li>
 			<li><a href="UpdateAccountDetails.jsp">Update Account Details </a></li>
 			<li><a href="ApproveLoans.jsp">ApproveLoans</a></li>
@@ -146,7 +170,7 @@ margin-right:16px;
 			 
 		</ul>
      </div>
-     <button class="btn"><a href="LogoutServlet">Logout</a></button>
+      
      <h2 align="center">WELCOME!</h2>
      <div class="box">
      <form   action="UpdateAccount"method="post">
@@ -154,18 +178,20 @@ margin-right:16px;
      <tr>
      <tr>
      <th>Enter Email</th>
-    <td><input type="text" name="email" pattern="[a-z]+[0-9.]+[@][a-z]+[.][a-z]+{8,15}" required/></td>
+    <td><input type="text" name="email"  class="cls" pattern="[a-z]+[0-9.]+[@][a-z]+[.][a-z]+{8,15}" required/></td>
      </tr>
      <th>Enter Email to update</th>
-     <td><input type="text" name="email1" pattern="[a-z]+[0-9.]+[@][a-z]+[.][a-z]+{8,15}" required/></td>
+     <td><input type="text" name="email1" class="cls" pattern="[a-z]+[0-9.]+[@][a-z]+[.][a-z]+{8,15}" required/></td>
      </tr>
      <tr>
      <th>Enter Mobile number to update</th>
-     <td><input type="text" name="mobno" pattern="[6-9][0-9]{9}" required/></td>
+     <td><input type="text" name="mobno"  class="cls" pattern="[6-9][0-9]{9}" required/></td>
      </tr>
-     </table>
-     <button type="submit">Submit</button>
-     <button type="reset">Reset</button><br><br>
+     </table><br><br>
+     <div class="btn3">
+     <button type="submit" class="btn2">Submit</button>
+     <button type="reset" class="btn2" >Reset</button><br><br>
+     </div>
      </form>
      <%!
 String flag;

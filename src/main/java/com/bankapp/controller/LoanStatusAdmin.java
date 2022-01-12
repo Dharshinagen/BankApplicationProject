@@ -32,11 +32,17 @@ public class LoanStatusAdmin extends HttpServlet {
 		   boolean list = accDetailDao.updateStatus(accNo);
 		   session.setAttribute("useraccno", accNo);
 	//	   session.setAttribute("userpin", pin);
-		   
+		   boolean flag= accDetailDao.updateStatusReject(accNo);
 		   if(list) {
 			   session.setAttribute("depo","UPDATED");
 			 //  System.out.println("success");
 			   response.sendRedirect("ApproveLoans.jsp");
+		   }
+		   if(flag)
+		   {
+			   session.setAttribute("depo","UPDATED");
+				  
+				   response.sendRedirect("ApproveLoans.jsp");
 		   }
 		  
 	}

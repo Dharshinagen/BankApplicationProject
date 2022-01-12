@@ -43,7 +43,7 @@
        
        a {
            text-decoration: none;
-           
+           color:white;
        }
         .set1{
             padding-right : 311.5px;
@@ -121,9 +121,40 @@ margin-right:16px;
      
 
 }
-.table1{
-	padding-left: 270px;
+.table1 {
+	padding: 90px;
+	padding-left: 350px;
+	border:none;
 }
+
+td {
+	padding-left: 15px;
+	 
+}
+
+th {
+	padding-left:  10px;
+	font-size:18px;
+	 
+}
+.btn2 {
+	padding: 3px;
+	color: white;
+	background-color: green;
+	margin-right: 30px;
+}
+
+.btn3 {
+	margin-left: 70px;
+}
+
+body {
+	background-color: rgb(198, 208, 214);
+}
+.div1{
+padding-left :460px;}
+#transhead{
+color:green;}
 </style>
 </head>
 <body>
@@ -147,6 +178,7 @@ margin-right:16px;
 		<header>ADMIN</header>
 		<ul>
 			<li><a href="viewAllUser.jsp">View All Users</a></li>
+			<li><a  href="viewAccount.jsp">View All Account</a></li>
 		    <li><a href="AdminAddAccount.jsp">Insert Account Details </a></li>
 			<li><a href="UpdateAccountDetails.jsp">Update Account Details </a></li>
 			<li><a href="ApproveLoans.jsp">ApproveLoans</a></li>
@@ -160,7 +192,7 @@ margin-right:16px;
 			 
 		</ul>
      </div>
-     <button class="btn"><a href="LogoutServlet">Logout</a></button>
+      
 	 
 	<%
 	DepositsDaoimpl depositDao = new DepositsDaoimpl();
@@ -209,9 +241,6 @@ margin-right:16px;
 				%>
 			</tbody>
 		</table>
-		<button input="Submit">
-			<a href="depositStatus.jsp">Update Status</a>
-		</button>
 		
 	</div>
 	 

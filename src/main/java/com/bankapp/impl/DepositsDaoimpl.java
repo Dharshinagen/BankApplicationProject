@@ -164,7 +164,7 @@ public class DepositsDaoimpl implements DepositsDao {
 	}
 	public List<Deposits> viewStatusUser(long accNo) {
 		List<Deposits> list = new ArrayList<Deposits>();
-		String query="select Account_Number,Maturity_value,deposit_status from deposits where account_number='"+accNo+"'";
+		String query="select  * from deposits where account_number='"+accNo+"'";
 		Connection con = ConnectionUtil.getDbConnection();
 		ResultSet rs=null;
 		try {
@@ -173,7 +173,8 @@ public class DepositsDaoimpl implements DepositsDao {
 			   rs= pst.executeQuery(query);
 				
 				while(rs.next()) {
-					Deposits dep=new Deposits( rs.getLong(1), rs.getDouble(2), rs.getString(3));
+					Deposits dep=new Deposits( rs.getLong(2),rs.getInt(3),rs.getString(4),rs.getDouble(5),rs.getInt(7) ,
+							rs.getDouble(8), rs.getDouble(10),rs.getString(11));
 					list.add(dep);
 				}
 		} catch (SQLException e) {

@@ -44,7 +44,7 @@
            color:white;
        }
         .set1{
-            padding-right : 311.5px;
+            padding-right : 328.2px;
         }
 h3{
 padding:20px;
@@ -109,14 +109,17 @@ padding-right:50px;
 }
 .t1{
  
-padding:30px;
+padding:150px;
 }
 td{
  
-padding-left:200px}
+padding-left:80px}
  th{
- padding-left:200px }
+ padding-left:350px }
 } 
+body {
+	background-color: rgb(198, 208, 214);
+}
  </style>
 </head>
 <body>
@@ -130,7 +133,7 @@ padding-left:200px}
                        <a  href="ContactUs.jsp">Contact Us</a> 
                        <a  href="help.jsp" >Help</a>
                        <a   href="interest.jsp" class="set1">%</a>   
-                       <a href="UserProfile">My Profile</a>
+                       <a href="MyProfile.jsp">My Profile</a>
                          <button class="btn"><a href="LogoutServlet">Logout</a></button>
        </nav>
        <br>
@@ -164,13 +167,13 @@ padding-left:200px}
     	  
     	<table class="t1">
     	<tr>
-    	<th>Name:</th>
+    	<th>Name</th>
     	<td><%=Viewuser.getUser_name() %></td>
-    	</tr>
+    	</tr><br>
     	<tr>
-    	<th>EmailId:</th>
-    	<td><%=Viewuser.getEmailId() %></td>
-    	</tr>
+    	<th>EmailId</th>
+    	<td><%=Viewuser.getEmailId()%></td>
+    	</tr><br>
     	<tr>
     	<th>Mobile Number</th>
     	<td><%=Viewuser.getMobile_Number() %></td>

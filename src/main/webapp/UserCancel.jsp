@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>UserInactive</title>
  
 <style>
 *{
@@ -43,7 +43,7 @@
            color:white;
        }
         .set1{
-            padding-right : 311.5px;
+            padding-right : 638.5px;
         }
          .btn{
        color:white;
@@ -57,7 +57,7 @@ background-color:blue;
 margin:0;
 }
 .sidebar{
-position:fixed;
+position:absolute;
 left:0;
 width:250px;
 height:100%;
@@ -110,6 +110,42 @@ margin-right:16px;
      
 
 }
+.t1 {
+	padding: 40px;
+	padding-left: 350px;
+	border:none;
+}
+
+td {
+	padding-left: 15px;
+	 
+}
+
+th {
+	padding-left:  10px;
+	font-size:18px;
+	 
+}
+.cls {
+	border-radius: 3px;
+	padding: 5px 5px 5px 5px;
+	Background-color: transparent;
+}
+
+.btn2 {
+	padding: 3px;
+	color: white;
+	background-color: green;
+	margin-right: 30px;
+}
+
+.btn3 {
+	margin-left: 150px;
+}
+
+body {
+	background-color: rgb(198, 208, 214);
+}
 </style>
 </head>
 <body>
@@ -118,12 +154,12 @@ margin-right:16px;
                         <a  href="index.jsp"> Home</a> 
                        <a  href="loans.jsp">Loans</a> 
                        <a  href="deposits.jsp">Deposits</a> 
-                       <a  href="insurance.jsp">Insurance</a>  
+                          
                        <a  href="AboutUs.jsp">About us</a>
                        <a  href="ContactUs.jsp">Contact Us</a> 
-                       <a  href="help.jsp" >Help</a>
+                        
                        <a   href="interest.jsp" class="set1">%</a>   
-                       <a href="UserProfile">My Profile</a>
+                       
                         <button class="btn"><a href="LogoutServlet">Logout</a></button>
        </nav>
        <br>
@@ -133,6 +169,7 @@ margin-right:16px;
 		<header>ADMIN</header>
 		<ul>
 			<li><a href="viewAllUser.jsp">View All Users</a></li>
+			<li><a  href="viewAccount.jsp">View All Account</a></li>
 		    <li><a href="AdminAddAccount.jsp">Insert Account Details </a></li>
 			<li><a href="UpdateAccountDetails.jsp">Update Account Details </a></li>
 			<li><a href="ApproveLoans.jsp">ApproveLoans</a></li>
@@ -146,20 +183,22 @@ margin-right:16px;
 			 
 		</ul>
      </div>
-     <button class="btn"><a href="LogoutServlet">Logout</a></button>
+     
      <div class="box">
 	<form  action="Cancel" method="post">
 		<table>
 			<tr>
 				<th>Enter Account Number </th>
-				<td><input type="text" name="accNo" required pattern="[0-9]{12,14}" /></td>
+				<td><input type="text" class="cls" name="accNo" required pattern="[0-9]{12,14}" /></td>
             </tr>
             <tr>
 				<th>Enter Status(active or inactive)</th>
-				<td><input type="text" name="stat" required/></td>
+				<td><input type="text" class="cls" name="stat" required/></td>
             </tr>
-             		</table>
-		<button type="submit">Submit</button>
+             		</table><br><br>
+             		<div class="btn3">
+		<button type="submit" class="btn2">Submit</button>
+		</div>
 	</form>
 
 	    <%!

@@ -142,7 +142,7 @@ th {
 .btn2 {
 	padding: 3px;
 	color: white;
-	background-color: green;
+	background-color:green;
 	margin-right: 30px;
 }
 
@@ -161,12 +161,10 @@ body {
                         <a  href="index.jsp"> Home</a> 
                        <a  href="loans.jsp">Loans</a> 
                        <a  href="deposits.jsp">Deposits</a> 
-                       <a  href="insurance.jsp">Insurance</a>  
                        <a  href="AboutUs.jsp">About us</a>
                        <a  href="ContactUs.jsp">Contact Us</a> 
-                       <a  href="help.jsp" >Help</a>
                        <a   href="interest.jsp" class="set1">%</a>   
-                       <a href="UserProfile">My Profile</a>
+                       <a href="MyProfile.jsp">My Profile</a>
                          <button class="btn"><a href="LogoutServlet">Logout</a></button>
        </nav>
         <br><br>
@@ -221,7 +219,7 @@ long accno =  (long)session.getAttribute("useraccno");
     <td><%=acc.getPincode() %></td>
    </tr>
     <th >DOB</th>
-   <td><%=acc.getDob() %></td>
+   <td><%=acc. getDob() %></td>
    </tr>
     <th >Mobile number</th>
    <td><%=acc. getMobile_Number()%></td>

@@ -28,7 +28,7 @@ public class AccountDetailsdaoimpl implements AccountDetailsDao {
 				ResultSet rs = pstmt.executeQuery();
 				if(rs.next())
 					accNumber = rs.getInt(1);
-				System.out.println(accNumber);
+			//	System.out.println(accNumber);
 				pstmt = con.prepareStatement(query);	  
 			    pstmt.setInt(1, accNumber);
 				pstmt.setString(2,account.getAccount_type());
@@ -36,7 +36,7 @@ public class AccountDetailsdaoimpl implements AccountDetailsDao {
 				pstmt.setString(4,account.getAddress());
 				pstmt.setString(5,account.getCity());
 				pstmt.setInt(6,account.getPincode());
-				pstmt.setString(7,account.getDob());
+				pstmt.setDate(7,java.sql.Date.valueOf(account.getDob()));
 				pstmt.setLong(8,account.getMobile_Number());
 				pstmt.setString(9,account.getEmail());
 				pstmt.setString(10,account.getIfsc_Code());
@@ -70,7 +70,7 @@ public class AccountDetailsdaoimpl implements AccountDetailsDao {
 
 			if (rs.next()) {
 				accDetail = new AccountDetails(rs.getInt(1), rs.getString(3), rs.getString(4), rs.getString(5),
-						rs.getString(6), rs.getInt(7), rs.getString(8), rs.getLong(9), rs.getString(10),
+						rs.getString(6), rs.getInt(7), rs.getDate(8).toLocalDate(), rs.getLong(9), rs.getString(10),
 						rs.getString(11), rs.getString(12), rs.getInt(13), rs.getInt(14));
 				list.add(accDetail);
 			}
@@ -82,7 +82,27 @@ public class AccountDetailsdaoimpl implements AccountDetailsDao {
 		}
 		return list;
 	}
-
+	public List<AccountDetails> viewAccout(){
+		List<AccountDetails> List=new ArrayList<AccountDetails>();
+		
+		String view="select * from  account_details";
+		Connection con=ConnectionUtil.getDbConnection();
+		 try {
+			Statement st=con.createStatement();
+			ResultSet rs=st.executeQuery(view);
+			while(rs.next()) {
+				AccountDetails accDetail = new AccountDetails(rs.getInt(1), rs.getString(3), rs.getString(4), rs.getString(5),
+						rs.getString(6), rs.getInt(7), rs.getDate(8).toLocalDate(), rs.getLong(9), rs.getString(10),
+						rs.getString(11), rs.getString(12), rs.getInt(13), rs.getInt(14),rs.getString(15));
+				List.add(accDetail);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return List;
+	}
 	public boolean updateUserDetailAdmin(String email1, long mobilenumber, String email) {
 
 		String updatequery1 = "update account_details set email=?,mobile_number=? where email=?";
@@ -158,4 +178,43 @@ public class AccountDetailsdaoimpl implements AccountDetailsDao {
 		}
 		return 0;
 	}
+	 public double checkBalance(long accnum) {
+		 String que="Select Balance from account_details where Account_number='"+accnum+"'";
+				 Connection con=ConnectionUtil.getDbConnection();
+		 double balance=0;
+		 Statement st;
+		try {
+			st = con.createStatement();
+			ResultSet rs=st.executeQuery(que);
+			if(rs.next()) {
+				 balance= rs.getDouble(1);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+				return balance;
+	 }
+	 public boolean checkaccount(long num) {
+		 String que="select Account_number from account_details where account_number= '"+num+"'";
+		 boolean flag=false;
+		 long accnum=0;
+		 Connection con=ConnectionUtil.getDbConnection();
+		 try {
+			Statement st = con.createStatement();
+				ResultSet rs=st.executeQuery(que);
+				if(rs.next()) {
+					  accnum= rs.getLong(1);
+					  flag=true;
+				}
+		 
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 return flag;
+	 }
 }

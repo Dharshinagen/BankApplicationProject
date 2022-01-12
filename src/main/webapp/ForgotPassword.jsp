@@ -37,11 +37,12 @@ padding:0;
  }
  .btn1{
      border-radius: 10px;
-     padding : 5px 10px ;
-     margin-left:160px;
+     padding : 10px 20px ;
+     margin-left:85px;
      background-color:  transparent;
      color:white ;
  }
+   
  p{
      color:white;
  }
@@ -80,7 +81,8 @@ color:red;
                   <br>
                   <br>
                   
-                  <button type="submit " class="btn1">Log In</button><br><br>
+                  <button type="submit " class="btn1">Log In</button>
+                  <button type="submit " class="btn1"><a href="login.jsp">Back</a></button><br><br>
 </form>
 </div>
 </div>

@@ -217,19 +217,28 @@ color:green;
 			<br>
 			<br>
 		</form>
-		<%!String flag;%>
+		<%!String flag;
+		   String acc;%>
 		<%
 		if (session.getAttribute("loan") != null) {
-			flag = session.getAttribute("loan").toString();
+		flag = session.getAttribute("loan").toString();
+		acc=session.getAttribute("loan1").toString();
 		%>
 
 
 		<h4 id="transhead"><%=flag%></h4>
+		<h4 id="transhead"> <%=acc %></h4>
 		<%
 		}
+		else if (session.getAttribute("loanNot")!=null){%>
+			
+		<h4><%=session.getAttribute("loanNot") %></h4>
+		<%}
+			
 		%>
 		<%
 		session.removeAttribute("loan");
+		session.removeAttribute("loanNot");
 		%>
 	</div>
 

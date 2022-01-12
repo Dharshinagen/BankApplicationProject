@@ -1,5 +1,7 @@
 package com.bankapp.model;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class AccountDetails {
@@ -9,7 +11,7 @@ public class AccountDetails {
 	private String address;
 	private String city;
 	private int pincode;
-	private String dob;
+	private  LocalDate dob;
 	private long mobile_Number;
 	private String email;
 	private String ifsc_Code;
@@ -53,10 +55,10 @@ public class AccountDetails {
 	public void setPincode(int pincode) {
 		this.pincode = pincode;
 	}
-	public String getDob() {
+	public  LocalDate getDob() {
 		return dob;
 	}
-	public void setDob(String dob) {
+	public void setDob(LocalDate dob) {
 		this.dob = dob;
 	}
 	public long getMobile_Number() {
@@ -102,7 +104,7 @@ public class AccountDetails {
 		this.status = status;
 	}
 	public AccountDetails(int user_id, String account_type, String account_Holder_name, String address, String city,
-			int pincode, String dob, long mobile_Number, String email, String ifsc_Code, String branchName, double balance,
+			int pincode,  LocalDate dob, long mobile_Number, String email, String ifsc_Code, String branchName, double balance,
 			int pin_Number, String status) {
 		super();
 		this.user_id = user_id;
@@ -125,7 +127,7 @@ public class AccountDetails {
 		// TODO Auto-generated constructor stub
 	}
 	 public AccountDetails(int user_id, String account_type, String account_Holder_name, String address, String city, int pincode,
-			String dob, long mobile_Number, String email, String ifsc_Code, String branchName, double balance, int pin_Number) {
+			 LocalDate dob, long mobile_Number, String email, String ifsc_Code, String branchName, double balance, int pin_Number) {
 		// TODO Auto-generated constructor stub
 			this.user_id = user_id;
 			this.account_type = account_type;
@@ -145,7 +147,7 @@ public class AccountDetails {
 	
 		
 	public AccountDetails(String account_type, String account_Holder_name, String address, String city, int pincode,
-			String dob, long mobile_Number, String email, String ifsc_Code, String branchName, double balance, int pin_Number,
+			 LocalDate dob, long mobile_Number, String email, String ifsc_Code, String branchName, double balance, int pin_Number,
 			String status) {
 		this.account_type = account_type;
 		this.account_Holder_name = account_Holder_name;

@@ -40,7 +40,7 @@ a {
 }
 
 .set1 {
-	padding-right: 311.5px;
+	padding-right: 507px;
 }
 
 .btn {
@@ -119,15 +119,42 @@ ul li:hover a {
 .par {
 	padding: 20px;
 }
+.cls {
+	border-radius: 3px;
+	padding: 5px 5px 5px 5px;
+	Background-color: transparent;
+}
+
+.btn2 {
+	padding: 3px;
+	color: white;
+	background-color: green;
+	margin-right: 30px;
+}
+
+.btn3 {
+	margin-left: 150px;
+}
+
+body {
+	background-color: rgb(198, 208, 214);
+}
+transhead{
+color:green;
+}
 </style>
 </head>
 <body>
 	<h1 align="center">BANK OF INDIA</h1>
 	<nav>
-		<a href="index.jsp"> Home</a> <a href="loans.jsp">Loans</a> <a
-			href="deposits.jsp">Deposits</a> <a href="insurance.jsp">Insurance</a>
-		<a href="AboutUs.jsp">About us</a> <a href="ContactUs.jsp">Contact
-			Us</a> <a href="help.jsp">Help</a> <a href="interest.jsp" class="set1">%</a>
+		<a href="index.jsp"> Home</a>
+		 <a href="loans.jsp">Loans</a> 
+		 <a	href="deposits.jsp">Deposits</a>
+		  
+		<a href="AboutUs.jsp">About us</a>
+		 <a href="ContactUs.jsp">Contact Us</a>
+			 
+			  <a href="interest.jsp" class="set1">%</a>
 		<a href="UserProfile">My Profile</a>
 		<button class="btn">
 			<a href="LogoutServlet">Logout</a>
@@ -153,22 +180,23 @@ ul li:hover a {
 
 		</ul>
 	</div>
-	<button class="btn">
-		<a href="LogoutServlet">Logout</a>
-	</button>
-	<h2 align="center">WELCOME!</h2>
+	 
+	<h2 align="center">Check Status</h2>
 	<div class="box">
 		<form action="loanStatus" method="post">
 			<table>
 				<tr>
 					<th>Enter Account Number</th>
-					<td><input type="text" name="accno" pattern="[0-9]{12,14}"
+					<td><input type="text" class="cls" name="accno" pattern="[0-9]{12,14}"
 						required /></td>
 				</tr>
 				<tr>
 			</table>
-			<button type="submit">Submit</button>
-			<button type="reset">Reset</button>
+			<br><br>
+			<div class="btn3">
+			<button type="submit" class="btn2">Submit</button>
+			<button type="reset" class="btn2">Reset</button>
+			</div>
 		</form>
 	</div>
 </body>

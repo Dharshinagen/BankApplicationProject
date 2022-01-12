@@ -17,14 +17,14 @@ nav {
 	color: black;
 	float: left;
 	background-color: rgb(9, 57, 87);
-	height: 28%;
+	height: 25%;
 	margin: 0;
 	color: red;
-	padding: 8px;
+	padding: 9.1px;
 }
 
 nav a {
-	padding-right: 48.5px;
+	padding-right: 47.5px;
 }
 
 h1 {
@@ -41,7 +41,7 @@ a {
 }
 
 .set1 {
-	padding-right: 325.3px;
+	padding-right: 535.8px;
 }
 
 .btn {
@@ -143,6 +143,10 @@ body {
 #transhead{
 color:green;
 }
+h2{
+padding-left:300px;
+font-size:20px;
+}
 </style>
 </head>
 <body>
@@ -151,16 +155,15 @@ color:green;
                         <a  href="index.jsp"> Home</a> 
                        <a  href="loans.jsp">Loans</a> 
                        <a  href="deposits.jsp">Deposits</a> 
-                       <a  href="insurance.jsp">Insurance</a>  
+                        
                        <a  href="AboutUs.jsp">About us</a>
                        <a  href="ContactUs.jsp">Contact Us</a> 
-                       <a  href="help.jsp" >Help</a>
+                       
                        <a   href="interest.jsp" class="set1">%</a>   
                        <a href="UserProfile">My Profile</a>
                         <button class="btn"><a href="LogoutServlet">Logout</a></button>
        </nav>
-       <br>
-       <br>
+       <br><br>
         
 	<div class="sidebar">
 
@@ -179,7 +182,7 @@ color:green;
 			 
 		</ul>
      </div>
-    
+    <h2>Amount Transfer</h2>
  <div class="box">
  
  <form action="TransferAmount" method="post">
@@ -195,7 +198,7 @@ color:green;
  </tr>
  <tr>
  <th>Amount</th>
- <td><input type="text" name="amount"  class="cls" required></td>
+ <td><input type="text" name="amount" pattern="[1-9][0-9]+" class="cls" required></td>
  </tr>
  <tr>
  <th>Pin Number</th>

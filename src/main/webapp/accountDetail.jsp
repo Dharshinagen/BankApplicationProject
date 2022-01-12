@@ -42,7 +42,7 @@ a {
 }
 
 .set1 {
-	padding-right: 311.5px;
+	padding-right:  520px;
 }
 
 .btn {
@@ -135,14 +135,14 @@ color:green;}
 <body>
 	<h1 align="center">BANK OF INDIA</h1>
 	<nav>
-		<a href="index.jsp"> Home</a> <a href="loans.jsp">Loans</a> <a
-			href="deposits.jsp">Deposits</a> <a href="insurance.jsp">Insurance</a>
-		<a href="AboutUs.jsp">About us</a> <a href="ContactUs.jsp">Contact
-			Us</a> <a href="help.jsp">Help</a> <a href="interest.jsp" class="set1">%</a>
-		<a href="UserProfile">My Profile</a>
-		<button class="btn">
-			<a href="LogoutServlet">Logout</a>
-		</button>
+		 <a  href="CustomerDashBoard.jsp"> Home</a> 
+                       <a  href="loans.jsp">Loans</a> 
+                       <a  href="deposits.jsp">Deposits</a> 
+                       <a  href="AboutUs.jsp">About us</a>
+                       <a  href="ContactUs.jsp">Contact Us</a> 
+                       <a   href="interest.jsp" class="set1">%</a>   
+                       <a href="MyProfile.jsp">My Profile</a>
+                         <button class="btn"><a href="LogoutServlet">Logout</a></button>
 	</nav>
 	<br>
 	<br>

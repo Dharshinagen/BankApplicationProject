@@ -37,7 +37,7 @@ public class HousingLoan extends HttpServlet {
 		HttpSession session=request.getSession();
 		 
 		String type="Housing Loan";
-		String status="NotApproved";
+		String status="NOTAPPROVED";
 		String Wtype="Home Loan";
 		String name=request.getParameter("lname");
 		String emailId=request.getParameter("email");

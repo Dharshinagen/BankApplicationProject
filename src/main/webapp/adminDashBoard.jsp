@@ -42,7 +42,7 @@
            color:white;
        }
         .set1{
-            padding-right : 311.5px;
+            padding-right : 428px;
         }
          .btn{
        color:white;
@@ -122,8 +122,8 @@ margin-right:16px;
                        <a  href="ContactUs.jsp">Contact Us</a> 
                        <a  href="help.jsp" >Help</a>
                        <a   href="interest.jsp" class="set1">%</a>   
-                      <a href="MyProfile.jsp">My Profile</a>
-                        <button class="btn"><a href="LogoutServlet">Logout</a></button>
+                       
+                      <button class="btn"><a href="LogoutServlet">Logout</a></button>
        </nav>
        <br>
        <br>
@@ -132,6 +132,7 @@ margin-right:16px;
 		<header>ADMIN</header>
 		<ul>
 			<li><a href="viewAllUser.jsp">View All Users</a></li>
+			<li><a href="viewAccount.jsp"nt.jsp">View All Account</a></li>
 		    <li><a href="AdminAddAccount.jsp">Insert Account Details </a></li>
 			<li><a href="UpdateAccountDetails.jsp">Update Account Details </a></li>
 			<li><a href="ApproveLoans.jsp">ApproveLoans</a></li>
