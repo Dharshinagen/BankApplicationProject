@@ -55,10 +55,11 @@ public class FixedDeposit extends HttpServlet {
 	     double  maturity_value=Math.round(amount * Math.pow(base,(n* period)));
 	     boolean flag=false;
 		
-		depositdao.fixedDeposit(type, amount,rate_of_interest,maturity_value, period, status,pan,email) ;
+		long accnum=depositdao.fixedDeposit(type, amount,rate_of_interest,maturity_value, period, status,pan,email) ;
 		  
 		 session.setAttribute("trans","Deposit Requested");
-		  response.sendRedirect("FixedDeposit.jsp");
+		 session.setAttribute("trans1","Deposit Account Number"+accnum);
+		 		  response.sendRedirect("FixedDeposit.jsp");
 		 }
 		  
 	

@@ -23,12 +23,13 @@ nav {
 }
 
 nav a {
-	padding-right: 48.5px;
+	padding-right:  70.3px;
 }
 
 h1 {
 	color: white;
-	background: #042331;
+
+     background-color:rgb(16, 35, 61);
 	height: 10%;
 	margin: 0;
 	padding: 7px;
@@ -47,9 +48,7 @@ h1 {
            color: red;
        }
         body{
-        background-image: url("bankimg1.jpg") ;
-        background-repeat: no-repeat;
-               background-size: 1400px 650px;
+       
         }
          
         .set1{

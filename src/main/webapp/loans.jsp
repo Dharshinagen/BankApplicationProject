@@ -23,7 +23,7 @@ nav {
 }
 
 nav a {
-	padding-right: 48.5px;
+	padding-right: 81px;
 }
 
 h1 {
@@ -49,24 +49,26 @@ h1 {
        }
         body{
         
-        background-repeat: no-repeat;
-               background-size: 1400px 650px;
+        
         }
          
         .set1{
             padding-right : 276.5px;
         }
        p{
-           margin-left:50px;
+           margin-left:150px;
            text-align: justify;
+           padding-right:70px;
        }
         li{
-            margin-left: 50px;
+            margin-left: 150px;
             text-align:justify;
+            padding-right:70px;
         }
         .h4{
-             margin-left: 20px;
+             margin-left: 70px;
              color: springgreen;
+             padding-right:50px;
         }
         .h1{
             color:steelblue;

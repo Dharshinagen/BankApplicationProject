@@ -6,6 +6,7 @@ import java.util.Objects;
 
 public class AccountDetails {
 	private int  user_id;
+	private  Long account_number;
 	private String account_type;
 	private String account_Holder_name;
 	private String address;
@@ -19,11 +20,18 @@ public class AccountDetails {
 	private double balance;	
 	private int pin_Number;
 	private String status;
+	 
 	public int getUser_id() {
 		return user_id;
 	}
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
+	}
+	public  long getAccount_number() {
+		return account_number;
+	}
+	public void setAccount_number( long account_number) {
+		this.account_number = account_number;
 	}
 	public String getAccount_type() {
 		return account_type;
@@ -55,7 +63,7 @@ public class AccountDetails {
 	public void setPincode(int pincode) {
 		this.pincode = pincode;
 	}
-	public  LocalDate getDob() {
+	public LocalDate getDob() {
 		return dob;
 	}
 	public void setDob(LocalDate dob) {
@@ -101,6 +109,26 @@ public class AccountDetails {
 		return status;
 	}
 	public void setStatus(String status) {
+		this.status = status;
+	}
+	public AccountDetails(int user_id,  long account_number, String account_type, String account_Holder_name,
+			String address, String city, int pincode, LocalDate dob, long mobile_Number, String email, String ifsc_Code,
+			String branchName, double balance, int pin_Number, String status) {
+		super();
+		this.user_id = user_id;
+		this.account_number = account_number;
+		this.account_type = account_type;
+		this.account_Holder_name = account_Holder_name;
+		this.address = address;
+		this.city = city;
+		this.pincode = pincode;
+		this.dob = dob;
+		this.mobile_Number = mobile_Number;
+		this.email = email;
+		this.ifsc_Code = ifsc_Code;
+		this.branchName = branchName;
+		this.balance = balance;
+		this.pin_Number = pin_Number;
 		this.status = status;
 	}
 	public AccountDetails(int user_id, String account_type, String account_Holder_name, String address, String city,
@@ -165,9 +193,8 @@ public class AccountDetails {
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(account_Holder_name, account_type, address, balance, branchName, city, dob, email,
-				ifsc_Code, mobile_Number, pin_Number, pincode, status, user_id);
-		
+		return Objects.hash(account_Holder_name, account_number, account_type, address, balance, branchName, city, dob,
+				email, ifsc_Code, mobile_Number, pin_Number, pincode, status, user_id);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -179,21 +206,24 @@ public class AccountDetails {
 			return false;
 		AccountDetails other = (AccountDetails) obj;
 		return Objects.equals(account_Holder_name, other.account_Holder_name)
+				&& Objects.equals(account_number, other.account_number)
 				&& Objects.equals(account_type, other.account_type) && Objects.equals(address, other.address)
-				&& balance == other.balance && Objects.equals(branchName, other.branchName)
-				&& Objects.equals(city, other.city) && Objects.equals(dob, other.dob)
-				&& Objects.equals(email, other.email) && Objects.equals(ifsc_Code, other.ifsc_Code)
-				&& mobile_Number == other.mobile_Number && pin_Number == other.pin_Number && pincode == other.pincode
-				&& Objects.equals(status, other.status) && user_id == other.user_id;
+				&& Double.doubleToLongBits(balance) == Double.doubleToLongBits(other.balance)
+				&& Objects.equals(branchName, other.branchName) && Objects.equals(city, other.city)
+				&& Objects.equals(dob, other.dob) && Objects.equals(email, other.email)
+				&& Objects.equals(ifsc_Code, other.ifsc_Code) && mobile_Number == other.mobile_Number
+				&& pin_Number == other.pin_Number && pincode == other.pincode && Objects.equals(status, other.status)
+				&& user_id == other.user_id;
 	}
 	@Override
 	public String toString() {
-		return "AccountDetails [user_id=" + user_id + ", account_type=" + account_type + ", account_Holder_name="
-				+ account_Holder_name + ", address=" + address + ", city=" + city + ", pincode=" + pincode + ", dob="
-				+ dob + ", mobile_Number=" + mobile_Number + ", email=" + email + ", ifsc_Code=" + ifsc_Code
-				+ ", branchName=" + branchName + ", balance=" + balance + ", pin_Number=" + pin_Number + ", status="
-				+ status + "]";
+		return "AccountDetails [user_id=" + user_id + ", account_number=" + account_number + ", account_type="
+				+ account_type + ", account_Holder_name=" + account_Holder_name + ", address=" + address + ", city="
+				+ city + ", pincode=" + pincode + ", dob=" + dob + ", mobile_Number=" + mobile_Number + ", email="
+				+ email + ", ifsc_Code=" + ifsc_Code + ", branchName=" + branchName + ", balance=" + balance
+				+ ", pin_Number=" + pin_Number + ", status=" + status + "]";
 	}
+	 
 	 
 	 
 

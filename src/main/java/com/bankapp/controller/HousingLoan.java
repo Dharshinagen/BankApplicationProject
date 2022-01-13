@@ -53,16 +53,19 @@ public class HousingLoan extends HttpServlet {
 	    double rt=(rate_of_interest/(12*100));
 		double    r=Math.pow((1+rt), numberOfPayments);
 	    double  monthly_payment= Math.round(amount *rt*((r)/(r-1)));
+	    long accnum=0;
 		 boolean flag=loandao.validateLoan(pan);
 	     if(flag==false) {
 	    	 Loans loan=new Loans(0,name,Date,address,mobno,emailId,type,Wtype,amount,period,rate_of_interest,monthly_payment,status,pan);
-			   loandao.housingLoan(loan);
+	    	 accnum=   loandao.housingLoan(loan);
 			 session.setAttribute("Hloan"," Loan Requested");
+			 session.setAttribute("Hloan1",accnum);
 			 response.sendRedirect("HousingLoan.jsp");
 	     }
 	     else
 	     {
-	    	 session.setAttribute("Hloan", "Oops!It seems already you have Loan from our bank...");
+	    	 session.setAttribute("HloanNot", "Oops!It seems already you have Loan from our bank...");
+	    	  
 	    	 response.sendRedirect("HousingLoan.jsp");
 	     }
 	}

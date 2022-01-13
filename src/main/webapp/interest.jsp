@@ -7,6 +7,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Interest</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <style>
 * {
 	margin: 0;
@@ -25,7 +27,7 @@ nav {
 }
 
 nav a {
-	padding-right: 48.5px;
+	padding-right:  74.9px;
 }
 
 h1 {
@@ -51,23 +53,13 @@ marquee {
 }
 
 .set1 {
-	padding-right: 293.4px;
+	padding-right: 294px;
 }
 
-.t1 {
-	 
-	  
-}
-
-td {
-	padding: 15px;
-	cell-spacing:15px;
-}
-
-
-th {
-	color:;
-}
+table{
+		margin-right:100px;
+		width: 10%;
+	}
 </style>
 </head>
 <body>
@@ -83,17 +75,30 @@ th {
 		  <a href="login.jsp">Login</a>
 		  <a href="AboutUs.jsp">About us</a>
 		  <a href="ContactUs.jsp" class="set1">ContactUs</a>
-		  </nav>
+		  </nav><br><br><br>
 
 
 	<%
 	AdminUseDaoimpl admin = new AdminUseDaoimpl();
 	List<AdminUse> list = admin.interestRate();
+	%>
+	<div class="container mt-1">
+		<table class="table table-striped table-dark table-hover">
+	<thead>
+	<tr>
+	<th>Type</th>
+	<th>Description</th>
+	<th>Percentage</th>
+	</tr>
+	</thead>
+	
+	<%
 	for (AdminUse Viewuser : list) {
 	%>
 
-	<table  class="t1">
-		 
+	
+	 <tbody>
+		    
 			<tr>
 				<td><%=Viewuser.getCategoryType()%></td>
 				<td><%=Viewuser.getDescription()%></td>
@@ -101,8 +106,9 @@ th {
 			</tr>
 			<%}%>
 
-		 
+		</tbody> 
 	</table>
+	</div>
 
 
 

@@ -74,16 +74,12 @@ public class RecurringDeposit extends HttpServlet {
 		 
 		depositdao.recurringDeposit(type, amount,rate_of_interest, period,maturity_value, status,pan,email) ;
 		// HttpSession session=request.getSession();
-		 boolean flag=false;
-		 if(flag==true)
-		{
+		  
+		  
 		 session.setAttribute("tran"," RD Requested");
 		  response.sendRedirect("RecurringDeposit.jsp");
-		}
-		 else {
-			 session.setAttribute("tran", "Something Went Wrong!");
-			 response.sendRedirect("RecurringDeposit.jsp");
-		 }
+		 
+		  
 	}
 
 }

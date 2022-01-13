@@ -211,7 +211,7 @@ color:green;}
 					<th>Date</th>
 					<th>Tenure</th>
 					<th>Status</th>
-					<th>update</th>
+					<th>Approve</th>
 				</tr>
 			</thead>
 			<br>
@@ -233,7 +233,7 @@ color:green;}
 					<td><%=viewuser.getDate_of_deposit()%></td>
 					<td><%=viewuser.getTenure()%></td>
 					<td><%=viewuser.getDeposit_status()%></td>
-					<td><a href="DepositApproveAdmin?accno=<%=viewuser.getAccno()%>">Update</a></td>
+					<td><a href="DepositApproveAdmin?accno=<%=viewuser.getAccno()%>">Approve</a></td>
 				</tr>
 
 				<%

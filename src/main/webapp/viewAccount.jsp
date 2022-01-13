@@ -137,7 +137,7 @@ body {
 #transhead{
 color:green;}
 .div1{
-padding-left:400px
+padding-left:340px
 }
 </style>
 </head>
@@ -165,7 +165,6 @@ padding-left:400px
 			<li><a href="viewAccount.jsp">View All Account</a></li>
 			<li><a href="AdminAddAccount.jsp">Insert Account Details </a></li>
 			<li><a href="UpdateAccountDetails.jsp">Update Account Details</a></li>
-					 
 			<li><a href="ApproveLoans.jsp">ApproveLoans</a></li>
 			<li><a href="ApproveDeposits.jsp">ApproveDeposits</a></li>
 			<li><a href="InterestRateAll.jsp">Rate Of Interest</a></li>
@@ -177,6 +176,7 @@ padding-left:400px
 
 		</ul>
 	</div>
+	
 	<%  AccountDetailsdaoimpl UserDao = new AccountDetailsdaoimpl();
         List<AccountDetails> List = new ArrayList<AccountDetails>();
         List = UserDao.viewAccout();
@@ -189,6 +189,7 @@ padding-left:400px
 <thead>
 <tr>
   <th>S.no</th>
+  <th>Account Number</th>
   <th>AccountHolderName</th>
  <th>AccountType</th>
  <th>MobileNumber</th>
@@ -212,6 +213,7 @@ i++;
 
 
 <td><%=i%></td>
+<td><%=Viewuser.getAccount_number()%></td>
 <td><%=Viewuser.getAccount_Holder_name()%></td>
 <td><%=Viewuser. getAccount_type()%></td>
 <td><%=Viewuser. getMobile_Number()%></td>
@@ -230,6 +232,8 @@ i++;
           <div class="btn3">
 		<button type="submit" class="btn2"><a href="adminDashBoard.jsp">Back</a></button>
 		</div>
+		 
+
           
 </body>
 </html>

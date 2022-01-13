@@ -135,7 +135,7 @@ color:green;}
 <body>
 	<h1 align="center">BANK OF INDIA</h1>
 	<nav>
-		 <a  href="CustomerDashBoard.jsp"> Home</a> 
+		  <a  href="CustomerDashBoard.jsp"> Home</a> 
                        <a  href="loans.jsp">Loans</a> 
                        <a  href="deposits.jsp">Deposits</a> 
                        <a  href="AboutUs.jsp">About us</a>

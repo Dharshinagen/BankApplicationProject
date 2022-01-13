@@ -20,13 +20,26 @@ public class TransactionSum extends HttpServlet {
 		// TODO Auto-generated method stub
 	//	doGet(request, response);
 		long accNo=Long.parseLong(request.getParameter("accno"));
-		// int pin=Integer.parseInt(request.getParameter("pin"));
+		 int pin=Integer.parseInt(request.getParameter("pin"));
 		 TransactionDaoimpl transDao=new TransactionDaoimpl();
-		 transDao.getByAccountNumberUser(accNo);
+		
 		 HttpSession session=request.getSession();
 		 session.setAttribute("accNo",accNo);
-				 //session.setAttribute("passw", pin);
+		 session.setAttribute("passw", pin);
+		 int pinnum=transDao.getPinnumber(accNo);
+		 if(pin==pinnum) {
+		 double amoun=transDao.viewBalance(accNo,  pin);
+		 transDao.getByAccountNumberUser(accNo, pin);
+		 
 		 response.sendRedirect("TransactionView.jsp");
+		 }
+		 else
+		 {
+			 session.setAttribute("pinvalidate","Enter Correct Account Number or Pin Number");
+			 response.sendRedirect("TransactionSummary.jsp");
+		 }
+		 
+		 
 	}
 
 }

@@ -29,11 +29,19 @@ public class depStatusUser extends HttpServlet {
 		HttpSession session=request.getSession();
 		long accNo=Long.parseLong(request.getParameter("accno"));
 		 DepositsDaoimpl accDetailDao=new DepositsDaoimpl();
-		   
+		   boolean flag=accDetailDao.viewOnedeposit(accNo);
+		   System.out.println(flag);
+		   if (flag==true) {
 		   List<Deposits> list = accDetailDao.viewStatusUser(accNo);
 		   session.setAttribute("useraccno", accNo);
 	//	   session.setAttribute("userpin", pin);
 		   response.sendRedirect("depStatusView.jsp");
+	                  }
+		   else {
+			   session.setAttribute("accnum","Enter Valid Account Number!");
+			   response.sendRedirect("depositStatusUser.jsp");
+		   }
+		   
 	}
 
 }

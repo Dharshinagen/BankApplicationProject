@@ -34,7 +34,7 @@ public class DepositsDaoimpl implements DepositsDao {
 		return 0;
 	}
 
-	public boolean fixedDeposit(String type, double amount, double rate_of_interest, double maturity_value, int period,
+	public  long fixedDeposit(String type, double amount, double rate_of_interest, double maturity_value, int period,
 			String status,String pan ,String email) {
 		Connection con = ConnectionUtil.getDbConnection();
 		boolean flag=false;
@@ -76,10 +76,10 @@ public class DepositsDaoimpl implements DepositsDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return flag;
+		return accNumber;
 	}
 
-	public boolean recurringDeposit(String type, double amount, double rate_of_interest, int period, double maturity_value,
+	public long recurringDeposit(String type, double amount, double rate_of_interest, int period, double maturity_value,
 		String status, String pan,String email) {
 		Connection con = ConnectionUtil.getDbConnection();
 		String que="select USER_ID,ACCOUNT_NUMBER FROM ACCOUNT_DETAILS WHERE EMAIL=? and ACC_TYPE='RecurringDeposit'" ;
@@ -120,7 +120,7 @@ public class DepositsDaoimpl implements DepositsDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-  return flag;
+  return accNumber;
 	}
 
 	public List<Deposits> viewdeposit() {
@@ -144,6 +144,28 @@ public class DepositsDaoimpl implements DepositsDao {
 		return loans;
 	}
 
+	public  boolean viewOnedeposit(long accnum) {
+		List<Deposits> loans = new ArrayList<Deposits>();
+		String view1 = "select * from Deposits  where account_number='"+accnum+"' ";
+		Connection con1 = ConnectionUtil.getDbConnection();
+		boolean flag=false;
+		try {
+			Statement st = con1.createStatement();
+			ResultSet rs = st.executeQuery(view1);
+			 if (rs.next()) {
+				Deposits loan = new Deposits(rs.getInt(3), rs.getLong(2), rs.getString(4), rs.getDouble(5),
+						rs.getString(6), rs.getInt(7), rs.getDouble(8), rs.getString(9), rs.getDouble(10),
+						rs.getString(11));
+				loans.add(loan);
+				flag=true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return  flag;
+	}
 	public  boolean updateStatus(long accnum) {
 		String que = "UPDATE DEPOSITS SET DEPOSIT_STATUS='Approved' WHERE  Account_number=?";
 		Connection con = ConnectionUtil.getDbConnection();

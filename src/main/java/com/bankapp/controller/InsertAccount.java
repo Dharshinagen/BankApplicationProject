@@ -42,7 +42,7 @@ public class InsertAccount extends HttpServlet {
 	    System.out.println(acc);
 	    HttpSession session=request.getSession();
 	    session.setAttribute( "add","Added Account Sucessfully!!");
-	    response.sendRedirect("ViewAccount.jsp");
+	    response.sendRedirect("viewAccount.jsp");
 	    
 	}
 

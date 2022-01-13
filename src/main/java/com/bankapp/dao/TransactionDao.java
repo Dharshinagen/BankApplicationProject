@@ -11,7 +11,7 @@ public interface TransactionDao {
 	public double viewBalance(long account_number, int pinNo);
 	public  int  getPinnumber(  long accountno);
 	public List<Transaction> getbyDate( LocalDate date);
-	public List<Transaction> getByAccountNumberUser(long accNo) ;
+	public List<Transaction> getByAccountNumberUser(long accNo,int pin) ;
 	public List<Transaction> getByAccountNumberAdmin(long accNo );
 
 }

@@ -80,7 +80,7 @@ public class LoansDaoimpl implements LoansDao {
 		 return accNumber;
 		 
 	}
-	public  Long getAccNum(String email) {
+	public  long getAccNum(String email) {
 		String query="select Account_number from account_details where email='"+email+"'";
 		long accNum=0;
 		 Connection con = ConnectionUtil.getDbConnection();
@@ -134,7 +134,7 @@ public class LoansDaoimpl implements LoansDao {
 	    
 		return flag;
 	}
-	public  boolean housingLoan(Loans loan) {
+	public  long housingLoan(Loans loan) {
 		String que="select  loan_acc.nextval from dual";
 		String query="INSERT INTO LOANS (ACCOUNT_NUMBER,ACC_HOLDER_NAME,DOB,ADDRESS,MOBILE_NUMBER,EMAIL,LOAN_TYPE,DESCRIPTION,LOAN_AMOUNT,TENURE,INTEREST_RATE,MONTHLY_PAYMENT,LOAN_STATUS,PAN_NUMBER)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		Connection con = ConnectionUtil.getDbConnection();
@@ -175,7 +175,7 @@ public class LoansDaoimpl implements LoansDao {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		 return flag;
+		 return accNumber;
 	}
 	public List<Loans> viewloan(){
 		List<Loans> loans=new ArrayList<Loans>();

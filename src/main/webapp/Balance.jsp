@@ -24,7 +24,7 @@ nav {
 }
 
 nav a {
-	padding-right: 48.5px;
+	padding-right: 50px;
 }
 
 h1 {
@@ -41,7 +41,7 @@ a {
 }
 
 .set1 {
-	padding-right: 553px;
+	padding-right: 450px;
 }
 
 .btn {
@@ -147,6 +147,7 @@ body {
 	<h1 align="center">BANK OF INDIA</h1>
 	<nav>
 		<a  href="index.jsp"> Home</a> 
+                        <a  href="CustomerDashBoard.jsp"> Home</a> 
                        <a  href="loans.jsp">Loans</a> 
                        <a  href="deposits.jsp">Deposits</a> 
                        <a  href="AboutUs.jsp">About us</a>

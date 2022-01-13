@@ -10,7 +10,7 @@ public interface LoansDao {
 
 	public  long PersonalLoan(Loans loan);
 
-	public boolean housingLoan(Loans loan);
+	public long housingLoan(Loans loan);
 
 	public List<Loans> viewloan();
 

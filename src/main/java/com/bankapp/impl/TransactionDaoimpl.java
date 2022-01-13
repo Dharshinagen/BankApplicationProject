@@ -201,12 +201,12 @@ public class TransactionDaoimpl implements TransactionDao {
 		}
 		return list;
 	}
-	public List<Transaction> getByAccountNumberUser(long accNo  ) {
+	public List<Transaction> getByAccountNumberUser(long accNo,int pin  ) {
 		Connection con=ConnectionUtil.getDbConnection();
 		List<Transaction> list=new ArrayList<Transaction>();
 		 
 		ResultSet  rs=null;
-		String query="select Sender_account_number,name,transaction_type,receiver_account_number,amount,transaction_date from transaction where  Sender_Account_number='"+accNo+"'";
+		String query="select Sender_account_number,name,transaction_type,receiver_account_number,amount,transaction_date from transaction where  Sender_Account_number='"+accNo+"' and pin_numnber='"+pin+"'";
 		try {
 			Statement pst=con.createStatement();
 			rs= pst.executeQuery(query);

@@ -146,6 +146,9 @@ th {
 body {
 	background-color: rgb(198, 208, 214);
 }
+h2{
+padding-left:350px;
+}
 </style>
 </head>
 <body>
@@ -183,9 +186,10 @@ body {
 			 
 		</ul>
      </div>
-     
+     <h2>Inactive User</h2>
      <div class="box">
 	<form  action="Cancel" method="post">
+	
 		<table>
 			<tr>
 				<th>Enter Account Number </th>

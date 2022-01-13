@@ -23,7 +23,7 @@
 }
 
 nav {
-	font-size: 17px;
+	font-size: 16px;
 	color: black;
 	float: left;
 	background-color: rgb(9, 57, 87);
@@ -34,7 +34,7 @@ nav {
 }
 
 nav a {
-	padding-right: 48.5px;
+	padding-right:  80.4px;
 }
 
 h1 {
@@ -70,7 +70,7 @@ h3 {
 	position: absolute;
 	left: 0;
 	width: 250px;
-	height: 84%;
+	height: 100%;
 	background: #042331;
 	color: white;
 }
@@ -142,7 +142,7 @@ th {
 .btn2 {
 	padding: 3px;
 	color: white;
-	background-color:green;
+	background-color: green;
 	margin-right: 30px;
 }
 
@@ -158,7 +158,7 @@ body {
 <body>
  <h1 align="center"> BANK OF INDIA </h1> 
         <nav>
-                        <a  href="index.jsp"> Home</a> 
+                        <a  href="CustomerDashBoard.jsp"> Home</a> 
                        <a  href="loans.jsp">Loans</a> 
                        <a  href="deposits.jsp">Deposits</a> 
                        <a  href="AboutUs.jsp">About us</a>
@@ -238,7 +238,7 @@ long accno =  (long)session.getAttribute("useraccno");
     </table>
     <br>
        <div class="btn3">
-    <button type="submit" class="btn2"><a href="CustomerDashBoard.jsp">Back</a></button>
+    <button type="submit" class="btn2" ><a href="CustomerDashBoard.jsp">Back</a></button>
        </div>
    </div>
    

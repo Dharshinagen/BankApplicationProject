@@ -175,6 +175,10 @@ color:green;}
      <div class="box">
      <form   action="UpdateAccount"method="post">
      <table>
+     </tr>
+     <th>Enter  Account Number</th>
+     <td><input type="text" name="acc" class="cls" pattern="[0-9]{12,16}" required/></td>
+     </tr>
      <tr>
      <tr>
      <th>Enter Email</th>

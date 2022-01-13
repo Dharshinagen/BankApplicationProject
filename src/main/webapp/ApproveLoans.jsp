@@ -115,7 +115,7 @@ margin-right:16px;
 }
 .table1 {
 	padding: 90px;
-	padding-left: 350px;
+	padding-left: 300px;
 	border:none;
 }
 
@@ -201,12 +201,15 @@ color:green;}
   <th>S.no</th>
    
 <th>AccountNumber</th>
+<th>Name</th>
+<th>Mobile number</th>
 <th>LoanType</th>
 <th>LoanAmount</th>
 <th>Tenure</th>
+<th>Interest</th>
 <th>Status</th>
 <th>Approve</th>
-<th>Reject</th>
+<%---- <th>Reject</th>  --%>
 </tr>
 </thead>
 <br>
@@ -225,12 +228,15 @@ i++;
 <td><%=i%></td>
  
 <td><%=viewuser.getAccount_number()%></td>
+<td><%=viewuser. getUser_name()%></td>
+<td><%=viewuser. getMobno()%></td>
 <td><%=viewuser. getLoan_type()%></td> 
 <td><%=viewuser. getLoan_amount()%></td>
  <td><%=viewuser.getTenure()%></td>
+ <td><%=viewuser. getInterest_rate()%></td>
  <td><%=viewuser.getLoan_status()%></td>
  <td><a href="approveloan?accno=<%=viewuser.getAccount_number()%>">Approve</a></td>
- <td><a href="approveloan?accno=<%=viewuser.getAccount_number()%>">Reject</a></td>
+ <%-- <td><a href="approveloan?accno=<%=viewuser.getAccount_number()%>">Reject</a></td>--%>
  </tr>
 
 <%

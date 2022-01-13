@@ -26,24 +26,26 @@ public class LoanStatusAdmin extends HttpServlet {
 		//doGet(request, response);
 		HttpSession session=request.getSession();
 		long accNo=Long.parseLong(request.getParameter("accno"));
-		System.out.println("hello "+accNo);
+		//	System.out.println("hello "+accNo);
 		 LoansDaoimpl accDetailDao=new LoansDaoimpl();
 		 
 		   boolean list = accDetailDao.updateStatus(accNo);
+		   System.out.println(list);
 		   session.setAttribute("useraccno", accNo);
 	//	   session.setAttribute("userpin", pin);
-		   boolean flag= accDetailDao.updateStatusReject(accNo);
-		   if(list) {
+		//   boolean flag= accDetailDao.updateStatusReject(accNo);
+		   if(list==true) {
 			   session.setAttribute("depo","UPDATED");
 			 //  System.out.println("success");
 			   response.sendRedirect("ApproveLoans.jsp");
 		   }
-		   if(flag)
-		   {
-			   session.setAttribute("depo","UPDATED");
-				  
-				   response.sendRedirect("ApproveLoans.jsp");
-		   }
+//		   else if(flag)
+//		   {
+//			   session.setAttribute("depo","UPDATED");
+//				  
+//				   response.sendRedirect("ApproveLoans.jsp");
+//		   }
+//		   
 		  
 	}
 }
