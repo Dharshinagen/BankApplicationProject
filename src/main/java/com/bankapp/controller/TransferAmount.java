@@ -57,23 +57,30 @@ public class TransferAmount extends HttpServlet {
 		// System.out.println(balance);
 		 boolean flag=accdao.checkaccount(Accno);
 		 if(flag==true) {
-		    if( amount < balance){
-		          if(pin==pinnum) {
-		           transDao.depositAmount(accNo, uname, amount, pin, Accno);
-		          session.setAttribute("trans","TRANSFERRED");
-		         response.sendRedirect("TransferAmount.jsp");
-		        }
+			 if (amount>=300) {
+		          if( amount < balance){
+		              if(pin==pinnum) {
+		                     transDao.depositAmount(accNo, uname, amount, pin, Accno);
+		                    session.setAttribute("trans","TRANSFERRED");
+		                   response.sendRedirect("TransferAmount.jsp");
+		                              }
 		 
-		   else {
+		                     else {
 		 
-		     session.setAttribute("trans","Enter Correct Pin Number");
-		     response.sendRedirect("TransferAmount.jsp");
-		         }
-		 }
-		 else {
-			 session.setAttribute("trans","Not enough money to transfer!");
-			  response.sendRedirect("TransferAmount.jsp");
-		 }
+		                       session.setAttribute("trans","Enter  Correct Account number or Pin Number");
+		                         response.sendRedirect("TransferAmount.jsp");
+		                          }
+		                 }
+		           else {
+			         session.setAttribute("trans","Not enough money to transfer!");
+			          response.sendRedirect("TransferAmount.jsp");
+		                 }
+		            }
+			 else {
+				  session.setAttribute("trans","Minimum Transaction Amount is 300! Please Transfer Greater than 300");
+		          response.sendRedirect("TransferAmount.jsp");
+				 
+			 }
 		 }
 		 else {
 			 try {

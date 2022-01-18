@@ -132,6 +132,8 @@ public class LoansDaoimpl implements LoansDao {
 			e.printStackTrace();
 		}
 	    
+	    
+	    
 		return flag;
 	}
 	public  long housingLoan(Loans loan) {
@@ -197,13 +199,15 @@ public class LoansDaoimpl implements LoansDao {
 		
 		return loans;
 	}
-	public boolean updateStatus(long  accnum) {
-		String que="UPDATE LOANS SET LOAN_STATUS='Approved' WHERE  Account_number=?";
+	public boolean updateStatus(long  accnum,String status) {
+		String que="UPDATE LOANS SET LOAN_STATUS= ? WHERE  Account_number=?";
 		Connection con=ConnectionUtil.getDbConnection();
 		boolean flag=false;
 		 try {
 			PreparedStatement pst = con.prepareStatement(que);
-			pst.setLong(1,accnum);
+			
+			pst.setString(1,status);
+			pst.setLong(2,accnum);
 			int i = pst.executeUpdate();
 			flag=true;
 		} catch (SQLException e) {
@@ -213,21 +217,7 @@ public class LoansDaoimpl implements LoansDao {
 		 return flag;
 	}
 	
-	public boolean updateStatusReject(long  accnum) {
-		String que="UPDATE LOANS SET LOAN_STATUS='Rejected' WHERE  Account_number=?";
-		Connection con=ConnectionUtil.getDbConnection();
-		boolean flag=false;
-		 try {
-			PreparedStatement pst = con.prepareStatement(que);
-			pst.setLong(1,accnum);
-			int i = pst.executeUpdate();
-			flag=true;
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		 return flag;
-	}
+	 
 	
 	public List<Loans> viewStatusUser(long accNo) {
 		List<Loans> list = new ArrayList<Loans>();
@@ -251,6 +241,28 @@ public class LoansDaoimpl implements LoansDao {
 		}
 		return list;
 		
+	}
+	public  boolean  ViewOneLoan(long accnum) {
+		List <Loans> loans = new ArrayList<Loans>();
+		String view1 = "select * from Loans  where account_number='"+accnum+"' ";
+		Connection con1 = ConnectionUtil.getDbConnection();
+		boolean flag=false;
+		try {
+			Statement st = con1.createStatement();
+			ResultSet rs = st.executeQuery(view1);
+			 if (rs.next()) {
+				 Loans loan = new Loans( rs.getLong(2), rs.getString(3),rs.getDate(4).toLocalDate(),rs.getString(5),rs.getLong(6),
+							rs.getString(7), rs.getString(11),rs.getString(12),rs.getDouble(13),rs.getInt(14), rs.getDouble(15),
+							rs.getDouble(16), rs.getString(17), rs.getString(18)) ;
+				loans.add(loan);
+				flag=true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return  flag;
 	}
 	 
 

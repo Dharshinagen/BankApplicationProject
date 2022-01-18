@@ -194,6 +194,19 @@ color:green;
 			<button type="reset" class="btn2">Reset</button>
 			</div>
 		</form>
+		<%!String flag;%>
+		<%
+		if (session.getAttribute("Saccnum") != null) {
+			flag = session.getAttribute("Saccnum").toString();
+		%>
+     <h4 id="transhead"><%=flag%></h4>
+		<%
+		}
+		%>
+		
+		<%
+		session.removeAttribute("Saccnum");
+		%>
 	</div>
 </body>
 </html>

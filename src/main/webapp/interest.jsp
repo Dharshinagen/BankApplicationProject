@@ -9,6 +9,7 @@
 <title>Interest</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+ 
 <style>
 * {
 	margin: 0;
@@ -16,23 +17,24 @@
 }
 
 nav {
-	font-size: 17px;
+	font-size: 18px;
 	color: black;
 	float: left;
 	background-color: rgb(9, 57, 87);
 	height: 25%;
 	margin: 0;
-	color: red;
+	 
 	padding: 8px;
 }
 
 nav a {
-	padding-right:  74.9px;
+	padding-right: 85.3px;
+	text-decoration:none;
 }
 
 h1 {
 	color: white;
-	background: #042331;
+	background-color: rgb(9, 41, 63);
 	height: 10%;
 	margin: 0;
 	padding: 7px;
@@ -52,14 +54,51 @@ marquee {
 	color: red;
 }
 
-.set1 {
-	padding-right: 294px;
+body {
+	background-color:  rgb(247, 204, 241);
 }
 
-table{
-		margin-right:100px;
-		width: 10%;
+.set1 {
+	padding-right: 191px;
+}
+
+.table{
+		
+		width:380px;
+		 
 	}
+	body{
+	background-color:  rgb(247, 204, 241);
+   background-repeat: no-repeat;
+   background-size:  cover;
+	}
+	 #image{
+position: relative;
+left: 145px;
+
+}
+
+#image img {
+            width: 60%;
+            height: 200px;
+        }
+        .prev{
+            position: absolute;
+            top: 150px;
+            left: 10px;
+            font-size: x-large;
+        }
+        .next{
+            position: absolute;
+            top: 150px;
+            right: 20px;
+            font-size: x-large;
+        }
+        .next:hover,.prev:hover{
+            height: 10x;
+            background-color: gray;
+        }
+	
 </style>
 </head>
 <body>
@@ -82,15 +121,10 @@ table{
 	AdminUseDaoimpl admin = new AdminUseDaoimpl();
 	List<AdminUse> list = admin.interestRate();
 	%>
-	<div class="container mt-1">
-		<table class="table table-striped table-dark table-hover">
-	<thead>
-	<tr>
-	<th>Type</th>
-	<th>Description</th>
-	<th>Percentage</th>
-	</tr>
-	</thead>
+	<div class="">
+	<div class="container mt-4 mb-4">
+<table class="table table-striped table-dark table-hover table-sm">
+	 
 	
 	<%
 	for (AdminUse Viewuser : list) {
@@ -102,14 +136,45 @@ table{
 			<tr>
 				<td><%=Viewuser.getCategoryType()%></td>
 				<td><%=Viewuser.getDescription()%></td>
-				<td><%=Viewuser.getRateOfInterest()%></td>
+				<td><%=Viewuser.getRateOfInterest()%>%</td>
 			</tr>
 			<%}%>
 
 		</tbody> 
 	</table>
 	</div>
+	 
+	<%--<div id="image">
 
+        <div class="slideshow-container">
+   
+            <div class="mySlides fade">
+         
+              <img src="images/rate1.jpg" style="width:10%">
+            </div>
+           
+           
+         <div class="mySlides fade">
+                <img src="images/rate2.jpg" style="width:10%">
+            </div>
+           
+            <div class="mySlides fade">
+       
+         
+           
+               <img src="images/rate3.jpg" style="width:10%">
+            </div>
+            </div>
+           --%> 
+   
+     
+   
+       
+            
+     
+	</div>
+
+</div>
 
 
 

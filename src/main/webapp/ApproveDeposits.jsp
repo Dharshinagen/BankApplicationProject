@@ -163,12 +163,12 @@ color:green;}
                         <a  href="index.jsp"> Home</a> 
                        <a  href="loans.jsp">Loans</a> 
                        <a  href="deposits.jsp">Deposits</a> 
-                       <a  href="insurance.jsp">Insurance</a>  
+                         
                        <a  href="AboutUs.jsp">About us</a>
                        <a  href="ContactUs.jsp">Contact Us</a> 
-                       <a  href="help.jsp" >Help</a>
+                        
                        <a   href="interest.jsp" class="set1">%</a>   
-                       <a href="UserProfile">My Profile</a>
+                       <a href="MyProfile.jsp">My Profile</a>
                         <button class="btn"><a href="LogoutServlet">Logout</a></button>
        </nav>
        <br>

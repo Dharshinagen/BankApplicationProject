@@ -154,7 +154,7 @@ color:green;
                        <a  href="AboutUs.jsp">About us</a>
                        <a  href="ContactUs.jsp">Contact Us</a> 
                        <a   href="interest.jsp" class="set1">%</a>   
-                       <a href="MyProfile.jsp">My Profile</a>
+                        <a href="MyProfile.jsp">My Profile</a>
                          <button class="btn"><a href="LogoutServlet">Logout</a></button>
 	</nav>
 	<br>

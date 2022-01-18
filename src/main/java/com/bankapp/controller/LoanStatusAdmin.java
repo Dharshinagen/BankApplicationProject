@@ -20,33 +20,23 @@ import com.bankapp.model.Transaction;
  */
 @WebServlet("/approveloan")
 public class LoanStatusAdmin extends HttpServlet {
-	 
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//doGet(request, response);
-		HttpSession session=request.getSession();
-		long accNo=Long.parseLong(request.getParameter("accno"));
-		//	System.out.println("hello "+accNo);
-		 LoansDaoimpl accDetailDao=new LoansDaoimpl();
-		 
-		   boolean list = accDetailDao.updateStatus(accNo);
-		   System.out.println(list);
-		   session.setAttribute("useraccno", accNo);
-	//	   session.setAttribute("userpin", pin);
-		//   boolean flag= accDetailDao.updateStatusReject(accNo);
-		   if(list==true) {
-			   session.setAttribute("depo","UPDATED");
-			 //  System.out.println("success");
-			   response.sendRedirect("ApproveLoans.jsp");
-		   }
-//		   else if(flag)
-//		   {
-//			   session.setAttribute("depo","UPDATED");
-//				  
-//				   response.sendRedirect("ApproveLoans.jsp");
-//		   }
-//		   
-		  
-	}
-}
 
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		// doGet(request, response);
+		HttpSession session = request.getSession();
+		long accNo = Long.parseLong(request.getParameter("accno"));
+		String status = request.getParameter("status");
+		// System.out.println("hello "+accNo);
+		LoansDaoimpl accDetailDao = new LoansDaoimpl();
+
+		session.setAttribute("useraccno", accNo);
+
+		accDetailDao.updateStatus(accNo, status);
+		session.setAttribute("depo", "UPDATED");
+
+		response.sendRedirect("ApproveLoans.jsp");
+	}
+
+}

@@ -63,6 +63,9 @@ h1 {
              font-size: 20px;
              text-align: justify;
          }
+         body{
+         background-color:  rgb(247, 204, 241);
+         }
         </style> 
        </head>
        <body>

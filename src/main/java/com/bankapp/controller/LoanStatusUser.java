@@ -48,11 +48,16 @@ public class LoanStatusUser extends HttpServlet {
 		HttpSession session=request.getSession();
 		long accNo=Long.parseLong(request.getParameter("accno"));
 		LoansDaoimpl accDetailDao=new LoansDaoimpl();
-		   
+		   boolean flag=accDetailDao.ViewOneLoan(accNo);
+		   if (flag==true) {
 		   List<Loans> list = accDetailDao.viewStatusUser(accNo);
 		   session.setAttribute("useraccno", accNo);
 	//	   session.setAttribute("userpin", pin);
 		   response.sendRedirect("loanStatusView.jsp");
+		   } else {
+			   session.setAttribute("Saccnum","Enter Valid Account Number!");
+			   response.sendRedirect("LoanStatusUser.jsp");
+		   }
 	}
 	}
 

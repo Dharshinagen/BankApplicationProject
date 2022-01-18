@@ -155,12 +155,12 @@ color:green;}
                         <a  href="index.jsp"> Home</a> 
                        <a  href="loans.jsp">Loans</a> 
                        <a  href="deposits.jsp">Deposits</a> 
-                       <a  href="insurance.jsp">Insurance</a>  
+                         
                        <a  href="AboutUs.jsp">About us</a>
                        <a  href="ContactUs.jsp">Contact Us</a> 
-                       <a  href="help.jsp" >Help</a>
+                       
                        <a   href="interest.jsp" class="set1">%</a>   
-                       <a href="UserProfile">My Profile</a>
+                        <a href="MyProfile.jsp">My Profile</a>
                         <button class="btn"><a href="LogoutServlet">Logout</a></button>
        </nav>
        <br>
@@ -209,7 +209,7 @@ color:green;}
 <th>Interest</th>
 <th>Status</th>
 <th>Approve</th>
-<%---- <th>Reject</th>  --%>
+ <th>Reject</th> 
 </tr>
 </thead>
 <br>
@@ -235,8 +235,8 @@ i++;
  <td><%=viewuser.getTenure()%></td>
  <td><%=viewuser. getInterest_rate()%></td>
  <td><%=viewuser.getLoan_status()%></td>
- <td><a href="approveloan?accno=<%=viewuser.getAccount_number()%>">Approve</a></td>
- <%-- <td><a href="approveloan?accno=<%=viewuser.getAccount_number()%>">Reject</a></td>--%>
+ <td><a href="approveloan?accno=<%=viewuser.getAccount_number()%>&status=<%="Approved"%>">Approve</a></td>
+  <td><a href="approveloan?accno=<%=viewuser.getAccount_number()%>&status=<%="Rejected"%>">Reject</a></td> 
  </tr>
 
 <%

@@ -171,7 +171,7 @@ th {
                        <a  href="AboutUs.jsp">About us</a>
                        <a  href="ContactUs.jsp">Contact Us</a> 
                        <a   href="interest.jsp" class="set1">%</a>   
-                       <a href="MyProfile.jsp">My Profile</a>
+                        <a href="MyProfile.jsp">My Profile</a>
                          <button class="btn"><a href="LogoutServlet">Logout</a></button>
 	</nav>
 	<br>
@@ -199,11 +199,14 @@ th {
 	<div class="">
 		<%
 		long acc;
+		int pin;
+		
 		%>
 		<%
 		TransactionDaoimpl tranDao = new TransactionDaoimpl();
 		acc = (Long) session.getAttribute("accNo");
-		List<Transaction> List = tranDao.getByAccountNumberUser(acc);
+		pin=(int) session.getAttribute("passw");
+		List<Transaction> List = tranDao.getByAccountNumberUser(acc,pin);
 		%>
 
 

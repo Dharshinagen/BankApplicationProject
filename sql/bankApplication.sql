@@ -135,7 +135,7 @@ SELECT * FROM ADMIN_USE order by category_id;
 SELECT * FROM LOANS; 
 SELECT * FROM TRANSACTION;
 SELECT * FROM DEPOSITS;
-commit;
+ 
 SELECT * FROM ACCOUNT_DETAILS;
 SELECT * FROM USER_DETAILS;
  select Account_Number,Maturity_value,deposit_status from deposits where account_number=334455667001;
@@ -154,8 +154,8 @@ SELECT * FROM USER_DETAILS;
 --DROP TABLE USER_DETAILS;
 
 --update user_details set role='user' where email='vishali06@gmail.com';
-
-
+update loans set loan_status='NotApproved' where loan_status='Rejected';
+commit; 
 select Sender_account_number,name,transaction_type,receiver_account_number,amount from transaction where  Sender_Account_number=112233445001;
 
 select Sender_account_number,name,Transaction_type,Receiver_account_number,amount,transaction_status,transaction_date from transaction  where  Sender_Account_number=112233445001;

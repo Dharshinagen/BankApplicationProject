@@ -28,13 +28,15 @@ nav {
 	padding: 8px;
 }
 
+
 nav a {
-	padding-right: 64.6px;
+	padding-right: 67px;
+	text-decoration:none;
 }
 
 h2 {
 	color: white;
-	background: #042331;
+	 background-color: rgb(9, 41, 63);
 	height: 10%;
 	margin: 0;
 	padding: 7px;
@@ -64,20 +66,39 @@ marquee {
 
 h4 {
 	padding-left: 50px;
+	color:green;
+	
 }
 
 li, p {
 	padding-left: 50px;
+	padding-right:100px;
+	color:white;
+	list-style:none;
+	font-size:19px;
 }
 
 .t1 {
 	display: inline-flex;
 }
-.carousel {
-  width:640px;
-  height:360px;
-   
-}
+ 
+ body{
+  background-image: url("images/bankof1.jpg") ; 
+   background-repeat: no-repeat;
+   background-size:  cover;
+ 
+ }
+ .butn{
+ padding-left: 550px;
+ }
+ .buttn{
+    background-color:green;
+    color:white;
+    border-radius:6px;
+    padding: 10px 15px;
+    text-align : center;
+     
+ }
 </style>
 </head>
 <body>
@@ -95,11 +116,11 @@ li, p {
 		  <a href="ContactUs.jsp" class="set1">ContactUs</a>
 		   
 	 
-	</nav>
-
-	<marquee><h3>WELCOME!!</h3></marquee>
-
-<%---<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+	</nav><br><br>
+<div class="butn">
+	 <button type="submit" class="buttn" ><a href="login.jsp">WELCOME</a></button>
+</div>
+ <%-- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -107,37 +128,36 @@ li, p {
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="images/bank2 (1).jpg"  class="d-block w-100" alt="couldn'tLoad">
+      <img src="images/deposit.jpg"  class="d-block w-100" alt="couldn'tLoad" Style="width:50%!important ">
     </div>
     <div class="carousel-item">
-      <img src="images/bank1 (1).jpg"  class="d-block w-100" alt="couldn'tLoad">
+      <img src="images/deposit1.jpg"  class="d-block w-100" alt="couldn'tLoad" Style="width:50%!important ">
     </div>
     <div class="carousel-item">
-      <img src="images/rate1.jpg"    class="d-block w-100" alt="couldn'tLoad">
+      <img src="images/deposit2.jpg"    class="d-block w-100" alt="couldn'tLoad" Style="width:50%!important">
     </div>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev" Style="width:50%!important">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next" Style="width:50%!important">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
-  </button>
-</div> ---%>
-	<h3 align="center">
-		VISION AND MISSION
-		</h3>
+  </button> 
+  </div> --%>
+ 
+	 
 
 		<h4>Vision:</h4>
 		<br>
 		<p>Delivering excellence in financial services through customer
 			focus, employee engagement and sustainable growth.</p>
-		<br> <br>
+		<br>  
 		<div class="t1">
 			<div class="t2">
 				<h4>Mission:</h4>
-				<br>
+				 
 				<ul> 
 				<li>Bring the best of innovation and technology in our
 					offerings</li>

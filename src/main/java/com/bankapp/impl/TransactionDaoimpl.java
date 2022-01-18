@@ -206,15 +206,16 @@ public class TransactionDaoimpl implements TransactionDao {
 		List<Transaction> list=new ArrayList<Transaction>();
 		 
 		ResultSet  rs=null;
-		String query="select Sender_account_number,name,transaction_type,receiver_account_number,amount,transaction_date from transaction where  Sender_Account_number='"+accNo+"' and pin_numnber='"+pin+"'";
+		String query="select * from transaction where  Sender_Account_number='"+accNo+"' order by transaction_date desc ";
 		try {
 			Statement pst=con.createStatement();
 			rs= pst.executeQuery(query);
 			
 			while(rs.next())
 			{
-			Transaction	trans=new Transaction(rs.getLong(1),rs.getString(2),rs.getString(3),rs.getLong(4),rs.getDouble(5),rs.getDate(6).toLocalDate());
-				list .add(trans);
+			Transaction	trans=new Transaction(rs.getLong(2),rs.getString(3),rs.getString(4),rs.getLong(5),rs.getDouble(6),
+					rs.getString(7),rs.getDate(9).toLocalDate());
+			list .add(trans);
 			}
 		//	System.out.println(list);
 			

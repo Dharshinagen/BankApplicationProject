@@ -140,7 +140,7 @@ ul li:hover a {
 body {
 	background-color: rgb(198, 208, 214);
 }
-transhead{
+#transhead{
 color:green;
 }
 </style>
@@ -185,7 +185,7 @@ color:green;
 			<table>
 				<tr>
 					<th>Enter Account Number</th>
-					<td><input type="text" class="cls" name="accno" pattern="[0-9]{12,14}" /></td>
+					<td><input type="text" class="cls" name="accno" pattern="[0-9]{12,14}"  required/></td>
 				</tr>
 				<tr>
 			</table>
@@ -195,11 +195,12 @@ color:green;
 			<button type="reset" class="btn2">Reset</button>
 			</div>
 		</form>
-	</div>
+		<br><br>
+	
 	<%!String flag;%>
 		<%
-		if (session.getAttribute("accnum") != null) {
-			flag = session.getAttribute("accnum").toString();
+		if (session.getAttribute("Saccnum") != null) {
+			flag = session.getAttribute("Saccnum").toString();
 		%>
      <h4 id="transhead"><%=flag%></h4>
 		<%
@@ -207,6 +208,7 @@ color:green;
 		%>
 		
 		<%
-		session.removeAttribute("accnum");
+		session.removeAttribute("Saccnum");
 		%>
+		</div>
 </html>

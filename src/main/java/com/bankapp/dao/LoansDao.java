@@ -8,13 +8,18 @@ public interface LoansDao {
 
 	public double getInterest(double descriptionId);
 
-	public  long PersonalLoan(Loans loan);
+	public long getAccNum(String email);
+
+	public boolean validateLoan(String pan);
+
+	public long PersonalLoan(Loans loan);
 
 	public long housingLoan(Loans loan);
 
 	public List<Loans> viewloan();
 
-	public boolean updateStatus(long accnum);
+	public boolean updateStatus(long accnum, String status);
+
 	public List<Loans> viewStatusUser(long accNo);
 
 }

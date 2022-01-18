@@ -38,7 +38,7 @@ public class depStatusUser extends HttpServlet {
 		   response.sendRedirect("depStatusView.jsp");
 	                  }
 		   else {
-			   session.setAttribute("accnum","Enter Valid Account Number!");
+			   session.setAttribute("Saccnum","Enter Valid Account Number!");
 			   response.sendRedirect("depositStatusUser.jsp");
 		   }
 		   

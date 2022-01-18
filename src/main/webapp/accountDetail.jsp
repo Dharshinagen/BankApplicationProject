@@ -42,7 +42,7 @@ a {
 }
 
 .set1 {
-	padding-right:  520px;
+	padding-right: 520px;
 }
 
 .btn {
@@ -122,27 +122,40 @@ ul li:hover a {
 }
 
 .btn3 {
-	margin-left: 70px;
+	margin-left: 140px;
 }
 
 body {
 	background-color: rgb(198, 208, 214);
 }
-#transhead{
-color:green;}
+
+td {
+	padding-left: 20px;
+	text-align: justify;
+	padding-bottom: 8px;
+}
+
+th {
+	text-align: justify;
+	padding-left: 30px;
+	padding-bottom: 8px;
+}
+
+#transhead {
+	color: red;
+}
 </style>
 </head>
 <body>
 	<h1 align="center">BANK OF INDIA</h1>
 	<nav>
-		  <a  href="CustomerDashBoard.jsp"> Home</a> 
-                       <a  href="loans.jsp">Loans</a> 
-                       <a  href="deposits.jsp">Deposits</a> 
-                       <a  href="AboutUs.jsp">About us</a>
-                       <a  href="ContactUs.jsp">Contact Us</a> 
-                       <a   href="interest.jsp" class="set1">%</a>   
-                       <a href="MyProfile.jsp">My Profile</a>
-                         <button class="btn"><a href="LogoutServlet">Logout</a></button>
+		<a href="CustomerDashBoard.jsp"> Home</a> <a href="loans.jsp">Loans</a>
+		<a href="deposits.jsp">Deposits</a> <a href="AboutUs.jsp">About us</a>
+		<a href="ContactUs.jsp">Contact Us</a> <a href="interest.jsp"
+			class="set1">%</a> <a href="MyProfile.jsp">My Profile</a>
+		<button class="btn">
+			<a href="LogoutServlet">Logout</a>
+		</button>
 	</nav>
 	<br>
 	<br>
@@ -165,29 +178,30 @@ color:green;}
 	</div>
 
 	<div class="box">
-		<h3>Account Detail:</h3>
+		<h3>Account Detail</h3>
 		<form action="AccountDetails" method="post">
 			<table>
 				<tr>
-					<th><label for="accountNo">Enter AccountNumber:</label></th>
+					<th><label for="accountNo"> AccountNumber</label></th>
 					<td><input type="text" class="cls" name="accNo"
 						pattern="[0-9]{12}" required autofocus placeholder=" " /></td>
 					<br>
 				</tr>
 				<tr>
 					<br>
-					<th><label for="pin">Enter Pin Number</label></th>
+					<th><label for="pin"> Pin Number</label></th>
 					<td><input type="password" class="cls" name="pin"
 						pattern="[0-9]{4}" required /></td>
 				</tr>
 			</table>
-			<br>
+			<br><br>
 			<div class="btn3">
 				<input type="submit" class="btn2" value=submit /> <input
 					type="reset" class="btn2" value=cancel />
-			</div> 
+			</div>
 		</form>
-		<br><br>
+		<br>
+		<br>
 		<%!String flag;%>
 		<%
 		if (session.getAttribute("pinvalid") != null) {

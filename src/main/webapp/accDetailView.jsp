@@ -23,24 +23,24 @@
 }
 
 nav {
-	font-size: 16px;
+	font-size: 17px;
 	color: black;
 	float: left;
 	background-color: rgb(9, 57, 87);
-	height: 25%;
+	height: 30%;
 	margin: 0;
 	color: red;
 	padding: 8px;
 }
 
 nav a {
-	padding-right:  80.4px;
+	padding-right: 57px;
 }
 
 h1 {
 	color: white;
 	background: #042331;
-	height: 10%;
+	height: 8%;
 	margin: 0;
 	padding: 7px;
 }
@@ -51,26 +51,23 @@ a {
 }
 
 .set1 {
-	padding-right: 290.3px;
+	padding-right: 430px;
 }
 
-.btn {float-right;
+.btn {
+	color: white;
 	background-color: transparent;
 	border-color: transparent;
 	font-size: 15px;
 }
 
-h3 {
-	padding: 20px;
-	background-color: blue;
-	margin: 0;
-}
+ 
 
 .sidebar {
 	position: absolute;
 	left: 0;
 	width: 250px;
-	height: 100%;
+	height: 96%;
 	background: #042331;
 	color: white;
 }
@@ -127,6 +124,7 @@ p {
 }
 .t1{
 padding:100px;
+padding-bottom:10px;
 }
  
 td {
@@ -139,16 +137,17 @@ th {
 }
 
 }
-.btn2 {
+.btn2  {
 	padding: 3px;
 	color: white;
-	background-color: green;
+	background-color:green;
 	margin-right: 30px;
 }
 
 .btn3 {
-	margin-left: 870px;
+	margin-left: 840px;
 }
+
 
 body {
 	background-color: rgb(198, 208, 214);
@@ -185,16 +184,16 @@ body {
 			 
 		</ul>
      </div>
-     
+     <h2 align="center">Account Details</h2>
       <div class="t1">
-      <h2 align="center">Account Details</h2>
+      
  <%
 long accno =  (long)session.getAttribute("useraccno");
  int pin = (int)session.getAttribute("userpin");
  AccountDetailsdaoimpl accountDetailsdaoimpl = new AccountDetailsdaoimpl();
  List<AccountDetails>  accdet = accountDetailsdaoimpl.searchDetail(accno, pin);
  %>
- <table class="">
+ <table  >
  <%for(AccountDetails acc : accdet){ %>
    <tr>
    <th>AccountType</th>

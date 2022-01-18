@@ -160,7 +160,7 @@ font-size:20px;
                        <a  href="ContactUs.jsp">Contact Us</a> 
                        
                        <a   href="interest.jsp" class="set1">%</a>   
-                       <a href="UserProfile">My Profile</a>
+                        <a href="MyProfile.jsp">My Profile</a>
                         <button class="btn"><a href="LogoutServlet">Logout</a></button>
        </nav>
        <br><br>
@@ -198,7 +198,7 @@ font-size:20px;
  </tr>
  <tr>
  <th>Amount</th>
- <td><input type="text" name="amount" pattern="[1-9][0-9]+" class="cls" required></td>
+ <td><input type="text" name="amount" pattern="[1-9][0-9]+" min="300"class="cls" required></td>
  </tr>
  <tr>
  <th>Pin Number</th>
