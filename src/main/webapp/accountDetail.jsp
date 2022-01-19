@@ -17,7 +17,7 @@ nav {
 	font-size: 18px;
 	color: black;
 	float: left;
-	background-color: rgb(9, 57, 87);
+	background-color: rgba(9, 57, 87,.9);
 	height: 30%;
 	margin: 0;
 	color: red;
@@ -57,7 +57,7 @@ a {
 	left: 0;
 	width: 250px;
 	height: 96%;
-	background: #042331;
+	background-color: rgba(9, 57, 87,.8 );
 	color: white;
 }
 
@@ -66,7 +66,7 @@ a {
 	color: white;
 	text-align: center;
 	line-height: 50px;
-	background: #063146;
+background-color: rgba(9, 57, 87,.3 );
 }
 
 ul {
@@ -115,18 +115,20 @@ ul li:hover a {
 }
 
 .btn2 {
-	padding: 3px;
+	padding: 5px;
 	color: white;
 	background-color: green;
 	margin-right: 30px;
+	border:0;
+	border-radius:3px;
 }
 
 .btn3 {
-	margin-left: 140px;
+	margin-left: 160px;
 }
 
 body {
-	background-color: rgb(198, 208, 214);
+	background-color: rgba(198, 208, 214,.9);
 }
 
 td {
@@ -147,7 +149,7 @@ th {
 </style>
 </head>
 <body>
-	<h1 align="center">BANK OF INDIA</h1>
+	<img src="images/boilogo.png" alt="couldnot load" width="400" height="100" />
 	<nav>
 		<a href="CustomerDashBoard.jsp"> Home</a> <a href="loans.jsp">Loans</a>
 		<a href="deposits.jsp">Deposits</a> <a href="AboutUs.jsp">About us</a>
@@ -157,7 +159,7 @@ th {
 			<a href="LogoutServlet">Logout</a>
 		</button>
 	</nav>
-	<br>
+	<br><br>
 	<br>
 	<div class="sidebar">
 
@@ -196,8 +198,8 @@ th {
 			</table>
 			<br><br>
 			<div class="btn3">
-				<input type="submit" class="btn2" value=submit /> <input
-					type="reset" class="btn2" value=cancel />
+				<input type="submit" class="btn2" value=submit /> 
+				<input type="reset" class="btn2" value=cancel />
 			</div>
 		</form>
 		<br>

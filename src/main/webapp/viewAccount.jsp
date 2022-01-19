@@ -15,13 +15,13 @@
 
 nav {
 	font-size: 18px;
-	color: black;
+	 
 	float: left;
 	background-color: rgb(9, 57, 87);
-	height: 30%;
+	height: 25%;
 	margin: 0;
-	color: red;
-	padding: 8px;
+	 
+	padding: 7px;
 }
 
 nav a {

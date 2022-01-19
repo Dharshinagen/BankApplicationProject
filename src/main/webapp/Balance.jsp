@@ -16,15 +16,15 @@ nav {
 	font-size: 16px;
 	color: black;
 	float: left;
-	background-color: rgb(9, 57, 87);
+	background-color: rgba(9, 57, 87,.9);
 	height: 30%;
 	margin: 0;
 	color: red;
-	padding: 8px;
+	padding: 3.5px;
 }
 
 nav a {
-	padding-right: 50px;
+	padding-right: 64.2px;
 }
 
 h1 {
@@ -48,7 +48,7 @@ a {
 	color: white;
 	background-color: transparent;
 	border-color: transparent;
-	font-size: 15px;
+	font-size: 16px;
 }
 
 h3 {
@@ -62,7 +62,7 @@ h3 {
 	left: 0;
 	width: 250px;
 	height: 100%;
-	background: #042331;
+background-color: rgba(9, 57, 87,.8);
 	color: white;
 }
 
@@ -71,7 +71,7 @@ h3 {
 	color: white;
 	text-align: center;
 	line-height: 50px;
-	background: #063146;
+background-color: rgba(9, 57, 87,.3);
 }
 
 ul {
@@ -128,10 +128,12 @@ ul li:hover a {
 }
 
 .btn2 {
-	padding: 3px;
+	padding: 5px;
 	color: white;
 	background-color: green;
 	margin-right: 30px;
+	border:0;
+	border-radius:3px;
 }
 
 .btn3 {
@@ -139,14 +141,14 @@ ul li:hover a {
 }
 
 body {
-	background-color: rgb(198, 208, 214);
+	background-color: rgba(198, 208, 214,.9);
 }
 </style>
 </head>
 <body>
-	<h1 align="center">BANK OF INDIA</h1>
+	<img src="images/boilogo.png" alt="couldnot load" width="400" height="100" />
 	<nav>
-		<a  href="index.jsp"> Home</a> 
+		  
                         <a  href="CustomerDashBoard.jsp"> Home</a> 
                        <a  href="loans.jsp">Loans</a> 
                        <a  href="deposits.jsp">Deposits</a> 
@@ -158,7 +160,7 @@ body {
 	</nav>
 	<br>
 	<br>
-
+    <br>
 	<div class="sidebar">
 
 		<header>My Account</header>

@@ -15,7 +15,7 @@ nav {
 	font-size: 18px;
 	color: black;
 	float: left;
-	background-color: rgb(9, 57, 87);
+	background-color: rgba(9, 57, 87,.9);
 	height: 30%;
 	margin: 0;
 	color: red;
@@ -40,7 +40,7 @@ a {
 }
 
 .set1 {
-	padding-right:  460px;
+	padding-right:  443px;
 }
 
 h3 {
@@ -54,7 +54,7 @@ h3 {
 	left: 0;
 	width: 250px;
 	height: 86%;
-	background: #042331;
+	background-color: rgba(9, 57, 87,.8 );
 	color: white;
 }
 
@@ -63,7 +63,7 @@ h3 {
 	color: white;
 	text-align: center;
 	line-height: 50px;
-	background: #063146;
+	background-color: rgba(9, 57, 87,.3);
 }
 
 ul {
@@ -111,7 +111,7 @@ p {
 }
 
 body {
- background-color: rgb(198, 208, 214);
+ background-color: rgba(198, 208, 214,.8);
 }
 
 #image {
@@ -147,7 +147,7 @@ body {
 </style>
 </head>
 <body>
-	<h1 align="center">BANK OF INDIA</h1>
+	<img src="images/boilogo.png" alt="couldnot load" width="400" height="100" />
 	<nav>
 		<a href="CustomerDashBoard.jsp"> Home</a> <a href="loans.jsp">Loans</a>
 		<a href="deposits.jsp">Deposits</a> <a href="AboutUs.jsp">About us</a>
@@ -157,6 +157,7 @@ body {
 			<a href="LogoutServlet">Logout</a>
 		</button>
 	</nav>
+	<br>
 	<br>
 	<br>
 

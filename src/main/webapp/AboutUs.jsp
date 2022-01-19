@@ -24,13 +24,13 @@
 	display: block;
 	margin: auto;
 	padding-top: 30px;
-	 background-color:  rgb(247, 204, 241);
+	 background-color:  rgba(247, 204, 241,.5);
 }
 
 .content-section {
 	float: left;
 	width: 55%;
-	 background-color:  rgb(247, 204, 241);
+	 
 }
 
  .img1{
@@ -41,7 +41,7 @@
 .image-section img {
 	width:  450px;;
 	 height: 520px;
- background-color:  rgb(247, 204, 241);
+ background-color:  rgba(247, 204, 241,.5);
 }
 
 .content-section.title {
@@ -96,7 +96,7 @@ nav {
 	font-size: 17px;
 	color: black;
 	float: left;
-	background-color: rgb(9, 57, 87);
+	background-color: rgba(9, 57, 87,.7);
 	height: 25%;
 	margin: 0;
 	color: red;
@@ -188,7 +188,7 @@ background-color:pink;}
 <body>
 
 
-	<h1 align="center">BANK OF INDIA</h1>
+	<img src="images/boilogo.png" alt="couldnot load" width="400" height="100" />
 	<nav>
 		<a href="index.jsp"> Home</a>
 		 <a href="loans.jsp">Loans</a>

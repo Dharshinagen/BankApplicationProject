@@ -14,15 +14,17 @@ nav {
 	font-size: 17px;
 	color: black;
 	float: left;
-	background-color: rgb(9, 57, 87);
+	background-color: rgba(9, 57, 87,.9);
 	height: 30%;
 	margin: 0;
 	color: red;
-	padding: 8px;
+	padding: 4px;
 }
+
 nav a {
-	padding-right: 77.4px;
+	padding-right: 79px;
 }
+
 h1 {
 	color: white;
 	background: #042331;
@@ -30,12 +32,14 @@ h1 {
 	margin: 0;
 	padding: 7px;
 }
+
 a {
 	text-decoration: none;
 	color: white;
 }
+
 .set1 {
-	padding-right: 325px;
+	padding-right: 325.5px;
 }
 .btn {
 	color: white;
@@ -53,7 +57,7 @@ h3 {
 	left: 0;
 	width: 250px;
 	height: 100%;
-	background: #042331;
+	background-color: rgba(9, 57, 87,.8);
 	color: white;
 }
 .sidebar header {
@@ -61,7 +65,7 @@ h3 {
 	color: white;
 	text-align: center;
 	line-height: 50px;
-	background: #063146;
+	background-color: rgba(9, 57, 87,.3);
 }
 ul {
 	list-style-type: none;
@@ -84,7 +88,7 @@ ul li:hover a {
 	width: 380px;
 	height: 380px;
 	position: relative;
-	margin: 6% auto;
+	margin: 3% auto;
 	background: transparent;
 	padding: 5px;
 	box: shadow;
@@ -108,28 +112,40 @@ ul li:hover a {
 	Background-color: transparent;
 }
 .btn2 {
-	padding: 3px;
+	padding: 5px;
 	color: white;
 	background-color: green;
 	margin-right: 30px;
+	border:0;
+	border-radius:3px;
 }
 .btn3 {
 	margin-left: 150px;
 }
 body {
-	background-color: rgb(198, 208, 214);
+	background-color: rgba(198, 208, 214,.9);
 }
-th{
-padding-left:150;
+td {
+	padding-left: 20px;
+	text-align: justify;
+	padding-bottom: 8px;
 }
-transhead{
+
+th {
+	text-align: justify;
+	padding-left: 30px;
+	padding-bottom: 8px;
+}
+#transhead{
 color:green;
 }
+#transhead1{
+color:red;}
  
 </style>
 </head>
 <body>
-	<h1 align="center">BANK OF INDIA</h1>
+		<img src="images/boilogo.png" alt="couldnot load" width="400" height="100" />
 	<nav>
 		 <a  href="CustomerDashBoard.jsp"> Home</a> 
                        <a  href="loans.jsp">Loans</a> 
@@ -142,7 +158,7 @@ color:green;
 	</nav>
 	<br>
 	<br>
-
+     <br>
 	<div class="sidebar">
 
 		<header>My Account</header>
@@ -232,7 +248,7 @@ color:green;
 		}
 		else if (session.getAttribute("loanNot")!=null){%>
 			
-		<h4><%=session.getAttribute("loanNot") %></h4>
+		<h4 id="transhead1"><%=session.getAttribute("loanNot") %></h4>
 		<%}
 			
 		%>

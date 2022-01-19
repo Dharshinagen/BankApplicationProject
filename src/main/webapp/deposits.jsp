@@ -15,7 +15,7 @@ nav {
 	font-size: 17px;
 	color: black;
 	float: left;
-	background-color: rgb(9, 57, 87);
+	background-color: rgba(9, 57, 87,.5);
 	height: 25%;
 	margin: 0;
 	color: red;
@@ -29,7 +29,7 @@ nav a {
 h1 {
 	color: white;
 
-     background-color:rgb(16, 35, 61);
+     background-color:rgba(16, 35, 61);
 	height: 10%;
 	margin: 0;
 	padding: 7px;
@@ -64,14 +64,16 @@ h1 {
              text-align: justify;
          }
          body{
-         background-color:  rgb(247, 204, 241);
+         background-image: url("images/blue.jpg") ; 
+   background-repeat: no-repeat;
+   background-size:  cover;
          }
         </style> 
        </head>
        <body>
        
         
-        <h1 align="center"> BANK OF INDIA </h1> 
+       <img src="images/boilogo.png" alt="couldnot load" width="400" height="100" />
         <nav>
                        <a href="index.jsp"> Home</a>
 		  <a href="loans.jsp">Loans</a>

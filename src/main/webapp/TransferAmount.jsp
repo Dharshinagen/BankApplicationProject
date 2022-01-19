@@ -13,14 +13,15 @@
 }
 
 nav {
-	font-size: 17px;
+	font-size: 18px;
 	color: black;
 	float: left;
-	background-color: rgb(9, 57, 87);
+	background-color: rgba(9, 57, 87,.9);
 	height: 25%;
 	margin: 0;
 	color: red;
-	padding: 9.1px;
+	padding: 3px;
+	 
 }
 
 nav a {
@@ -41,7 +42,7 @@ a {
 }
 
 .set1 {
-	padding-right: 535.8px;
+	padding-right:  522px;
 }
 
 .btn {
@@ -62,7 +63,7 @@ position:absolute;
 left:0;
 width:250px;
 height:96%;
-background:#042331;
+background-color: rgba(9, 57, 87,.8);
 color:white;
 }
 .sidebar header{
@@ -70,7 +71,7 @@ font-size:15px;
 color:white;
 text-align: center;
 line-height:50px;
-background:#063146;
+background-color: rgba(9, 57, 87,.3);
 
 }
 ul {
@@ -102,6 +103,7 @@ ul li:hover a {
 	background: transparent;
 	padding: 5px;
 	box: shadow;
+	 
 }
 
 .btn {
@@ -127,10 +129,12 @@ ul li:hover a {
 }
 
 .btn2 {
-	padding: 3px;
+	padding: 5px;
 	color: white;
 	background-color: green;
 	margin-right: 30px;
+	border:0;
+	border-radius:3px;
 }
 
 .btn3 {
@@ -138,19 +142,30 @@ ul li:hover a {
 }
 
 body {
-	background-color: rgb(198, 208, 214);
+background-color: rgba(198, 208, 214,.9);
 }
 #transhead{
-color:green;
+color:blue;
 }
 h2{
 padding-left:300px;
 font-size:20px;
 }
+td {
+	padding-left: 20px;
+	text-align: justify;
+	padding-bottom: 8px;
+}
+
+th {
+	text-align: justify;
+	padding-left: 30px;
+	padding-bottom: 8px;
+}
 </style>
 </head>
 <body>
-<h1 align="center"> BANK OF INDIA </h1> 
+<img src="images/boilogo.png" alt="couldnot load" width="400" height="100" />
         <nav>
                         <a  href="index.jsp"> Home</a> 
                        <a  href="loans.jsp">Loans</a> 
@@ -164,7 +179,7 @@ font-size:20px;
                         <button class="btn"><a href="LogoutServlet">Logout</a></button>
        </nav>
        <br><br>
-        
+        <br>
 	<div class="sidebar">
 
 		<header>My Account</header>

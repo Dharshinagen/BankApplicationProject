@@ -17,7 +17,7 @@ nav {
 	font-size: 18px;
 	color: black;
 	float: left;
-	background-color: rgb(9, 57, 87);
+	background-color: rgba(9, 57, 87,.9);
 	height: 30%;
 	margin: 0;
 	color: red;
@@ -56,7 +56,7 @@ h3 {
 	left: 0;
 	width: 250px;
 	height: 100%;
-	background: #042331;
+	background-color: rgba(9, 57, 87,.8);
 	color: white;
 }
 
@@ -65,7 +65,7 @@ h3 {
 	color: white;
 	text-align: center;
 	line-height: 50px;
-	background: #063146;
+	background-color: rgba(9, 57, 87,.3);
 }
 
 ul {
@@ -119,7 +119,7 @@ td {
 }
 
 body {
-	background-color: rgb(198, 208, 214);
+	background-color: rgba(198, 208, 214,.9);
 }
 
 .box {
@@ -127,7 +127,7 @@ body {
 	height: 270px;
 	position: relative;
 	margin: 5% auto;
-	background-color: rgb(98, 116, 128);
+	background-color: rgba(98, 116, 128,.5);
 	padding: 30px;
 	padding-left: 20px;
 	box: shadow;
@@ -139,10 +139,12 @@ h4 {
 }
 
 .btn2 {
-	padding: 3px;
+	padding: 5px 5px;
 	color: white;
 	background-color: green;
-	margin-right: 30px;
+	margin-left: 28px;
+	border:0;
+	border-radius:3px;
 }
 
 .btn3 {
@@ -151,7 +153,7 @@ h4 {
 </style>
 </head>
 <body>
-	<h1 align="center">BANK OF INDIA</h1>
+	<img src="images/boilogo.png" alt="couldnot load" width="400" height="100" />
 	<nav>
 		<a href="index.jsp"> Home</a> <a href="CustomerDashBoard.jsp">
 			Home</a> <a href="loans.jsp">Loans</a> <a href="deposits.jsp">Deposits</a>
@@ -162,7 +164,7 @@ h4 {
 			<a href="LogoutServlet">Logout</a>
 		</button>
 	</nav>
-	<br>
+	<br><br>
 	<br>
 
 	<div class="sidebar">

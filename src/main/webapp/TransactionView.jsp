@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>TransactionSummary</title>
 
 <style>
 * {
@@ -19,15 +19,15 @@ nav {
 	font-size: 17px;
 	color: black;
 	float: left;
-	background-color: rgb(9, 57, 87);
+	background-color: rgba(9, 57, 87,.9);
 	height: 30%;
 	margin: 0;
 	color: red;
-	padding: 8px;
+	padding: 3px;
 }
 
 nav a {
-	padding-right:  77.4px;
+	padding-right:  79px;
 }
 
 h1 {
@@ -65,7 +65,7 @@ h3 {
 	left: 0;
 	width: 250px;
 	height: 100%;
-	background: #042331;
+background-color: rgba(9, 57, 87,.8);
 	color: white;
 }
 
@@ -74,7 +74,7 @@ h3 {
 	color: white;
 	text-align: center;
 	line-height: 50px;
-	background: #063146;
+	background-color: rgba(9, 57, 87,.3);
 }
 
 ul {
@@ -125,10 +125,12 @@ ul li:hover a {
 }
 
 .btn2 {
-	padding: 3px;
+	padding: 5px;
 	color: white;
 	background-color: green;
 	margin-right: 30px;
+	border:0;
+	border-radius:3px;
 }
 
 .btn3 {
@@ -136,10 +138,10 @@ ul li:hover a {
 }
 
 body {
-	background-color: rgb(198, 208, 214);
+	background-color: rgba(198, 208, 214,.9);
 }
 
-transhead {
+#transhead {
 	color: green;
 }
 .t1 {
@@ -163,7 +165,7 @@ th {
 </style>
 </head>
 <body>
-	<h1 align="center">BANK OF INDIA</h1>
+	<img src="images/boilogo.png" alt="couldnot load" width="400" height="100" />
 	<nav>
 		 <a  href="CustomerDashBoard.jsp"> Home</a> 
                        <a  href="loans.jsp">Loans</a> 

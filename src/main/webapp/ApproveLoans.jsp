@@ -1,134 +1,138 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"  import = "java.util.List" import = "java.util.ArrayList"%>
-    <%@page import="com.bankapp.impl. LoansDaoimpl"%>
-    <%@page import="com.bankapp.model.Loans"%>
+	pageEncoding="ISO-8859-1" import="java.util.List"
+	import="java.util.ArrayList"%>
+<%@page import="com.bankapp.impl. LoansDaoimpl"%>
+<%@page import="com.bankapp.model.Loans"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>admin</title>
- 
- 
- 
+
+
+
 <style>
-*{
-        margin:0;
-        padding:0;
-        }
-        nav {
-           font-size: 18px;
-           color: black;
-           float: left;
-              background-color:rgb(9, 57, 87);
-           height: 30%;
-           margin: 0;
-          
-           color: red;
-           padding:8px;
-          
-       }
-       
-       nav a {
-        padding-right: 48.5px;
-       }
-       
-       h1 {
-           
-           color: white;
-          
-         background:#042331;
-           height: 10%;
-           margin: 0;
-           padding: 7px;
-       }
-       
-       a {
-           text-decoration: none;
-           color:white;
-       }
-        .set1{
-            padding-right : 311.5px;
-        }
-         .btn{
-       color:white;
-    background-color:transparent;
-    border-color:transparent;
-    font-size:15px;
-    }
-.h{
-padding:20px;
-background-color:blue;
-margin:0;
- 
+* {
+	margin: 0;
+	padding: 0;
 }
-.sidebar{
- position:fixed;
-left:0;
-width:250px;
-height:100%;
-background:#042331;
-color:white;
-}
-.sidebar header{
-font-size:15px;
-color:white;
-text-align: center;
-line-height:50px;
-background:#063146;
 
+nav {
+	font-size: 18px;
+	color: black;
+	float: left;
+	background-color: rgb(9, 57, 87);
+	height: 30%;
+	margin: 0;
+	color: red;
+	padding: 8px;
 }
-ul{
-list-style-type: none;
-}
-.sidebar ul a{
 
-height:100%;
-width:100%;
-line-height: 40px;
-font-size: 15px;
-padding-left:40px;
-color:white;
- 
- 
+nav a {
+	padding-right: 79px;
 }
-ul li:hover a{
-padding-left:50px;
+
+h1 {
+	color: white;
+	background: #042331;
+	height: 10%;
+	margin: 0;
+	padding: 7px;
 }
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+.set1 {
+	padding-right: 311.5px;
+}
+
+.btn {
+	color: white;
+	background-color: transparent;
+	border-color: transparent;
+	font-size: 15px;
+}
+
+.h {
+	padding: 20px;
+	background-color: blue;
+	margin: 0;
+}
+
+.sidebar {
+	position: fixed;
+	left: 0;
+	width: 250px;
+	height: 100%;
+	background: #042331;
+	color: white;
+}
+
+.sidebar header {
+	font-size: 15px;
+	color: white;
+	text-align: center;
+	line-height: 50px;
+	background: #063146;
+}
+
+ul {
+	list-style-type: none;
+}
+
 .sidebar ul a {
-margin-right:16px;
+	height: 100%;
+	width: 100%;
+	line-height: 40px;
+	font-size: 15px;
+	padding-left: 40px;
+	color: white;
 }
-.box{
-        width:380px;
-        height:700px;
-        position:relative;
-        margin:6% auto; 
-        background: transparent;
-        padding:5px;
-        box:shadow;
-    }
-     .btn{
-    float:right;
-    padding:5px 7px;
-    margin-right:5px;
-    border-radius:7px;
-    color:gray;
+
+ul li:hover a {
+	padding-left: 50px;
 }
+
+.sidebar ul a {
+	margin-right: 16px;
+}
+
+.box {
+	width: 380px;
+	height: 700px;
+	position: relative;
+	margin: 6% auto;
+	background: transparent;
+	padding: 5px;
+	box: shadow;
+}
+
+.btn {
+	float: right;
+	padding: 5px 7px;
+	margin-right: 5px;
+	border-radius: 7px;
+	color: gray;
+}
+
 .table1 {
 	padding: 90px;
 	padding-left: 300px;
-	border:none;
+	border: none;
 }
 
 td {
 	padding-left: 15px;
-	 
 }
 
 th {
-	padding-left:  10px;
-	font-size:18px;
-	 
+	padding-left: 10px;
+	font-size: 18px;
 }
+
 .btn2 {
 	padding: 3px;
 	color: white;
@@ -143,111 +147,115 @@ th {
 body {
 	background-color: rgb(198, 208, 214);
 }
-.div1{
-padding-left :460px;}
-#transhead{
-color:green;}
+
+.div1 {
+	padding-left: 460px;
+}
+
+#transhead {
+	color: green;
+}
 </style>
 </head>
 <body>
-<h1 align="center"> BANK OF INDIA </h1> 
-        <nav>
-                        <a  href="index.jsp"> Home</a> 
-                       <a  href="loans.jsp">Loans</a> 
-                       <a  href="deposits.jsp">Deposits</a> 
-                         
-                       <a  href="AboutUs.jsp">About us</a>
-                       <a  href="ContactUs.jsp">Contact Us</a> 
-                       
-                       <a   href="interest.jsp" class="set1">%</a>   
-                        <a href="MyProfile.jsp">My Profile</a>
-                        <button class="btn"><a href="LogoutServlet">Logout</a></button>
-       </nav>
-       <br>
-       <br>
+	<h1 align="center">BANK OF INDIA</h1>
+	<nav>
+		<a href="index.jsp"> Home</a>
+		 <a href="loans.jsp">Loans</a> <a
+			href="deposits.jsp">Deposits</a> <a href="AboutUs.jsp">About us</a> <a
+			href="ContactUs.jsp">Contact Us</a> <a href="interest.jsp"
+			class="set1">%</a> <a href="MyProfile.jsp">My Profile</a>
+		<button class="btn">
+			<a href="LogoutServlet">Logout</a>
+		</button>
+	</nav>
+	<br>
+	<br>
 	<div class="sidebar">
 
 		<header>ADMIN</header>
 		<ul>
 			<li><a href="viewAllUser.jsp">View All Users</a></li>
-			<li><a  href="viewAccount.jsp">View All Account</a></li>
-		    <li><a href="AdminAddAccount.jsp">Insert Account Details </a></li>
-			<li><a href="UpdateAccountDetails.jsp">Update Account Details </a></li>
+			<li><a href="viewAccount.jsp">View All Account</a></li>
+			<li><a href="AdminAddAccount.jsp">Insert Account Details </a></li>
+			<li><a href="UpdateAccountDetails.jsp">Update Account
+					Details </a></li>
 			<li><a href="ApproveLoans.jsp">ApproveLoans</a></li>
 			<li><a href="ApproveDeposits.jsp">ApproveDeposits</a></li>
 			<li><a href="InterestRateAll.jsp">Rate Of Interest</a></li>
 			<li><a href="TransactionByDate.jsp">Transaction by Date</a></li>
 			<li><a href="TransactionByAcc.jsp">Transaction by Account</a></li>
 			<li><a href="UserCancel.jsp">Cancel Account</a></li>
-			
-			 
-			 
+
+
+
 		</ul>
-     </div>
-     <h2 align="center">Loan Status</h2>
-      
-<% LoansDaoimpl LoanDao = new LoansDaoimpl();
-        List<Loans> List = new ArrayList<Loans>();
-        List = LoanDao.viewloan();
+	</div>
+	<h2 align="center">Loan Status</h2>
 
-%>
+	<%
+	LoansDaoimpl LoanDao = new LoansDaoimpl();
+	List<Loans> List = new ArrayList<Loans>();
+	List = LoanDao.viewloan();
+	%>
 
-<div class="table1">
+	<div class="table1">
 
-<table>
- 
-<thead>
-<tr>
-  <th>S.no</th>
-   
-<th>AccountNumber</th>
-<th>Name</th>
-<th>Mobile number</th>
-<th>LoanType</th>
-<th>LoanAmount</th>
-<th>Tenure</th>
-<th>Interest</th>
-<th>Status</th>
-<th>Approve</th>
- <th>Reject</th> 
-</tr>
-</thead>
-<br>
-<br>
+		<table>
 
-<tbody>
-<%
-int i = 0;
-for ( Loans viewuser : List) {
-i++;
+			<thead>
+				<tr>
+					<th>S.no</th>
 
-%>
-<tr>
+					<th>AccountNumber</th>
+					<th>Name</th>
+					<th>Mobile number</th>
+					<th>LoanType</th>
+					<th>LoanAmount</th>
+					<th>Tenure</th>
+					<th>Interest</th>
+					<th>Status</th>
+					<th>Approve</th>
+					<th>Reject</th>
+				</tr>
+			</thead>
+			<br>
+			<br>
+
+			<tbody>
+				<%
+				int i = 0;
+				for (Loans viewuser : List) {
+					i++;
+				%>
+				<tr>
 
 
-<td><%=i%></td>
- 
-<td><%=viewuser.getAccount_number()%></td>
-<td><%=viewuser. getUser_name()%></td>
-<td><%=viewuser. getMobno()%></td>
-<td><%=viewuser. getLoan_type()%></td> 
-<td><%=viewuser. getLoan_amount()%></td>
- <td><%=viewuser.getTenure()%></td>
- <td><%=viewuser. getInterest_rate()%></td>
- <td><%=viewuser.getLoan_status()%></td>
- <td><a href="approveloan?accno=<%=viewuser.getAccount_number()%>&status=<%="Approved"%>">Approve</a></td>
-  <td><a href="approveloan?accno=<%=viewuser.getAccount_number()%>&status=<%="Rejected"%>">Reject</a></td> 
- </tr>
+					<td><%=i%></td>
 
-<%
-}
-%>
-</tbody>
-          </table>
-         
-     </div>
-</div>
-</div>
-  
+					<td><%=viewuser.getAccount_number()%></td>
+					<td><%=viewuser.getUser_name()%></td>
+					<td><%=viewuser.getMobno()%></td>
+					<td><%=viewuser.getLoan_type()%></td>
+					<td><%=viewuser.getLoan_amount()%></td>
+					<td><%=viewuser.getTenure()%></td>
+					<td><%=viewuser.getInterest_rate()%></td>
+					<td><%=viewuser.getLoan_status()%></td>
+					<td><a
+						href="approveloan?accno=<%=viewuser.getAccount_number()%>&status=<%="Approved"%>">Approve</a></td>
+					<td><a
+						href="approveloan?accno=<%=viewuser.getAccount_number()%>&status=<%="Rejected"%>">Reject</a></td>
+				</tr>
+
+				<%
+				}
+				%>
+			</tbody>
+		</table>
+
+	</div>
+	</div>
+	</div>
+
 </body>
 </html>

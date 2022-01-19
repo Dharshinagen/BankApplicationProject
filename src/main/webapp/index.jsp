@@ -21,7 +21,7 @@ nav {
 	font-size: 17px;
 	color: black;
 	float: left;
-	background-color: rgb(9, 57, 87);
+	background-color: rgba(9, 57, 87,.5);
 	height: 25%;
 	margin: 0;
 	color: red;
@@ -36,7 +36,7 @@ nav a {
 
 h2 {
 	color: white;
-	 background-color: rgb(9, 41, 63);
+	 background-color: rgba(9, 41, 63,0.9);
 	height: 10%;
 	margin: 0;
 	padding: 7px;
@@ -45,6 +45,7 @@ h2 {
 a {
 	text-decoration: none;
 	color: white;
+	 
 }
 
 .par {
@@ -83,28 +84,31 @@ li, p {
 }
  
  body{
-  background-image: url("images/bankof1.jpg") ; 
+  background-image: url("images/bnk.jpg") ; 
    background-repeat: no-repeat;
    background-size:  cover;
  
  }
- .butn{
+ .butn {
  padding-left: 550px;
  }
  .buttn{
-    background-color:green;
+   background-color:  rgba(100, 201, 231,.5);
     color:white;
+    border:0px;
     border-radius:6px;
-    padding: 10px 15px;
+    padding: 10px 25px;
     text-align : center;
      
  }
+ .buttn a:hover{
+ color:blue;}
 </style>
 </head>
 <body>
 
 
-	<h2 align="center">BANK OF INDIA</h2>
+	 <img src="images/boilogo.png" alt="couldnot load" width="400" height="100" />
 	 <nav>
 		  <a href="index.jsp"> Home</a>
 		  <a href="loans.jsp">Loans</a>
@@ -117,9 +121,7 @@ li, p {
 		   
 	 
 	</nav><br><br>
-<div class="butn">
-	 <button type="submit" class="buttn" ><a href="login.jsp">WELCOME</a></button>
-</div>
+
  <%-- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -152,8 +154,8 @@ li, p {
 		<h4>Vision:</h4>
 		<br>
 		<p>Delivering excellence in financial services through customer
-			focus, employee engagement and sustainable growth.</p>
-		<br>  
+			focus, employee engagement<br> and sustainable growth.</p>
+		  
 		<div class="t1">
 			<div class="t2">
 				<h4>Mission:</h4>
@@ -175,5 +177,8 @@ li, p {
 		
 			 
 		</div>
+		<div class="butn">
+	 <button type="submit" class="buttn" ><a href="login.jsp">WELCOME</a></button>
+</div>
 </body>
 </html>

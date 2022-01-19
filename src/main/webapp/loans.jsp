@@ -12,15 +12,15 @@
 }
 
 nav {
-	font-size: 19px;
+	font-size: 17px;
 	color: black;
 	float: left;
-	background-color: rgb(9, 57, 87);
+	background-color: rgba(9, 57, 87,.5);
 	height: 25%;
 	margin: 0;
 	color: red;
 	padding: 8px;
-}
+	}
 
 nav a {
 	padding-right: 85.3px;
@@ -49,8 +49,10 @@ marquee {
 }
 
 body {
-	background-color:  rgb(247, 204, 241);
-}
+	  background-image: url("images/blue.jpg") ; 
+   background-repeat: no-repeat;
+   background-size:  cover;
+	}
 
 .set1 {
 	padding-right: 276.5px;
@@ -87,7 +89,7 @@ li {
 button{
 background-color: transparent;
 	border-color: transparent;
-text-decoration:none;
+text-decoration:none;  
 text-align:center;
 
 }
@@ -97,7 +99,7 @@ text-align:center;
 <body>
 
 
-	<h1 align="center" class="h">BANK OF INDIA</h1>
+	<img src="images/boilogo.png" alt="couldnot load" width="400" height="100" />
 	<nav>
 		<button type="submit"><a href="index.jsp"> Home</a></button>
 		<button type="submit"> <a href="loans.jsp">Loans</a> </button>

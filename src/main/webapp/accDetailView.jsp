@@ -26,16 +26,21 @@ nav {
 	font-size: 17px;
 	color: black;
 	float: left;
-	background-color: rgb(9, 57, 87);
+	background-color: rgba(9, 57, 87,.9);
 	height: 30%;
 	margin: 0;
 	color: red;
-	padding: 8px;
+	padding: 3px;
 }
 
 nav a {
-	padding-right: 57px;
+	padding-right: 58.2px;
+	text-decoration: none;
+	color: white;
 }
+nav a:hover{
+text-decoration:none;
+color:white;}
 
 h1 {
 	color: white;
@@ -45,10 +50,7 @@ h1 {
 	padding: 7px;
 }
 
-a {
-	text-decoration: none;
-	color: white;
-}
+ 
 
 .set1 {
 	padding-right: 430px;
@@ -68,7 +70,7 @@ a {
 	left: 0;
 	width: 250px;
 	height: 96%;
-	background: #042331;
+	background-color: rgba(9, 57, 87,.8);
 	color: white;
 }
 
@@ -77,7 +79,7 @@ a {
 	color: white;
 	text-align: center;
 	line-height: 50px;
-	background: #063146;
+	background-color: rgba(9, 57, 87,.3);
 }
 
 ul {
@@ -95,6 +97,7 @@ ul {
 
 ul li:hover a {
 	padding-left: 50px;
+	text-decoration:none;
 }
 
 .sidebar ul a {
@@ -123,26 +126,35 @@ p {
 	padding-right: 50px;
 }
 .t1{
-padding:100px;
-padding-bottom:10px;
+padding:70px;
+ margin-bottom:7px;
+
 }
  
 td {
-	padding-left: 110px;
+	padding-left: 90px;
+	
 	 
 }
 
 th {
-	padding-left: 380px
+	padding-left: 440px
 }
 
-}
-.btn2  {
+a{
+text-decoration:none;
+color:white;}
+.btn2   {
 	padding: 3px;
-	color: white;
-	background-color:green;
-	margin-right: 30px;
+	color:white;
+	 background-color:green;
+	 border:0;
+	 border-radius:3px;
+	 
 }
+.btn2 a:hover{
+color:pink;
+text-decoration:none;}
 
 .btn3 {
 	margin-left: 840px;
@@ -155,7 +167,7 @@ body {
 </style>
 </head>
 <body>
- <h1 align="center"> BANK OF INDIA </h1> 
+<img src="images/boilogo.png" alt="couldnot load" width="400" height="100" /> 
         <nav>
                         <a  href="CustomerDashBoard.jsp"> Home</a> 
                        <a  href="loans.jsp">Loans</a> 
@@ -167,6 +179,7 @@ body {
                          <button class="btn"><a href="LogoutServlet">Logout</a></button>
        </nav>
         <br><br>
+        <br>
 	<div class="sidebar">
 
 		<header>My Account</header>
@@ -235,10 +248,10 @@ long accno =  (long)session.getAttribute("useraccno");
     
     <%} %>
     </table>
-    <br>
-       <div class="btn3">
+     
+    <div class="btn3">
     <button type="submit" class="btn2" ><a href="CustomerDashBoard.jsp">Back</a></button>
-       </div>
+        </div>
    </div>
    
 </body>
