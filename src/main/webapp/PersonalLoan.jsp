@@ -243,18 +243,21 @@ color:red;}
 
 
 		<h4 id="transhead"><%=flag%></h4>
-		<h4 id="transhead"> <%=acc %></h4>
+		<h4 id="transhead">Your Loan Number: <%=acc %></h4>
 		<%
 		}
 		else if (session.getAttribute("loanNot")!=null){%>
 			
 		<h4 id="transhead1"><%=session.getAttribute("loanNot") %></h4>
 		<%}
-			
-		%>
+		else if (session.getAttribute("Ploan")!=null){%>
+		
+		<h4 id="transhead1"><%=session.getAttribute("Ploan") %></h4>
+		<%} %>
 		<%
 		session.removeAttribute("loan");
 		session.removeAttribute("loanNot");
+		session.removeAttribute("Ploan");
 		%>
 	</div>
 

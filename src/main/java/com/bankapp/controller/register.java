@@ -20,13 +20,13 @@ import com.bankapp.model.UserDetails;
  * Servlet implementation class register
  */
  @WebServlet("/register")
-public class register extends HttpServlet {
+public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * Default constructor. 
      */
-    public register() {
+    public Register() {
         // TODO Auto-generated constructor stub
     }
 

@@ -31,6 +31,9 @@ nav a {
 	padding-right: 85.3px;
 	text-decoration:none;
 }
+nav a:hover{
+text-decoration:none;
+color:white;}
 
 h1 {
 	color: white;
@@ -66,7 +69,7 @@ body {
 
 .table{
 		
-		width:380px;
+		 padding-bottom:10px;
 		 
 	}
 	body{
@@ -123,7 +126,7 @@ left: 145px;
 	AdminUseDaoimpl admin = new AdminUseDaoimpl();
 	List<AdminUse> list = admin.interestRate();
 	%>
-	<div class="">
+	 
 	<div class="container mt-4 mb-4">
 <table class="table table-striped table-dark table-hover table-sm">
 	 

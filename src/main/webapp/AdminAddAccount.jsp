@@ -12,18 +12,18 @@
 }
 
 nav {
-	font-size: 18px;
-	color: black;
+	font-size: 17px;
+	 
 	float: left;
-	background-color: rgb(9, 57, 87);
-	height: 30%;
+	background-color: rgba(9, 57, 87,.9);
+ 
 	margin: 0;
-	color: red;
-	padding: 8px;
+	 
+	padding: 4px;
 }
 
 nav a {
-	padding-right: 48.5px;
+	padding-right: 55px;
 }
 
 h1 {
@@ -40,7 +40,7 @@ a {
 }
 
 .set1 {
-	padding-right: 652.5px;
+	padding-right: 623.5px;
 }
 
 .btn {
@@ -60,8 +60,8 @@ h3 {
 	position:absolute;
 	left: 0;
 	width: 250px;
-	height: 100%;
-	background: #042331;
+	height: 700px;
+	background-color: rgba(9, 57, 87,.8);
 	color: white;
 }
 
@@ -70,7 +70,7 @@ h3 {
 	color: white;
 	text-align: center;
 	line-height: 50px;
-	background: #063146;
+	background-color: rgba(9, 57, 87,.3);
 }
 
 ul {
@@ -118,10 +118,12 @@ ul li:hover a {
 }
 
 .btn2 {
-	padding: 3px;
+	padding: 5px;
 	color: white;
 	background-color: green;
 	margin-right: 30px;
+	border:0;
+	border-radius:3px;
 }
 
 .btn3 {
@@ -129,7 +131,18 @@ ul li:hover a {
 }
 
 body {
-	background-color: rgb(198, 208, 214);
+	background-color: rgba(198, 208, 214,.9);
+}
+td {
+	padding-left: 20px;
+	text-align: justify;
+	padding-bottom: 8px;
+}
+
+th {
+	text-align: justify;
+	padding-left: 30px;
+	padding-bottom: 8px;
 }
 .div1{
 padding-left :460px;}
@@ -138,7 +151,7 @@ color:green;}
 </style>
 </head>
 <body>
-	<h1 align="center">BANK OF INDIA</h1>
+	<img src="images/boilogo.png" alt="couldnot load" width="400" height="100" />
 	<nav>
 		<a href="index.jsp"> Home</a> 
 		<a href="loans.jsp">Loans</a> 
@@ -152,6 +165,7 @@ color:green;}
 			<a href="LogoutServlet">Logout</a>
 		</button>
 	</nav>
+	<br>
 	<br>
 	<br>
 	<div class="sidebar">
@@ -240,6 +254,11 @@ color:green;}
 					<th>Enter Status</th>
 					<td><input type="text" class="cls" name="status"
 						placeholder="ACTIVE OR INACTIVE" required /></td>
+				</tr>
+				<tr>
+					<th>Enter  Pan Number</th>
+					<td><input type="text" class="cls" name="pan"
+						 required /></td>
 				</tr>
 			</table>
 			<br>

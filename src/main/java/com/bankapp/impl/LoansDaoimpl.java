@@ -101,7 +101,7 @@ public class LoansDaoimpl implements LoansDao {
 	}
 	public boolean validateLoan( String pan) {
 	    String que="select  * from loans where  pan_number='"+pan+"'  ";
-	    String query="select  * from loans where  pan_number='"+pan+"' and Loan_status='Rejected' ";
+	    String query="select  * from loans where  pan_number='"+pan+"' and Loan_status='Rejected' or Loan_status='NotApproved' ";
 	    Connection con = ConnectionUtil.getDbConnection();
 	    boolean flag=true;
 	    try {
@@ -135,6 +135,29 @@ public class LoansDaoimpl implements LoansDao {
 	    
 	    
 		return flag;
+	}
+	public boolean validatePersonalLoan( String pan) {
+	    String que="select  * from loans where  pan_number='"+pan+"' and Loan_type='Personal Loan'";
+	    Connection con = ConnectionUtil.getDbConnection();
+	    boolean flag=true;
+	    try {
+			Statement st=con.createStatement();
+			ResultSet rs=st.executeQuery(que);
+		 
+		  
+			
+			 if(rs.next()) {
+//				 Loans loan=new Loans(rs.getLong(1), rs.getString(2),rs.getDate(3).toLocalDate(),rs.getString(4),rs.getLong(5),
+//							rs.getString(6), rs.getString(7),rs.getString(8),rs.getDouble(9),rs.getInt(10), rs.getDouble(11),
+////							rs.getDouble(12), rs.getString(13), rs.getString(14));
+				  
+				 flag=true;
+			 }
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    return flag;
 	}
 	public  long housingLoan(Loans loan) {
 		String que="select  loan_acc.nextval from dual";

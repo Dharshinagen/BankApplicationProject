@@ -213,7 +213,7 @@ color:red;}
 			<button type="reset" class="btn2">Reset</button>
 			</div>
 			
-		</form><br>
+		</form>
 		<%!String flag;
 		    %>
 		<%

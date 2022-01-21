@@ -8,11 +8,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Admin</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="customer.css">
 <style>
 * {
@@ -24,7 +21,7 @@ nav {
 	font-size: 17px;
 	color: black;
 	float: left;
-	background-color: rgb(9, 57, 87);
+	background-color: rgba(9, 57, 87,.9);
 	height: 25%;
 	margin: 0;
 	 
@@ -70,7 +67,7 @@ h3 {
 	left: 0;
 	width: 250px;
 	height: 100%;
-	background: #042331;
+	background-color: rgba(9, 57, 87,.8);
 	color: white;
 }
 
@@ -79,7 +76,7 @@ h3 {
 	color: white;
 	text-align: center;
 	line-height: 50px;
-	background: #063146;
+	background-color: rgba(9, 57, 87,.3);
 }
 
 ul {
@@ -90,7 +87,7 @@ ul {
 	height: 100%;
 	width: 100%;
 	line-height: 40px;
-	font-size: 15px;
+	font-size: 14px;
 	padding-left: 40px;
 	color: white;
 }
@@ -136,24 +133,49 @@ th {
 	font-size: 18px;
 }
 
-}
+
 .btn2{
-	 padding:5px;
+	 padding:5px 15px;
 	 background-color:green;
-	 color:red;
+	 color:white;
+	 border:0;
+	 border-radius:3px;
 }
 
 .btn3 {
 	margin-left: 670px;
 }
-
+.btn2 a:hover{
+text-decoration:none;
+color:white;}
 body {
-	background-color: rgb(198, 208, 214);
+	background-color: rgba(198, 208, 214,.9);
 }
+td {
+	padding-left: 20px;
+	text-align: justify;
+	padding-bottom: 8px;
+}
+
+th {
+	text-align: justify;
+	padding-left: 30px;
+	padding-bottom: 8px;
+}
+.table{
+margin-bottom:10px;
+ width:1000px;
+ margin-left:180px;
+}
+.table th{
+background-color:  rgba(161, 15, 95,.5);}
+.table td{
+background-color:  rgba(35, 106, 240,.5);}
+
 </style>
 </head>
 <body>
-	<h1 align="center">BANK OF INDIA</h1>
+	<img src="images/boilogo.png" alt="couldnot load" width="400" height="100" />
 	<nav>
 		<a href="index.jsp"> Home</a> <a href="loans.jsp">Loans</a> <a
 			href="deposits.jsp">Deposits</a> <a href="AboutUs.jsp">About us</a> <a
@@ -164,6 +186,7 @@ body {
 			<a href="LogoutServlet">Logout</a>
 		</button>
 	</nav>
+	<br>
 	<br>
 	<br>
 	<div class="sidebar">
@@ -193,8 +216,9 @@ body {
 	List = UserDao.viewUser();
 	%>
 
-	<div class="t1">
-		<table>
+	 <div class="container mt-4 mb-4">
+      <table class="table table-hover table-striped">
+	 
 
 			<thead>
 				<tr>

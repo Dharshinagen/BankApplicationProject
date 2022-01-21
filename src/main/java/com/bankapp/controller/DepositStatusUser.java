@@ -20,7 +20,7 @@ import com.bankapp.model.Transaction;
 /**
  * Servlet implementation class depStatusUser
  */ @WebServlet("/deposit")
-public class depStatusUser extends HttpServlet {
+public class DepositStatusUser extends HttpServlet {
 	 
 	 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

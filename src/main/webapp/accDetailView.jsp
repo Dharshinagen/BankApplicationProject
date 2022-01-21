@@ -245,6 +245,10 @@ long accno =  (long)session.getAttribute("useraccno");
     <th >Branch Name</th>
    <td><%=acc. getBranchName() %></td>
    </tr>
+   </tr>
+    <th >Pan Number</th>
+   <td><%=acc.getPan() %></td>
+   </tr>
     
     <%} %>
     </table>

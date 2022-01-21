@@ -35,7 +35,7 @@ public List<AdminUse> allDetails() {
 	List<AdminUse> list=new ArrayList<AdminUse>();
 	ConnectionUtil conUtil = new ConnectionUtil();
 	
-	String ValidateQuery="select category_name,category_type,description,description_id,interest_rate from admin_use";
+	String ValidateQuery="select category_name,category_type,description,description_id,interest_rate from admin_use order by description_id";
 	 
 	Connection con = conUtil.getDbConnection();
 	 AdminUse adminuse=null;
@@ -62,7 +62,7 @@ public List<AdminUse> interestRate() {
 	List<AdminUse> list=new ArrayList<AdminUse>();
 	ConnectionUtil conUtil = new ConnectionUtil();
 	
-	String ValidateQuery="select * from admin_use order by category_id";
+	String ValidateQuery="select * from admin_use order by description_id";
 	 
 	Connection con = conUtil.getDbConnection();
 	 AdminUse adminuse=null;

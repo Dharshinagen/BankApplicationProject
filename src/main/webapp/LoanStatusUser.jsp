@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Loans Status</title>
 <style>
 * {
 	margin: 0;
@@ -12,18 +12,18 @@
 }
 
 nav {
-	font-size: 18px;
+	font-size: 17px;
 	color: black;
 	float: left;
-	background-color: rgb(9, 57, 87);
+	background-color: rgba(9, 57, 87,.9);
 	height: 30%;
 	margin: 0;
 	color: red;
-	padding: 8px;
+	padding: 5px;
 }
 
 nav a {
-	padding-right: 70.5px;
+	padding-right: 75px;
 }
 
 h1 {
@@ -61,7 +61,7 @@ h3 {
 	left: 0;
 	width: 250px;
 	height: 100%;
-	background: #042331;
+	background-color: rgba(9, 57, 87,.8);
 	color: white;
 }
 
@@ -70,7 +70,7 @@ h3 {
 	color: white;
 	text-align: center;
 	line-height: 50px;
-	background: #063146;
+	background-color: rgba(9, 57, 87,.3);
 }
 
 ul {
@@ -126,10 +126,12 @@ ul li:hover a {
 }
 
 .btn2 {
-	padding: 3px;
+	padding: 5px;
 	color: white;
 	background-color: green;
 	margin-right: 30px;
+	border:0;
+	border-radius:3px;
 }
 
 .btn3 {
@@ -139,13 +141,13 @@ ul li:hover a {
 body {
 	background-color: rgb(198, 208, 214);
 }
-transhead{
-color:green;
+#transhead{
+color:red;
 }
 </style>
 </head>
 <body>
-	<h1 align="center">BANK OF INDIA</h1>
+	<img src="images/boilogo.png" alt="couldnot load" width="400" height="100" />
 	<nav>
 		 <a  href="CustomerDashBoard.jsp"> Home</a> 
                        <a  href="loans.jsp">Loans</a> 
@@ -158,7 +160,7 @@ color:green;
 	</nav>
 	<br>
 	<br>
-
+    <br>
 	<div class="sidebar">
 
 		<header>My Account</header>
@@ -182,7 +184,7 @@ color:green;
 		<form action="loanStatus" method="post">
 			<table>
 				<tr>
-					<th>Enter Account Number</th>
+					<th> Account Number</th>
 					<td><input type="text" class="cls" name="accno" pattern="[0-9]{12,14}"
 						required /></td>
 				</tr>
@@ -194,6 +196,7 @@ color:green;
 			<button type="reset" class="btn2">Reset</button>
 			</div>
 		</form>
+		<br><br>
 		<%!String flag;%>
 		<%
 		if (session.getAttribute("Saccnum") != null) {

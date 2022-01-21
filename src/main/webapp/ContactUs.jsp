@@ -144,6 +144,8 @@ background-image: url("images/bankof5.jpg") ;
    display:inline-flex;
    padding-left:5px;
    }
+   #transhead{
+   color:green;}
 </style>
 </head>
 <body>
@@ -158,29 +160,7 @@ background-image: url("images/bankof5.jpg") ;
 	</nav>
 	<br><br>
 	<br>
-	<%--<br>
-	<br>
-	<br>
-	<br>
-	<h2>Call Us</h2>
-	<br>
-	<h3>1800 1200 (Toll Free)</h3>
-	<br>
-
-
-	<h3>Timings: 8:00 AM to 8:00 PM</h3>
-	<br>
-
-	<h3>(Post 8 PM till 8 AM only critical service offered)</h3>
-	<br>
-	<br>
-	<h2>Email & SMS</h2>
-	<br>
-	<h3>bankofindia@bankofindia.in</h3>
-	<br>
-	<h3>SMS 'HELP' space CUST ID</h3>
-	<br>
-	<h3>+91 9652220020</h3>--%>
+ 
 	<div class="sec">
 	 <div class="contact-section">
 	      <div class="contact-info">
@@ -196,16 +176,29 @@ background-image: url("images/bankof5.jpg") ;
 	   <h2>Contact Us</</h2>
 	   <br>
 	   <br>
-	      <form class="contact" action="" method="post">
+	      <form class="contact" action="ContactUs" method="post">
 	      <input type="text" name="name" class="text-box" placeholder="Your Name" required>
 	      <input type="email" class="text-box" name="email" placeholder="Your Email" required>
 	      <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
 	      <input type="submit" name="submit" class="s-btn" value="SUBMIT">
 	      
 	      </form>
-	
+	   
 	</div>
 	</div>
+<%!	String flag;
+%>
+<%
+if(session.getAttribute("msg") != null){
+flag = session.getAttribute("msg").toString();
+%>
+<h4 id = "transhead"><%= flag%></h4>
+<% }%>
+ 
+  <%session.removeAttribute("msg");
+       %>
 	
+	
+
 </body>
 </html>

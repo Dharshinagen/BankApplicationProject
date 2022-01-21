@@ -39,8 +39,8 @@ CREATE  TABLE ACCOUNT_DETAILS(USER_ID NUMBER  NOT NULL,ACCOUNT_NUMBER NUMBER GEN
                         CONSTRAINT PK_ACCNO PRIMARY KEY(ACCOUNT_NUMBER));
 UPDATE ACCOUNT_DETAILS SET ACCOUNT_STATUS='ACTIVE';
  
+ alter table Account_details add   Pan_number varchar(50)  ;
  
-  
 
 INSERT INTO ACCOUNT_DETAILS (USER_ID,ACC_TYPE,ACC_HOLDER_NAME,ADDRESS,CITY,PINCODE,DOB,MOBILE_NUMBER,EMAIL,IFSC_CODE,BRANCH_NAME,BALANCE,PIN_NUMBER)
                 VALUES(1,'SAVINGS ACCOUNT','Dharshini','15-Nagal Nagar','CHENNAI',600008,'05-03-1999',9876567890,'dharshi05@gmail.com','IB1001100210',
@@ -130,17 +130,20 @@ INSERT INTO ADMIN_USE VALUES(3,'LOANS','PERSONAL','TIER - 2 COMPANIES',3.2,14 );
 INSERT INTO ADMIN_USE VALUES(3,'LOANS','PERSONAL','SELF EMPLOYEE ',3.3 ,16);
 INSERT INTO ADMIN_USE VALUES(3,'LOANS','HOUSING','HOUSE LOAN',3.4,6.9);
 
+CREATE TABLE CONTACT_US(CONTACT_ID INTM GENERATED ALWAYS AS IDENTITY(START WITH  1 INCREMENT BY 1),
+USER_NAME VARCHAR2(50),EMAIL VARCHAR2(50),MESSAGE VARCHAR2(150));
 
+
+SELECT * FROM CONTACT_US;
 SELECT * FROM ADMIN_USE order by category_id;
 SELECT * FROM LOANS; 
 SELECT * FROM TRANSACTION;
-SELECT * FROM DEPOSITS;
- 
-SELECT * FROM ACCOUNT_DETAILS;
+SELECT * FROM DEPOSITS; 
+ SELECT * FROM ACCOUNT_DETAILS; 
 SELECT * FROM USER_DETAILS;
  select Account_Number,Maturity_value,deposit_status from deposits where account_number=334455667001;
 -- select * from LOANS  where  LOAN_STATUS='not approved';            
-    
+     update account_details set pan_number='KRS45678TD' where Acc_holder_name='Vishal';
     DESC   USER_DETAILS;       
     DESC    ACCOUNT_DETAILS;      
     DESC   TRANSACTION;
@@ -159,3 +162,8 @@ commit;
 select Sender_account_number,name,transaction_type,receiver_account_number,amount from transaction where  Sender_Account_number=112233445001;
 
 select Sender_account_number,name,Transaction_type,Receiver_account_number,amount,transaction_status,transaction_date from transaction  where  Sender_Account_number=112233445001;
+
+UPDATE DEPOSITS SET Deposit_STATUS='NotApproved' where tenure_in_years=6;
+update loans set loan_status='NotApproved' where loan_status='Approved';
+commit;
+delete from loans where loan_number=556677889021;

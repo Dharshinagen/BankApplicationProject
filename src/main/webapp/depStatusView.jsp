@@ -6,8 +6,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Deposit Status]</title>
-
+<title>Deposit Status</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <style>
 * {
 	margin: 0;
@@ -15,18 +16,18 @@
 }
 
 nav {
-	font-size: 18px;
+	font-size: 17px;
 	color: black;
 	float: left;
-	background-color: rgb(9, 57, 87);
+	background-color: rgba(9, 57, 87,.9);
 	height: 30%;
 	margin: 0;
 	color: red;
-	padding: 8px;
+	padding: 6.5px;
 }
 
 nav a {
-	padding-right:  77.4px;
+	padding-right:  78.5px;
 }
 
 h1 {
@@ -64,7 +65,7 @@ h3 {
 	left: 0;
 	width: 250px;
 	height: 100%;
-	background: #042331;
+	background-color: rgba(9, 57, 87,.8);
 	color: white;
 }
 
@@ -73,7 +74,7 @@ h3 {
 	color: white;
 	text-align: center;
 	line-height: 50px;
-	background: #063146;
+background-color: rgba(9, 57, 87,.3);
 }
 
 ul {
@@ -101,7 +102,7 @@ ul li:hover a {
 	width: 380px;
 	height: 380px;
 	position: relative;
-	margin: 6% auto;
+	margin: 4% auto;
 	background: transparent;
 	padding: 5px;
 	box: shadow;
@@ -142,23 +143,48 @@ th {
 
 
 .btn2 {
-	padding: 3px;
+	padding: 5px 15px;
 	color: white;
 	background-color:green;
 	margin-right: 30px;
+	border:0;
+	border-radius:5px;
 }
 
+.btn2 a:hover{
+text-decoration:none;
+color:white;}
 .btn3 {
 	margin-left: 870px;
 }
 
 body {
-	background-color: rgb(198, 208, 214);
+	background-color: rgba(198, 208, 214,.9);
 }
+td {
+	padding-left: 20px;
+	text-align: justify;
+	padding-bottom: 8px;
+}
+
+th {
+	text-align: justify;
+	padding-left: 30px;
+	padding-bottom: 8px;
+}
+.table{
+margin-bottom:10px;
+ width:1000px;
+ margin-left:180px;
+}
+.table th{
+background-color:  rgba(161, 15, 95,.5);}
+.table td{
+background-color:  rgba(35, 106, 240,.5);}
 </style>
 </head>
 <body>
-	<h1 align="center">BANK OF INDIA</h1>
+	<img src="images/boilogo.png" alt="couldnot load" width="400" height="100" />
 	<nav>
 		 <a  href="CustomerDashBoard.jsp"> Home</a> 
                        <a  href="loans.jsp">Loans</a> 
@@ -171,7 +197,7 @@ body {
 	</nav>
 	<br>
 	<br>
-
+    <br>
 	<div class="sidebar">
 
 		<header>My Account</header>
@@ -189,14 +215,15 @@ body {
 
 		</ul>
 	</div>
+	          <h2 align="center">Deposits</h2>
 	 
-	<div class="t1">
 		<%
 		long accno = (Long) session.getAttribute("useraccno");
 		DepositsDaoimpl depdao = new DepositsDaoimpl();
 		List<Deposits> accde = depdao.viewStatusUser(accno);
 		%>
-		<table>
+		<div class="container mt-4 mb-4">
+      <table class="table table-hover table-striped">
 
 			<thead>
 				<tr>
@@ -243,7 +270,7 @@ body {
 		<br><br>
 		<div class="btn3">
 		<button type="submit" class="btn2">
-			<a href="CustomerDashBoard.jsp">ok</a>
+			<a href="CustomerDashBoard.jsp">Back</a>
 		</button>
 		</div>
 </body>

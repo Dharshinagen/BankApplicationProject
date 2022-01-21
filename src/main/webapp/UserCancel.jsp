@@ -7,90 +7,89 @@
 <title>UserInactive</title>
  
 <style>
-*{
-        margin:0;
-        padding:0;
-        }
-        nav {
-           font-size: 18px;
-           color: black;
-           float: left;
-              background-color:rgb(9, 57, 87);
-           height: 30%;
-           margin: 0;
-          
-           color: red;
-           padding:8px;
-          
-       }
-       
-       nav a {
-        padding-right: 48.5px;
-       }
-       
-       h1 {
-           
-           color: white;
-          
-         background:#042331;
-           height: 10%;
-           margin: 0;
-           padding: 7px;
-       }
-       
-       a {
-           text-decoration: none;
-           color:white;
-       }
-        .set1{
-            padding-right : 638.5px;
-        }
-         .btn{
-       color:white;
-    background-color:transparent;
-    border-color:transparent;
-    font-size:15px;
-    }
-h3{
-padding:20px;
-background-color:blue;
-margin:0;
+* {
+	margin: 0;
+	padding: 0;
 }
-.sidebar{
-position:absolute;
-left:0;
-width:250px;
-height:100%;
-background:#042331;
-color:white;
-}
-.sidebar header{
-font-size:15px;
-color:white;
-text-align: center;
-line-height:50px;
-background:#063146;
 
+nav {
+	font-size: 17px;
+	float: left;
+	background-color: rgba(9, 57, 87, .9);
+	margin: 0;
+	padding: 3px;
 }
-ul{
-list-style-type: none;
-}
-.sidebar ul a{
 
-height:100%;
-width:100%;
-line-height: 40px;
-font-size: 15px;
-padding-left:40px;
-color:white;
- 
- 
+nav a {
+	padding-right: 55.8px;
 }
-ul li:hover a{
-padding-left:50px;
+
+h1 {
+	color: white;
+	background: #042331;
+	height: 10%;
+	margin: 0;
+	padding: 7px;
 }
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+.set1 {
+	padding-right: 623.5px;
+}
+
+.btn {
+	color: white;
+	background-color: transparent;
+	border-color: transparent;
+	font-size: 15px;
+}
+
+h3 {
+	padding: 20px;
+	background-color: blue;
+	margin: 0;
+}
+
+.sidebar {
+	position: absolute;
+	left: 0;
+	width: 250px;
+	height: 1000px;
+	background-color: rgba(9, 57, 87, .8);
+	color: white;
+}
+
+.sidebar header {
+	font-size: 15px;
+	color: white;
+	text-align: center;
+	line-height: 50px;
+	background-color: rgba(9, 57, 87, .3);
+}
+
+ul {
+	list-style-type: none;
+}
+
 .sidebar ul a {
-margin-right:16px;
+	height: 100%;
+	width: 100%;
+	line-height: 40px;
+	font-size: 15px;
+	padding-left: 40px;
+	color: white;
+}
+
+ul li:hover a {
+	padding-left: 50px;
+}
+
+.sidebar ul a {
+	margin-right: 16px;
 }
 .box{
         width:380px;
@@ -133,18 +132,31 @@ th {
 }
 
 .btn2 {
-	padding: 3px;
+	padding: 5px;
 	color: white;
 	background-color: green;
 	margin-right: 30px;
+	border:0;
+	border-radius:3px;
 }
 
 .btn3 {
-	margin-left: 150px;
+	margin-left: 160px;
 }
 
 body {
-	background-color: rgb(198, 208, 214);
+	background-color: rgba(198, 208, 214,.9);
+}
+td {
+	padding-left: 20px;
+	text-align: justify;
+	padding-bottom: 8px;
+}
+
+th {
+	text-align: justify;
+	padding-left: 30px;
+	padding-bottom: 8px;
 }
 h2{
 padding-left:350px;
@@ -152,7 +164,7 @@ padding-left:350px;
 </style>
 </head>
 <body>
-<h1 align="center"> BANK OF INDIA </h1> 
+<img src="images/boilogo.png" alt="couldnot load" width="400" height="100" />
         <nav>
                         <a  href="index.jsp"> Home</a> 
                        <a  href="loans.jsp">Loans</a> 
@@ -165,6 +177,7 @@ padding-left:350px;
                        
                         <button class="btn"><a href="LogoutServlet">Logout</a></button>
        </nav>
+       <br>
        <br>
        <br>
 	<div class="sidebar">
@@ -192,16 +205,17 @@ padding-left:350px;
 	
 		<table>
 			<tr>
-				<th>Enter Account Number </th>
+				<th> Account Number </th>
 				<td><input type="text" class="cls" name="accNo" required pattern="[0-9]{12,14}" /></td>
             </tr>
             <tr>
-				<th>Enter Status(active or inactive)</th>
+				<th>  Status(active or inactive)</th>
 				<td><input type="text" class="cls" name="stat" required/></td>
             </tr>
              		</table><br><br>
              		<div class="btn3">
 		<button type="submit" class="btn2">Submit</button>
+		<button type="submit" class="btn2"><a href="adminDashBoard.jsp">Back</a></button>
 		</div>
 	</form>
 

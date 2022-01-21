@@ -32,7 +32,7 @@ public class FixedDeposit extends HttpServlet {
 	//	 int user_id=validUser.getUser_id();
 		// System.out.println(user_id);
 		String type="FixedDeposit";
-		   String status="NOTAPPROVED";
+		   String status="NotApproved";
 		   String pan=request.getParameter("pan");
 		   String email=(String )session.getAttribute("user_id");
 		double amount=Double.parseDouble(request.getParameter("amountDeposit"));

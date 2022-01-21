@@ -8,6 +8,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>TransactionSummary</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <style>
 * {
@@ -16,18 +18,18 @@
 }
 
 nav {
-	font-size: 17px;
+	font-size: 16px;
 	color: black;
 	float: left;
 	background-color: rgba(9, 57, 87,.9);
-	height: 30%;
+	height: 40%;
 	margin: 0;
 	color: red;
-	padding: 3px;
+	padding: 7px;
 }
 
 nav a {
-	padding-right:  79px;
+	padding-right:  77.5px;
 }
 
 h1 {
@@ -64,8 +66,8 @@ h3 {
 	position:absolute;
 	left: 0;
 	width: 250px;
-	height: 100%;
-background-color: rgba(9, 57, 87,.8);
+	height: 1200px;
+    background-color: rgba(9, 57, 87,.8);
 	color: white;
 }
 
@@ -125,7 +127,7 @@ ul li:hover a {
 }
 
 .btn2 {
-	padding: 5px;
+	padding: 5px 15px;
 	color: white;
 	background-color: green;
 	margin-right: 30px;
@@ -134,7 +136,7 @@ ul li:hover a {
 }
 
 .btn3 {
-	margin-left: 700px;
+	margin-left: 930px;
 }
 
 body {
@@ -161,7 +163,15 @@ th {
 	 
 }
 
+.table{
+margin-bottom:10px;
+ width:1000px;
+ margin-left:180px;
 }
+.table th{
+background-color:  rgba(161, 15, 95,.5);}
+.table td{
+background-color:  rgba(35, 106, 240,.5);}
 </style>
 </head>
 <body>
@@ -178,7 +188,7 @@ th {
 	</nav>
 	<br>
 	<br>
-
+  <br>
 	<div class="sidebar">
 
 		<header>My Account</header>
@@ -212,7 +222,8 @@ th {
 		%>
 
 
-		<table class="t1">
+		<div class="container mt-4 mb-4">
+      <table class="table table-hover table-striped">
 			<thead>
 				<tr>
 					<th>S.no</th>
@@ -251,9 +262,10 @@ th {
 				%>
 			</tbody>
 		</table>
+		</div>
 		<div class="btn3">
 		<button type="submit" class="btn2">
-			<a href="CustomerDashBoard.jsp">ok</a>
+			<a href="CustomerDashBoard.jsp">Back</a>
 		</button>
 		</div>
 	</div>

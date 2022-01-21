@@ -27,10 +27,11 @@ public class DepositApproveAdmin extends HttpServlet {
 		//doGet(request, response);
 		HttpSession session=request.getSession();
 		long accNo=Long.parseLong(request.getParameter("accno"));
-		System.out.println("hello "+accNo);
+		String status=request.getParameter("status");
+		 
 		 DepositsDaoimpl accDetailDao=new DepositsDaoimpl();
 		 
-		   boolean list = accDetailDao.updateStatus(accNo);
+		   boolean list = accDetailDao.updateStatus(accNo,status);
 		   session.setAttribute("useraccno", accNo);
 	//	   session.setAttribute("userpin", pin);
 		   

@@ -166,13 +166,14 @@ public class DepositsDaoimpl implements DepositsDao {
 
 		return  flag;
 	}
-	public  boolean updateStatus(long accnum) {
-		String que = "UPDATE DEPOSITS SET DEPOSIT_STATUS='Approved' WHERE  Account_number=?";
+	public  boolean updateStatus(long accnum,String status) {
+		String que = "UPDATE DEPOSITS SET DEPOSIT_STATUS=? WHERE  Account_number=?";
 		Connection con = ConnectionUtil.getDbConnection();
 		boolean flag=false;
 		try {
 			PreparedStatement pst = con.prepareStatement(que);
-			pst.setLong(1, accnum);
+			pst.setString(1, status);
+			pst.setLong(2, accnum);
 			int i = pst.executeUpdate();
 			if(i>0) {
 				flag=true;	

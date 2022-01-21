@@ -69,9 +69,9 @@ public class AccountDetailsdaoimpl implements AccountDetailsDao {
 			ResultSet rs = st.executeQuery(ValidateQuery);
 
 			if (rs.next()) {
-				accDetail = new AccountDetails(rs.getInt(1), rs.getString(3), rs.getString(4), rs.getString(5),
+				accDetail = new AccountDetails(rs.getInt(1),rs.getLong(2), rs.getString(3), rs.getString(4), rs.getString(5),
 						rs.getString(6), rs.getInt(7), rs.getDate(8).toLocalDate(), rs.getLong(9), rs.getString(10),
-						rs.getString(11), rs.getString(12), rs.getInt(13), rs.getInt(14));
+						rs.getString(11), rs.getString(12), rs.getInt(13), rs.getInt(14),rs.getString(15),rs.getString(16));
 				list.add(accDetail);
 			}
 
@@ -93,7 +93,7 @@ public class AccountDetailsdaoimpl implements AccountDetailsDao {
 			while(rs.next()) {
 				AccountDetails accDetail = new AccountDetails(rs.getInt(1),rs.getLong(2), rs.getString(3), rs.getString(4), rs.getString(5),
 						rs.getString(6), rs.getInt(7), rs.getDate(8).toLocalDate(), rs.getLong(9), rs.getString(10),
-						rs.getString(11), rs.getString(12), rs.getInt(13), rs.getInt(14),rs.getString(15));
+						rs.getString(11), rs.getString(12), rs.getInt(13), rs.getInt(14),rs.getString(15),rs.getString(16));
 				List.add(accDetail);
 			}
 		} catch (SQLException e) {
@@ -112,9 +112,9 @@ public class AccountDetailsdaoimpl implements AccountDetailsDao {
 			Statement st=con.createStatement();
 			ResultSet rs=st.executeQuery(view);
 			if(rs.next()) {
-				AccountDetails accDetail = new AccountDetails(rs.getInt(1), rs.getString(3), rs.getString(4), rs.getString(5),
+				AccountDetails accDetail = new AccountDetails(rs.getInt(1),rs.getLong(2), rs.getString(3), rs.getString(4), rs.getString(5),
 						rs.getString(6), rs.getInt(7), rs.getDate(8).toLocalDate(), rs.getLong(9), rs.getString(10),
-						rs.getString(11), rs.getString(12), rs.getInt(13), rs.getInt(14),rs.getString(15));
+						rs.getString(11), rs.getString(12), rs.getInt(13), rs.getInt(14),rs.getString(15),rs.getString(16));
 				List.add(accDetail);
 			}
 		} catch (SQLException e) {

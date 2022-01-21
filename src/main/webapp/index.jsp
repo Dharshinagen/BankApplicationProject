@@ -32,8 +32,11 @@ nav {
 nav a {
 	padding-right: 67px;
 	text-decoration:none;
+	color:white;
 }
-
+nav a:hover{
+color:white;
+text-decoration:none;}
 h2 {
 	color: white;
 	 background-color: rgba(9, 41, 63,0.9);

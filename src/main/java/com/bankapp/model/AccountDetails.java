@@ -20,6 +20,7 @@ public class AccountDetails {
 	private double balance;	
 	private int pin_Number;
 	private String status;
+	private String pan;
 	 
 	public int getUser_id() {
 		return user_id;
@@ -111,9 +112,16 @@ public class AccountDetails {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	
+	public String getPan() {
+		return pan;
+	}
+	public void setPan(String pan) {
+		this.pan = pan;
+	}
 	public AccountDetails(int user_id,  long account_number, String account_type, String account_Holder_name,
 			String address, String city, int pincode, LocalDate dob, long mobile_Number, String email, String ifsc_Code,
-			String branchName, double balance, int pin_Number, String status) {
+			String branchName, double balance, int pin_Number, String status,String pan) {
 		super();
 		this.user_id = user_id;
 		this.account_number = account_number;
@@ -130,67 +138,15 @@ public class AccountDetails {
 		this.balance = balance;
 		this.pin_Number = pin_Number;
 		this.status = status;
+		this.pan=pan;
 	}
-	public AccountDetails(int user_id, String account_type, String account_Holder_name, String address, String city,
-			int pincode,  LocalDate dob, long mobile_Number, String email, String ifsc_Code, String branchName, double balance,
-			int pin_Number, String status) {
-		super();
-		this.user_id = user_id;
-		this.account_type = account_type;
-		this.account_Holder_name = account_Holder_name;
-		this.address = address;
-		this.city = city;
-		this.pincode = pincode;
-		this.dob = dob;
-		this.mobile_Number = mobile_Number;
-		this.email = email;
-		this.ifsc_Code = ifsc_Code;
-		this.branchName = branchName;
-		this.balance = balance;
-		this.pin_Number = pin_Number;
-		this.status = status;
-	}
+	 
 	public AccountDetails() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	 public AccountDetails(int user_id, String account_type, String account_Holder_name, String address, String city, int pincode,
-			 LocalDate dob, long mobile_Number, String email, String ifsc_Code, String branchName, double balance, int pin_Number) {
-		// TODO Auto-generated constructor stub
-			this.user_id = user_id;
-			this.account_type = account_type;
-			this.account_Holder_name = account_Holder_name;
-			this.address = address;
-			this.city = city;
-			this.pincode = pincode;
-			this.dob = dob;
-			this.mobile_Number = mobile_Number;
-			this.email = email;
-			this.ifsc_Code = ifsc_Code;
-			this.branchName = branchName;
-			this.balance = balance;
-			this.pin_Number = pin_Number;
-			
-	}
-	
-		
-	public AccountDetails(String account_type, String account_Holder_name, String address, String city, int pincode,
-			 LocalDate dob, long mobile_Number, String email, String ifsc_Code, String branchName, double balance, int pin_Number,
-			String status) {
-		this.account_type = account_type;
-		this.account_Holder_name = account_Holder_name;
-		this.address = address;
-		this.city = city;
-		this.pincode = pincode;
-		this.dob = dob;
-		this.mobile_Number = mobile_Number;
-		this.email = email;
-		this.ifsc_Code = ifsc_Code;
-		this.branchName = branchName;
-		this.balance = balance;
-		this.pin_Number = pin_Number;
-		this.status = status;
-	}
+	 
+	 
 	@Override
 	public int hashCode() {
 		return Objects.hash(account_Holder_name, account_number, account_type, address, balance, branchName, city, dob,

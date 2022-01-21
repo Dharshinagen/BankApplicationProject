@@ -18,7 +18,7 @@ import com.bankapp.model.UserDetails;
  * Servlet implementation class login
  */
  @WebServlet("/login")
-public class login extends HttpServlet {
+public class Login extends HttpServlet {
 	 
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -15,7 +15,7 @@ public interface DepositsDao {
 
 	public List<Deposits> viewdeposit();
 
-	public boolean updateStatus(long accnum);
+	public boolean updateStatus(long accnum,String status);
 	public List<Deposits> viewStatusUser(long accNo);
 	
 }

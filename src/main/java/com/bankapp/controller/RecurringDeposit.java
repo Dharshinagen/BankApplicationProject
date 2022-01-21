@@ -50,7 +50,7 @@ public class RecurringDeposit extends HttpServlet {
 //		UserDetails validUser=userdao.validateUser(userName,pass );
 //		 int user_id=validUser.getUser_id();
 		String type="RecurringDeposit";
-		   String status="NOTAPPROVED";
+		   String status="NotApproved";
 		   String pan=request.getParameter("pan");
 		   String email=(String )session.getAttribute("user_id");
 		double amount=Double.parseDouble(request.getParameter("amountDeposit"));

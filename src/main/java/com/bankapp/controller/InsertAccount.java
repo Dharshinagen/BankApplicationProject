@@ -35,8 +35,9 @@ public class InsertAccount extends HttpServlet {
 	    double bal=Double.parseDouble(request.getParameter("balance"));
 	    int pin=Integer.parseInt(request.getParameter("pin"));
 	    String status=request.getParameter("status");
+	    String pan=request.getParameter("pan");
 	    AccountDetailsdaoimpl accdao=new AccountDetailsdaoimpl(); 
-	    AccountDetails acc=new AccountDetails(accType,accHolderName,address,city,pincode,dob,mobNo,email,ifscCode,branch,bal,pin,status);
+	    AccountDetails acc=new AccountDetails(0,0,accType,accHolderName,address,city,pincode,dob,mobNo,email,ifscCode,branch,bal,pin,status,pan);
 	    
 	    accdao.insertAccount(acc);
 	    System.out.println(acc);

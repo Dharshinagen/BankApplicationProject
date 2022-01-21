@@ -38,5 +38,6 @@ public class LoanStatusAdmin extends HttpServlet {
 
 		response.sendRedirect("ApproveLoans.jsp");
 	}
-
+ 
+	
 }
